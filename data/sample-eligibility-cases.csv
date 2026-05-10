@@ -1,0 +1,6 @@
+case_id,appointment_date,payer,plan_type,coverage_status,eligibility_risk_score,risk_level,primary_issue,prevention_action,clean_intake_ready
+EVIS-001,2026-05-15,Example Plan A,Commercial,Active,18,Low,None,Normal intake review,Yes
+EVIS-002,2026-05-16,Example Plan B,Medicare Advantage,Unclear,62,Critical,Authorization trigger unclear,Route to authorization review,No
+EVIS-003,2026-05-17,Example Plan C,Medicaid,Active,45,High,COB issue,Resolve coordination of benefits,No
+EVIS-004,2026-05-18,Example Plan D,Commercial,Inactive,70,Critical,Coverage inactive,Contact patient and verify updated coverage,No
+EVIS-005,2026-05-19,Example Plan B,Commercial,Active,35,Moderate,Demographic mismatch,Correct member identifiers before scheduling,Pending
