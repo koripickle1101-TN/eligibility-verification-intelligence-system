@@ -1,0 +1,31 @@
+Case_ID,State,Scenario,Defect_Present,Verification_Checkpoint,Caught_Pre_Eligibility,Eligibility_Status,First_Loss_of_Control,Downstream_Hold,Downstream_Rework,Rework_Touches,Resolution_Minutes,Final_Status,Human_Review,Control_Note
+B-001,Baseline,Clean registration,No,Not performed,Not applicable,Clear,None,No,No,0,0,Cleared,No,No defect present
+B-002,Baseline,Clean registration,No,Not performed,Not applicable,Clear,None,No,No,0,0,Cleared,No,No defect present
+B-003,Baseline,Clean registration,No,Not performed,Not applicable,Clear,None,No,No,0,0,Cleared,No,No defect present
+B-004,Baseline,Clean registration,No,Not performed,Not applicable,Clear,None,No,No,0,0,Cleared,No,No defect present
+B-005,Baseline,Clean registration,No,Not performed,Not applicable,Clear,None,No,No,0,0,Cleared,No,No defect present
+B-006,Baseline,Clean registration,No,Not performed,Not applicable,Clear,None,No,No,0,0,Cleared,No,No defect present
+B-007,Baseline,Clean registration,No,Not performed,Not applicable,Clear,None,No,No,0,0,Cleared,No,No defect present
+B-008,Baseline,Clean registration,No,Not performed,Not applicable,Clear,None,No,No,0,0,Cleared,No,No defect present
+B-009,Baseline,Clean registration,No,Not performed,Not applicable,Clear,None,No,No,0,0,Cleared,No,No defect present
+B-010,Baseline,DOB transposition,Yes,Not performed,No,Exception,Registration - demographic entry,Yes,Yes,4,18,Resolved,Yes,No upstream verification checkpoint
+B-011,Baseline,Member ID typo,Yes,Not performed,No,Exception,Registration - insurance entry,Yes,Yes,3,15,Resolved,Yes,No upstream verification checkpoint
+B-012,Baseline,Subscriber name discrepancy,Yes,Not performed,No,Exception,Registration - subscriber entry,Yes,Yes,3,14,Resolved,Yes,No upstream verification checkpoint
+B-013,Baseline,Missing demographic field,Yes,Not performed,No,Exception,Registration - required field capture,Yes,Yes,2,12,Resolved,Yes,No upstream verification checkpoint
+B-014,Baseline,Payer selection discrepancy,Yes,Not performed,No,Exception,Registration - payer selection,Yes,Yes,5,24,Resolved,Yes,No upstream verification checkpoint
+B-015,Baseline,DOB transposition,Yes,Not performed,No,Exception,Registration - demographic entry,Yes,Yes,4,20,Resolved,Yes,No upstream verification checkpoint
+C-001,Control state,Clean registration,No,Performed,Not applicable,Clear,None,No,No,0,0,Cleared,No,Verification completed
+C-002,Control state,Clean registration,No,Performed,Not applicable,Clear,None,No,No,0,0,Cleared,No,Verification completed
+C-003,Control state,Clean registration,No,Performed,Not applicable,Clear,None,No,No,0,0,Cleared,No,Verification completed
+C-004,Control state,Clean registration,No,Performed,Not applicable,Clear,None,No,No,0,0,Cleared,No,Verification completed
+C-005,Control state,Clean registration,No,Performed,Not applicable,Clear,None,No,No,0,0,Cleared,No,Verification completed
+C-006,Control state,Clean registration,No,Performed,Not applicable,Clear,None,No,No,0,0,Cleared,No,Verification completed
+C-007,Control state,Clean registration,No,Performed,Not applicable,Clear,None,No,No,0,0,Cleared,No,Verification completed
+C-008,Control state,Clean registration,No,Performed,Not applicable,Clear,None,No,No,0,0,Cleared,No,Verification completed
+C-009,Control state,Clean registration,No,Performed,Not applicable,Clear,None,No,No,0,0,Cleared,No,Verification completed
+C-010,Control state,DOB transposition,Yes,Performed,Yes,Cleared after correction,Registration - demographic entry,No,No,0,5,Resolved,Yes,Structured read-back caught defect before eligibility
+C-011,Control state,Member ID typo,Yes,Performed,Yes,Cleared after correction,Registration - insurance entry,No,No,0,4,Resolved,Yes,Insurance identifier verification caught defect
+C-012,Control state,Subscriber name discrepancy,Yes,Performed,Yes,Cleared after correction,Registration - subscriber entry,No,No,0,6,Resolved,Yes,Subscriber confirmation caught discrepancy
+C-013,Control state,Missing demographic field,Yes,Performed,Yes,Cleared after correction,Registration - required field capture,No,No,0,3,Resolved,Yes,Required-field checkpoint caught omission
+C-014,Control state,Member ID typo,Yes,Performed,Yes,Cleared after correction,Registration - insurance entry,No,No,0,4,Resolved,Yes,Insurance identifier verification caught defect
+C-015,Control state,DOB transposition,Yes,Performed,No,Exception,Registration - demographic entry,Yes,Yes,2,9,Resolved,Yes,Eligibility exception triggered investigation after verification miss
