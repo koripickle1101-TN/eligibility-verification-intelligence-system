@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&display=swap');
-
 /*
-  Feminine editorial display layer
+  Unified display typography layer
   Brand colors remain #FFFFFF / #000000 / #FF8200.
-  Body copy stays Manrope from the base stylesheet; only display typography is refined here.
+  Headings now use the same Manrope family as the body/UI for a cleaner,
+  lighter, more consistent mobile presentation.
 */
 
 h1,
@@ -21,88 +20,85 @@ blockquote,
 .artifact-card strong,
 .metric-row strong,
 .method-grid strong {
-  font-family: 'Bodoni Moda', 'Didot', 'Bodoni 72', Georgia, serif;
-  font-optical-sizing: auto;
+  font-family: 'Manrope', Arial, Helvetica, sans-serif;
   font-synthesis: none;
 }
 
 h1 {
-  max-width: 920px;
-  font-size: clamp(2.85rem, 12.5vw, 4.9rem);
-  line-height: .94;
-  letter-spacing: -.025em;
-  font-weight: 500;
+  max-width: 900px;
+  font-size: clamp(2.5rem, 10.8vw, 4.25rem);
+  line-height: 1.01;
+  letter-spacing: -.045em;
+  font-weight: 600;
 }
 
 h2 {
-  font-size: clamp(2.05rem, 8.7vw, 3.45rem);
-  line-height: .98;
-  letter-spacing: -.018em;
-  font-weight: 500;
+  font-size: clamp(1.85rem, 7.4vw, 3.05rem);
+  line-height: 1.06;
+  letter-spacing: -.035em;
+  font-weight: 600;
 }
 
 h3 {
-  font-size: clamp(1.42rem, 5.8vw, 1.8rem);
-  line-height: 1.1;
-  letter-spacing: -.012em;
-  font-weight: 500;
+  font-size: clamp(1.28rem, 5vw, 1.65rem);
+  line-height: 1.15;
+  letter-spacing: -.025em;
+  font-weight: 600;
 }
 
 .integrity-card h2 {
-  font-size: clamp(1.95rem, 8.4vw, 3rem);
-  line-height: 1.02;
+  font-size: clamp(1.8rem, 7.2vw, 2.85rem);
+  line-height: 1.08;
 }
 
 .statement-card p {
-  font-size: clamp(1.45rem, 6.8vw, 2.25rem);
-  line-height: 1.13;
-  letter-spacing: -.012em;
-  font-weight: 400;
+  font-size: clamp(1.3rem, 5.6vw, 1.95rem);
+  line-height: 1.26;
+  letter-spacing: -.022em;
+  font-weight: 500;
 }
 
 .learning-section blockquote,
 .takeaway-section blockquote {
-  font-size: clamp(1.7rem, 7.7vw, 3.25rem);
-  line-height: 1.08;
-  letter-spacing: -.015em;
-  font-weight: 400;
+  font-size: clamp(1.45rem, 6.2vw, 2.55rem);
+  line-height: 1.2;
+  letter-spacing: -.025em;
+  font-weight: 500;
 }
 
 .result-value {
-  font-size: clamp(1.95rem, 8.8vw, 3.15rem);
-  line-height: 1;
-  letter-spacing: -.02em;
-  font-weight: 500;
+  font-size: clamp(1.8rem, 7.8vw, 2.85rem);
+  line-height: 1.03;
+  letter-spacing: -.035em;
+  font-weight: 600;
 }
 
 .dash-kpi span,
 .metric-card span,
 .metric-row strong,
 .method-grid strong {
-  font-weight: 500;
-  letter-spacing: -.01em;
+  font-weight: 600;
+  letter-spacing: -.025em;
 }
 
 .signal-step strong,
 .insight-banner strong,
 .artifact-card strong {
-  font-weight: 500;
-  line-height: 1.12;
+  font-weight: 600;
+  line-height: 1.18;
+  letter-spacing: -.025em;
 }
 
 .signature-question,
 .final-question {
-  font-weight: 400;
-  letter-spacing: -.018em;
-}
-
-.signature-question {
-  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -.035em;
+  font-style: normal;
 }
 
 .final-question {
-  font-size: clamp(2.55rem, 11.5vw, 5.15rem);
-  line-height: .98;
+  font-size: clamp(2.2rem, 9.5vw, 4.4rem);
+  line-height: 1.02;
 }
 
 @media (max-width: 520px) {
@@ -112,15 +108,15 @@ h3 {
   }
 
   h1 {
-    font-size: clamp(2.65rem, 12.2vw, 3.9rem);
-    line-height: .96;
+    font-size: clamp(2.35rem, 10.7vw, 3.25rem);
+    line-height: 1.02;
   }
 
   h2 {
-    font-size: clamp(1.95rem, 8.6vw, 2.85rem);
+    font-size: clamp(1.75rem, 7.2vw, 2.45rem);
   }
 
   .statement-card p {
-    font-size: clamp(1.35rem, 6.6vw, 1.95rem);
+    font-size: clamp(1.22rem, 5.4vw, 1.65rem);
   }
 }
