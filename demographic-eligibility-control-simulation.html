@@ -9,9 +9,9 @@
 </head>
 <body>
 <header class="site-header">
-  <nav class="nav-shell">
-    <div class="brand-mark">Healthcare Operations Intelligence Engine™</div>
-    <div class="nav-links">
+  <nav class="nav-shell" aria-label="Control simulation navigation">
+    <a class="brand-mark" href="index.html">Healthcare Operations Intelligence Engine™</a>
+    <div class="nav-links desktop-nav">
       <a href="index.html">EVIS Home</a>
       <a href="#workflow">Workflow</a>
       <a href="#comparison">Comparison</a>
@@ -19,6 +19,17 @@
       <a href="#controls">Controls</a>
       <a href="#method">Method</a>
     </div>
+    <details class="mobile-menu">
+      <summary aria-label="Open navigation">Menu</summary>
+      <div class="mobile-menu-panel">
+        <a href="index.html">EVIS Home</a>
+        <a href="#workflow">01 · Workflow</a>
+        <a href="#comparison">02 · Comparison</a>
+        <a href="#cases">03 · Cases</a>
+        <a href="#controls">04 · Controls</a>
+        <a href="#method">05 · Method</a>
+      </div>
+    </details>
   </nav>
 </header>
 
@@ -89,6 +100,8 @@
       <h2>Baseline vs. control state.</h2>
       <p>Thirty synthetic cases are split evenly between a baseline workflow and a modeled workflow with a structured verification checkpoint.</p>
     </div>
+
+    <div class="simulation-notice">MODELED SIMULATION — NOT REAL-WORLD PERFORMANCE RESULTS</div>
 
     <div class="comparison-grid">
       <div class="comparison-panel">
@@ -164,17 +177,19 @@
     </div>
 
     <div class="content-card">
-      <table class="branded-table">
-        <thead><tr><th>Control</th><th>Type</th><th>Purpose in the simulation</th></tr></thead>
-        <tbody>
-          <tr><td>Structured demographic read-back</td><td>Preventive</td><td>Attempt to catch incorrect critical demographic information before eligibility.</td></tr>
-          <tr><td>Required-field validation</td><td>Preventive</td><td>Stop incomplete intake data from progressing.</td></tr>
-          <tr><td>Eligibility verification</td><td>Detective</td><td>Surface an exception when submitted information needs investigation.</td></tr>
-          <tr><td>Exception gate</td><td>Operational</td><td>Prevent unresolved exceptions from moving silently into later workflow steps.</td></tr>
-          <tr><td>Correction + reverification</td><td>Corrective</td><td>Resolve validated data issues and confirm the workflow can continue.</td></tr>
-          <tr><td>Root-cause classification</td><td>Monitoring</td><td>Trace the visible exception back to the earliest controllable failure point.</td></tr>
-        </tbody>
-      </table>
+      <div class="table-wrap">
+        <table class="branded-table">
+          <thead><tr><th>Control</th><th>Type</th><th>Purpose in the simulation</th></tr></thead>
+          <tbody>
+            <tr><td>Structured demographic read-back</td><td>Preventive</td><td>Attempt to catch incorrect critical demographic information before eligibility.</td></tr>
+            <tr><td>Required-field validation</td><td>Preventive</td><td>Stop incomplete intake data from progressing.</td></tr>
+            <tr><td>Eligibility verification</td><td>Detective</td><td>Surface an exception when submitted information needs investigation.</td></tr>
+            <tr><td>Exception gate</td><td>Operational</td><td>Prevent unresolved exceptions from moving silently into later workflow steps.</td></tr>
+            <tr><td>Correction + reverification</td><td>Corrective</td><td>Resolve validated data issues and confirm the workflow can continue.</td></tr>
+            <tr><td>Root-cause classification</td><td>Monitoring</td><td>Trace the visible exception back to the earliest controllable failure point.</td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
 
