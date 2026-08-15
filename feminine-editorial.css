@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&display=swap');
+
+/*
+  Feminine editorial display layer
+  Brand colors remain #FFFFFF / #000000 / #FF8200.
+  Body copy stays Manrope from the base stylesheet; only display typography is refined here.
+*/
+
+h1,
+h2,
+h3,
+.statement-card p,
+.dash-kpi span,
+.metric-card span,
+.signature-question,
+blockquote,
+.result-value,
+.final-question,
+.signal-step strong,
+.insight-banner strong,
+.artifact-card strong,
+.metric-row strong,
+.method-grid strong {
+  font-family: 'Bodoni Moda', 'Didot', 'Bodoni 72', Georgia, serif;
+  font-optical-sizing: auto;
+  font-synthesis: none;
+}
+
+h1 {
+  max-width: 920px;
+  font-size: clamp(2.85rem, 12.5vw, 4.9rem);
+  line-height: .94;
+  letter-spacing: -.025em;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: clamp(2.05rem, 8.7vw, 3.45rem);
+  line-height: .98;
+  letter-spacing: -.018em;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: clamp(1.42rem, 5.8vw, 1.8rem);
+  line-height: 1.1;
+  letter-spacing: -.012em;
+  font-weight: 500;
+}
+
+.integrity-card h2 {
+  font-size: clamp(1.95rem, 8.4vw, 3rem);
+  line-height: 1.02;
+}
+
+.statement-card p {
+  font-size: clamp(1.45rem, 6.8vw, 2.25rem);
+  line-height: 1.13;
+  letter-spacing: -.012em;
+  font-weight: 400;
+}
+
+.learning-section blockquote,
+.takeaway-section blockquote {
+  font-size: clamp(1.7rem, 7.7vw, 3.25rem);
+  line-height: 1.08;
+  letter-spacing: -.015em;
+  font-weight: 400;
+}
+
+.result-value {
+  font-size: clamp(1.95rem, 8.8vw, 3.15rem);
+  line-height: 1;
+  letter-spacing: -.02em;
+  font-weight: 500;
+}
+
+.dash-kpi span,
+.metric-card span,
+.metric-row strong,
+.method-grid strong {
+  font-weight: 500;
+  letter-spacing: -.01em;
+}
+
+.signal-step strong,
+.insight-banner strong,
+.artifact-card strong {
+  font-weight: 500;
+  line-height: 1.12;
+}
+
+.signature-question,
+.final-question {
+  font-weight: 400;
+  letter-spacing: -.018em;
+}
+
+.signature-question {
+  font-style: italic;
+}
+
+.final-question {
+  font-size: clamp(2.55rem, 11.5vw, 5.15rem);
+  line-height: .98;
+}
+
+@media (max-width: 520px) {
+  .hero-section,
+  .page-hero {
+    padding-top: 54px;
+  }
+
+  h1 {
+    font-size: clamp(2.65rem, 12.2vw, 3.9rem);
+    line-height: .96;
+  }
+
+  h2 {
+    font-size: clamp(1.95rem, 8.6vw, 2.85rem);
+  }
+
+  .statement-card p {
+    font-size: clamp(1.35rem, 6.6vw, 1.95rem);
+  }
+}
