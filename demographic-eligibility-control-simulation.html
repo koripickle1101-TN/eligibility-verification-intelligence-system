@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Student-developed simulated no-PHI healthcare operations project examining where demographic errors first lose control before eligibility verification.">
+  <title>Demographic Verification & Eligibility Exception Control Simulation | Kori Pickle</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <nav class="nav-shell">
+    <div class="brand-mark">Healthcare Operations Intelligence Engine™</div>
+    <div class="nav-links">
+      <a href="index.html">EVIS Home</a>
+      <a href="#workflow">Workflow</a>
+      <a href="#comparison">Comparison</a>
+      <a href="#cases">Cases</a>
+      <a href="#controls">Controls</a>
+      <a href="#method">Method</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="page-hero project-hero">
+    <div class="eyebrow">Student Simulation · Patient Access · Eligibility · No PHI</div>
+    <h1>Demographic Verification &amp; Eligibility Exception Control Simulation<span class="tm">™</span></h1>
+    <p class="hero-subtitle">A 30-case synthetic workflow experiment testing one operational question: can a verification checkpoint catch a demographic defect before eligibility becomes the first visible signal?</p>
+    <div class="insight-banner">
+      <span>Core question</span>
+      <strong>Where did the workflow first lose control?</strong>
+    </div>
+    <div class="hero-actions">
+      <a class="primary-button" href="#comparison">View simulated comparison</a>
+      <a class="secondary-button" href="data/demographic-eligibility-control-simulation.csv">Open synthetic dataset</a>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="content-card accent-card">
+      <div class="mini-label">Integrity boundary</div>
+      <h2>Educational simulation only.</h2>
+      <p>Created by Kori Pickle, BSHA Candidate, University of Phoenix. This project is educational, simulated, and does not use PHI, employer data, payer data, claims data, or real patient information. The modeled outcomes below are design assumptions for learning—not observed healthcare performance.</p>
+    </div>
+  </section>
+
+  <section class="section" id="workflow">
+    <div class="section-intro">
+      <span class="section-number">01</span>
+      <h2>Signal ≠ source.</h2>
+      <p>The eligibility exception is visible later. The first loss of control can occur earlier, when incorrect registration data enters the workflow without being identified.</p>
+    </div>
+
+    <div class="triad-grid">
+      <article class="logic-card">
+        <span class="logic-index">Failure</span>
+        <h3>Incorrect DOB entered</h3>
+        <p>A demographic transcription defect enters the simulated registration record.</p>
+      </article>
+      <article class="logic-card orange-edge">
+        <span class="logic-index">Signal</span>
+        <h3>Eligibility exception</h3>
+        <p>The downstream exception reveals that something upstream needs investigation.</p>
+      </article>
+      <article class="logic-card">
+        <span class="logic-index">Control</span>
+        <h3>Verify before progression</h3>
+        <p>A structured checkpoint attempts to catch the defect before eligibility and downstream rework.</p>
+      </article>
+    </div>
+
+    <div class="workflow-map" aria-label="Simulated patient access workflow">
+      <div class="workflow-node"><span>01</span><strong>Data entry</strong><small>Demographic + insurance capture</small></div>
+      <div class="workflow-connector">•••</div>
+      <div class="workflow-node key-node"><span>02</span><strong>Verification checkpoint</strong><small>Preventive control</small></div>
+      <div class="workflow-connector">•••</div>
+      <div class="workflow-node"><span>03</span><strong>Eligibility check</strong><small>Detective signal</small></div>
+      <div class="workflow-connector">•••</div>
+      <div class="workflow-node"><span>04</span><strong>Exception gate</strong><small>Investigate before proceeding</small></div>
+      <div class="workflow-connector">•••</div>
+      <div class="workflow-node"><span>05</span><strong>Continue downstream</strong><small>After appropriate resolution</small></div>
+    </div>
+  </section>
+
+  <section class="dashboard-section" id="comparison">
+    <div class="section-intro">
+      <span class="section-number">02</span>
+      <h2>Baseline vs. control state.</h2>
+      <p>Thirty synthetic cases are split evenly between a baseline workflow and a modeled workflow with a structured verification checkpoint.</p>
+    </div>
+
+    <div class="comparison-grid">
+      <div class="comparison-panel">
+        <div class="mini-label">Baseline · 15 cases</div>
+        <div class="metric-stack">
+          <div class="metric-row"><span>Eligibility exception rate</span><strong id="baseline-exception">—</strong></div>
+          <div class="metric-row"><span>Pre-eligibility capture</span><strong id="baseline-capture">—</strong></div>
+          <div class="metric-row"><span>Downstream rework rate</span><strong id="baseline-rework">—</strong></div>
+          <div class="metric-row"><span>Rework touches</span><strong id="baseline-touches">—</strong></div>
+        </div>
+      </div>
+
+      <div class="comparison-panel control-panel">
+        <div class="mini-label">Control state · 15 cases</div>
+        <div class="metric-stack">
+          <div class="metric-row"><span>Eligibility exception rate</span><strong id="control-exception">—</strong></div>
+          <div class="metric-row"><span>Pre-eligibility capture</span><strong id="control-capture">—</strong></div>
+          <div class="metric-row"><span>Downstream rework rate</span><strong id="control-rework">—</strong></div>
+          <div class="metric-row"><span>Rework touches</span><strong id="control-touches">—</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="insight-banner compact">
+      <span>Interpretation</span>
+      <strong id="comparison-insight">Loading synthetic comparison…</strong>
+    </div>
+  </section>
+
+  <section class="section" id="cases">
+    <div class="section-intro">
+      <span class="section-number">03</span>
+      <h2>Case explorer.</h2>
+      <p>Use the filters to inspect how clean cases and simulated defects move through the two modeled workflow states.</p>
+    </div>
+
+    <div class="filter-bar">
+      <label>Workflow state
+        <select id="state-filter">
+          <option value="All">All</option>
+          <option value="Baseline">Baseline</option>
+          <option value="Control state">Control state</option>
+        </select>
+      </label>
+      <label>Scenario
+        <select id="scenario-filter"><option value="All">All scenarios</option></select>
+      </label>
+    </div>
+
+    <div class="table-wrap">
+      <table class="branded-table" id="case-table">
+        <thead>
+          <tr>
+            <th>Case</th>
+            <th>State</th>
+            <th>Scenario</th>
+            <th>Pre-eligibility catch</th>
+            <th>Eligibility</th>
+            <th>Downstream rework</th>
+            <th>First loss of control</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section" id="controls">
+    <div class="section-intro">
+      <span class="section-number">04</span>
+      <h2>Control design.</h2>
+      <p>The project separates preventive, detective, corrective, and monitoring controls so the response is not reduced to “double-check the DOB.”</p>
+    </div>
+
+    <div class="content-card">
+      <table class="branded-table">
+        <thead><tr><th>Control</th><th>Type</th><th>Purpose in the simulation</th></tr></thead>
+        <tbody>
+          <tr><td>Structured demographic read-back</td><td>Preventive</td><td>Attempt to catch incorrect critical demographic information before eligibility.</td></tr>
+          <tr><td>Required-field validation</td><td>Preventive</td><td>Stop incomplete intake data from progressing.</td></tr>
+          <tr><td>Eligibility verification</td><td>Detective</td><td>Surface an exception when submitted information needs investigation.</td></tr>
+          <tr><td>Exception gate</td><td>Operational</td><td>Prevent unresolved exceptions from moving silently into later workflow steps.</td></tr>
+          <tr><td>Correction + reverification</td><td>Corrective</td><td>Resolve validated data issues and confirm the workflow can continue.</td></tr>
+          <tr><td>Root-cause classification</td><td>Monitoring</td><td>Trace the visible exception back to the earliest controllable failure point.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section" id="method">
+    <div class="section-intro">
+      <span class="section-number">05</span>
+      <h2>Method &amp; assumptions.</h2>
+      <p>This is a deliberately bounded student experiment designed to demonstrate workflow reasoning—not clinical, payer, coding, compliance, or production-system authority.</p>
+    </div>
+    <div class="method-grid">
+      <div><span class="mini-label">Population</span><strong>30 synthetic cases</strong><p>15 baseline and 15 control-state cases.</p></div>
+      <div><span class="mini-label">Defect mix</span><strong>12 modeled defects</strong><p>DOB, member ID, subscriber, missing-field, and payer-selection scenarios.</p></div>
+      <div><span class="mini-label">Control assumption</span><strong>5 of 6 defects caught early</strong><p>The control-state capture rate is intentionally modeled for comparison and is not a real benchmark.</p></div>
+      <div><span class="mini-label">Outcome boundary</span><strong>No real performance claim</strong><p>Rates, minutes, and rework touches are synthetic design values.</p></div>
+    </div>
+  </section>
+
+  <section class="section takeaway-section">
+    <div class="section-intro">
+      <span class="section-number">06</span>
+      <h2>Career insight.</h2>
+    </div>
+    <blockquote>A workflow exception is not only something to fix. It can be evidence that an earlier control failed—or that the control was missing.</blockquote>
+    <p class="signature-question">Where did the workflow first lose control?</p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p><strong>Healthcare Operations Intelligence Engine™</strong></p>
+  <p>Where healthcare workflows break before patients, staff, and revenue feel the impact.</p>
+  <p>Created by Kori Pickle · BSHA Candidate · University of Phoenix</p>
+  <p class="footer-note">Student-developed · simulated · no PHI</p>
+</footer>
+
+<script>
+const DATA_URL = 'data/demographic-eligibility-control-simulation.csv';
+let rows = [];
+
+function parseCSV(text){
+  const lines = text.trim().split(/\r?\n/);
+  const headers = lines[0].split(',');
+  return lines.slice(1).map(line => {
+    const values = line.split(',');
+    return headers.reduce((obj, key, i) => { obj[key] = values[i] ?? ''; return obj; }, {});
+  });
+}
+
+function pct(n,d){ return d ? `${((n/d)*100).toFixed(1)}%` : '0.0%'; }
+
+function stateMetrics(state){
+  const subset = rows.filter(r => r.State === state);
+  const defects = subset.filter(r => r.Defect_Present === 'Yes');
+  const exceptions = subset.filter(r => r.Eligibility_Status === 'Exception').length;
+  const caught = defects.filter(r => r.Caught_Pre_Eligibility === 'Yes').length;
+  const rework = subset.filter(r => r.Downstream_Rework === 'Yes').length;
+  const touches = subset.reduce((sum,r) => sum + Number(r.Rework_Touches || 0), 0);
+  return { total: subset.length, defects: defects.length, exceptions, caught, rework, touches };
+}
+
+function renderMetrics(){
+  const b = stateMetrics('Baseline');
+  const c = stateMetrics('Control state');
+  document.getElementById('baseline-exception').textContent = pct(b.exceptions,b.total);
+  document.getElementById('baseline-capture').textContent = pct(b.caught,b.defects);
+  document.getElementById('baseline-rework').textContent = pct(b.rework,b.total);
+  document.getElementById('baseline-touches').textContent = b.touches;
+  document.getElementById('control-exception').textContent = pct(c.exceptions,c.total);
+  document.getElementById('control-capture').textContent = pct(c.caught,c.defects);
+  document.getElementById('control-rework').textContent = pct(c.rework,c.total);
+  document.getElementById('control-touches').textContent = c.touches;
+  document.getElementById('comparison-insight').textContent = `In this synthetic model, ${c.caught} of ${c.defects} control-state defects are intercepted before eligibility; the result is a modeled reduction in eligibility exceptions and downstream rework. This is a simulation assumption, not a healthcare benchmark.`;
+}
+
+function populateScenarioFilter(){
+  const select = document.getElementById('scenario-filter');
+  [...new Set(rows.map(r => r.Scenario))].sort().forEach(s => {
+    const opt = document.createElement('option'); opt.value=s; opt.textContent=s; select.appendChild(opt);
+  });
+}
+
+function renderTable(){
+  const state = document.getElementById('state-filter').value;
+  const scenario = document.getElementById('scenario-filter').value;
+  const filtered = rows.filter(r => (state==='All'||r.State===state) && (scenario==='All'||r.Scenario===scenario));
+  const body = document.querySelector('#case-table tbody');
+  body.innerHTML = filtered.map(r => `
+    <tr>
+      <td><strong>${r.Case_ID}</strong></td>
+      <td>${r.State}</td>
+      <td>${r.Scenario}</td>
+      <td><span class="status-pill ${r.Caught_Pre_Eligibility==='Yes'?'status-caught':''}">${r.Caught_Pre_Eligibility}</span></td>
+      <td>${r.Eligibility_Status}</td>
+      <td>${r.Downstream_Rework}</td>
+      <td>${r.First_Loss_of_Control}</td>
+    </tr>`).join('');
+}
+
+fetch(DATA_URL)
+  .then(r => { if(!r.ok) throw new Error('Dataset unavailable'); return r.text(); })
+  .then(text => {
+    rows = parseCSV(text);
+    populateScenarioFilter();
+    renderMetrics();
+    renderTable();
+    document.getElementById('state-filter').addEventListener('change', renderTable);
+    document.getElementById('scenario-filter').addEventListener('change', renderTable);
+  })
+  .catch(() => {
+    document.getElementById('comparison-insight').textContent = 'The synthetic dataset could not be loaded. Open the CSV directly from the project repository.';
+  });
+</script>
+</body>
+</html>
