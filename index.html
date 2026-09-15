@@ -3,20 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Student-developed, simulated, no-PHI healthcare operations portfolio project examining demographic verification, eligibility exceptions, workflow controls, and downstream rework.">
-  <title>EVIS 1.0 | Eligibility Verification Intelligence System</title>
+  <meta name="description" content="Student-developed healthcare operations project by Kori Pickle exploring patient access, demographic verification, eligibility exceptions, workflow controls, and downstream rework using simulated no-PHI data.">
+  <title>EVIS | Eligibility Verification Intelligence System</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="feminine-editorial.css">
 </head>
 <body>
 <header class="site-header">
   <nav class="nav-shell" aria-label="Primary navigation">
-    <a class="brand-mark" href="index.html" aria-label="EVIS home">EVIS 1.0</a>
+    <a class="brand-mark" href="index.html" aria-label="EVIS home">EVIS</a>
     <div class="nav-links desktop-nav">
-      <a href="#problem">Problem</a>
+      <a href="#why">Why EVIS</a>
+      <a href="#problem">Workflow Problem</a>
       <a href="#control">Control</a>
       <a href="#experiment">Simulation</a>
-      <a href="#results">Results</a>
+      <a href="#results">Modeled Results</a>
+      <a href="#learning">What I Learned</a>
       <a href="#evidence">Evidence</a>
       <a href="demographic-eligibility-control-simulation.html">Full Analysis</a>
       <a href="https://github.com/koripickle1101-TN/eligibility-verification-intelligence-system" target="_blank" rel="noreferrer">GitHub</a>
@@ -24,13 +26,14 @@
     <details class="mobile-menu">
       <summary aria-label="Open navigation">Menu</summary>
       <div class="mobile-menu-panel">
-        <a href="#problem">01 · Problem</a>
-        <a href="#first-loss">02 · First Loss of Control</a>
-        <a href="#control">03 · Control Design</a>
-        <a href="#experiment">04 · Simulated Experiment</a>
-        <a href="#results">05 · Results</a>
-        <a href="#learning">06 · What I Learned</a>
-        <a href="#evidence">07 · Portfolio Evidence</a>
+        <a href="#why">01 · Why I Built EVIS</a>
+        <a href="#problem">02 · Workflow Problem</a>
+        <a href="#first-loss">03 · First Loss of Control</a>
+        <a href="#control">04 · Control Design</a>
+        <a href="#experiment">05 · Simulated Experiment</a>
+        <a href="#results">06 · Modeled Results</a>
+        <a href="#learning">07 · What I Learned</a>
+        <a href="#evidence">08 · Portfolio Evidence</a>
         <a href="demographic-eligibility-control-simulation.html">Full Control Simulation</a>
         <a href="https://github.com/koripickle1101-TN/eligibility-verification-intelligence-system" target="_blank" rel="noreferrer">GitHub Repository</a>
       </div>
@@ -42,8 +45,8 @@
   <section class="hero-section case-study-hero">
     <div class="eyebrow">Healthcare Operations Intelligence Engine™ · Student Portfolio</div>
     <h1>Eligibility Verification Intelligence System</h1>
-    <p class="hero-subtitle">A student-developed healthcare operations case study exploring how a small intake defect can become a visible eligibility exception—and how an earlier verification control could interrupt that path.</p>
-    <p class="hero-subtitle">Built by Kori Pickle, BSHA Candidate, to demonstrate student-level patient access, eligibility workflow analysis, control design, synthetic data analysis, and downstream rework thinking.</p>
+    <p class="hero-subtitle">I built EVIS to study what can happen when inaccurate or incomplete information enters the workflow before eligibility verification—and how a small front-end defect can become a much more visible problem later.</p>
+    <p class="hero-subtitle">As I work toward my Bachelor's of Science degree in Healthcare Administration, I use simulated projects like this one to practice patient access, eligibility workflow analysis, control design, synthetic data analysis, and root-cause thinking without presenting student work as professional healthcare employment.</p>
     <div class="hero-actions">
       <a class="primary-button" href="demographic-eligibility-control-simulation.html">Open Full Control Simulation</a>
       <a class="secondary-button" href="#results">View Modeled Results</a>
@@ -57,34 +60,54 @@
       <p>No patient information, protected health information, employer data, payer data, claims data, EHR data, or real eligibility transactions are used. All rates, rework counts, and comparison outcomes are modeled educational values—not real-world healthcare performance results.</p>
     </div>
     <div class="content-card statement-card">
-      <div class="mini-label">Core operational insight</div>
-      <p>Eligibility exceptions can be downstream signals of earlier intake defects. The operational question is not only what failed—but where the workflow first lost control.</p>
+      <div class="mini-label">Patient-to-professional perspective</div>
+      <p>From the patient side, an eligibility problem may not feel like “data quality.” It may feel like another phone call, a delayed appointment, a reschedule, uncertainty about coverage, or having to repeat information. That is why I wanted to look earlier in the workflow and ask where the issue actually started.</p>
+    </div>
+  </section>
+
+  <section id="why" class="section story-section">
+    <div class="section-intro">
+      <span class="section-number">01</span>
+      <h2>Why I Built EVIS</h2>
+      <p>I wanted to practice looking past the visible eligibility exception and tracing the problem back to the first point where inaccurate or incomplete information entered the workflow.</p>
+    </div>
+    <div class="story-grid">
+      <article class="editorial-card">
+        <span class="mini-label">What I am studying</span>
+        <h3>The difference between a failure and a signal</h3>
+        <p>An eligibility exception can be the first visible sign that something is wrong, but it may not be where the problem began. EVIS helps me practice separating the original failure from the signal that appears later.</p>
+      </article>
+      <article class="editorial-card orange-edge">
+        <span class="mini-label">Why that matters</span>
+        <h3>Front-end problems can travel downstream</h3>
+        <p>If a demographic or insurance issue is not caught early, the next person in the workflow may inherit the problem. The patient may experience the consequences even though the original defect happened much earlier.</p>
+      </article>
     </div>
   </section>
 
   <section id="problem" class="section story-section">
     <div class="section-intro">
-      <span class="section-number">01</span>
-      <h2>Problem</h2>
+      <span class="section-number">02</span>
+      <h2>Workflow Problem</h2>
       <p>A small demographic error can enter registration quietly and become visible only when eligibility verification produces an exception.</p>
     </div>
     <div class="story-grid">
       <article class="editorial-card">
         <span class="mini-label">Simulated event</span>
         <h3>DOB transposition</h3>
-        <p>A fictional date of birth is entered incorrectly during registration. The defect is small at the point of entry, but it can create additional investigation and rework when it reaches eligibility.</p>
+        <p>A fictional date of birth is entered incorrectly during registration. The defect is small at the point of entry, but it can create investigation and rework once it reaches eligibility.</p>
       </article>
       <article class="editorial-card orange-edge">
         <span class="mini-label">Visible signal</span>
         <h3>Eligibility exception</h3>
-        <p>The eligibility response is treated as a signal that the workflow needs investigation—not automatically as the original source of the problem.</p>
+        <p>The eligibility response becomes the signal that something needs investigation. In this project, I do not assume the response itself is the original source of the problem.</p>
       </article>
     </div>
   </section>
 
   <section id="first-loss" class="section story-section">
     <div class="section-intro">
-      <span class="section-number">02</span>
+      <span class="section-number">03</span>
       <h2>First Loss of Control</h2>
       <p>The simulated root cause occurs before the exception becomes visible.</p>
     </div>
@@ -105,32 +128,32 @@
       </div>
     </div>
     <div class="insight-banner">
-      <span>Signature question</span>
+      <span>Question I keep coming back to</span>
       <strong>Where did the workflow first lose control?</strong>
     </div>
   </section>
 
   <section id="control" class="section story-section">
     <div class="section-intro">
-      <span class="section-number">03</span>
+      <span class="section-number">04</span>
       <h2>Control Design</h2>
-      <p>The redesigned workflow separates prevention, detection, correction, and workflow gating.</p>
+      <p>I modeled a simple workflow that separates prevention, detection, correction, and a gate that keeps an unresolved exception from moving forward unnoticed.</p>
     </div>
     <div class="control-grid">
       <article class="control-card">
         <span class="control-index">01</span>
         <h3>Structured verification</h3>
-        <p><strong>Preventive control.</strong> Confirm critical demographic and insurance information before eligibility verification.</p>
+        <p><strong>Preventive control.</strong> Review critical demographic and insurance information before eligibility verification.</p>
       </article>
       <article class="control-card">
         <span class="control-index">02</span>
         <h3>Eligibility verification</h3>
-        <p><strong>Detective control.</strong> Treat a failed or unexpected response as an early signal requiring investigation.</p>
+        <p><strong>Detective control.</strong> Treat a failed or unexpected response as a signal that needs investigation.</p>
       </article>
       <article class="control-card">
         <span class="control-index">03</span>
         <h3>Exception gate</h3>
-        <p><strong>Workflow control.</strong> Do not allow an unresolved exception to move silently into later workflow steps.</p>
+        <p><strong>Workflow control.</strong> Keep an unresolved exception from moving quietly into later workflow steps.</p>
       </article>
       <article class="control-card">
         <span class="control-index">04</span>
@@ -138,25 +161,26 @@
         <p><strong>Corrective control.</strong> Validate the source data, correct the simulated defect, and recheck before appropriate downstream progression.</p>
       </article>
     </div>
+    <p class="model-note"><strong>Important:</strong> This is a student-designed control model for learning. It is not presented as a validated healthcare intervention or a production workflow.</p>
   </section>
 
   <section id="experiment" class="section featured-analysis-section">
     <div class="section-intro">
-      <span class="section-number">04</span>
+      <span class="section-number">05</span>
       <h2>Simulated Experiment</h2>
-      <p>The project compares 15 baseline cases with 15 control-state cases using a 30-case synthetic dataset.</p>
+      <p>I used a 30-case synthetic dataset to compare 15 baseline cases with 15 control-state cases.</p>
     </div>
     <div class="simulation-notice">MODELED SIMULATION — NOT REAL-WORLD PERFORMANCE RESULTS</div>
     <div class="comparison-brief">
       <article>
         <span class="mini-label">Baseline workflow · 15 cases</span>
         <h3>No structured verification checkpoint</h3>
-        <p>Defects that are not caught at intake can continue until eligibility becomes the first visible exception.</p>
+        <p>In the baseline model, selected defects can continue until eligibility becomes the first visible exception.</p>
       </article>
       <article class="orange-edge">
         <span class="mini-label">Control state · 15 cases</span>
         <h3>Structured verification checkpoint</h3>
-        <p>The modeled control attempts to intercept selected demographic and insurance defects before eligibility verification.</p>
+        <p>In the control-state model, the added checkpoint attempts to catch selected demographic and insurance defects before eligibility verification.</p>
       </article>
     </div>
     <div class="hero-actions">
@@ -167,9 +191,9 @@
 
   <section id="results" class="section results-section">
     <div class="section-intro">
-      <span class="section-number">05</span>
+      <span class="section-number">06</span>
       <h2>Modeled Results</h2>
-      <p>These values are generated from the synthetic experiment and are presented only to demonstrate workflow-analysis logic.</p>
+      <p>These values come from the synthetic experiment. I use them to practice comparing workflow states and explaining the modeled difference—not to claim real-world performance.</p>
     </div>
     <div class="result-grid">
       <article class="result-tile">
@@ -185,7 +209,7 @@
       <article class="result-tile">
         <span class="result-value">40.0% → 6.7%</span>
         <strong>Downstream rework rate</strong>
-        <p>Modeled reduction in cases requiring downstream rework.</p>
+        <p>Modeled difference in cases requiring downstream rework.</p>
       </article>
       <article class="result-tile">
         <span class="result-value">21 → 2</span>
@@ -193,28 +217,31 @@
         <p>Modeled count of additional workflow touches across the two states.</p>
       </article>
     </div>
-    <p class="model-note"><strong>Interpretation boundary:</strong> These numbers are not healthcare benchmarks, employer outcomes, payer results, or predictions. They are synthetic design assumptions used to demonstrate how a student analyst can compare a baseline process with a proposed control state.</p>
+    <p class="model-note"><strong>Interpretation boundary:</strong> These numbers are not healthcare benchmarks, employer outcomes, payer results, clinical outcomes, or predictions. They are synthetic design assumptions used to practice comparing a baseline process with a proposed control state.</p>
   </section>
 
   <section id="learning" class="section learning-section">
     <div class="section-intro">
-      <span class="section-number">06</span>
+      <span class="section-number">07</span>
       <h2>What I Learned</h2>
       <p>The exception was not necessarily the original problem. It was evidence that the workflow may have lost control earlier.</p>
     </div>
-    <blockquote>I originally looked at the eligibility mismatch as the problem to correct. This simulation pushed me to separate the failure, the signal, and the control—and to trace the visible exception back to the first point where inaccurate information entered the workflow.</blockquote>
+    <blockquote>I started by looking at the eligibility mismatch as the problem to correct. Building this simulation pushed me to separate the failure, the signal, and the control—and to ask what entered the workflow earlier that made the visible exception possible.</blockquote>
     <div class="learning-grid">
       <div><span>Failure</span><strong>Incorrect demographic data</strong></div>
       <div><span>Signal</span><strong>Eligibility exception</strong></div>
       <div><span>Control</span><strong>Verify, investigate, resolve</strong></div>
     </div>
+    <div class="content-card statement-card">
+      <p>That distinction matters to me because the patient usually experiences the downstream effect, not the internal label for the failure. What may look like a data-quality issue inside the workflow can feel like delay, uncertainty, or repeated work from the patient side.</p>
+    </div>
   </section>
 
   <section id="evidence" class="section artifacts-section">
     <div class="section-intro">
-      <span class="section-number">07</span>
+      <span class="section-number">08</span>
       <h2>Portfolio Evidence</h2>
-      <p>Recruiter-facing proof of student-level workflow reasoning, synthetic analysis, and healthcare operations documentation.</p>
+      <p>These artifacts show how I am practicing workflow reasoning, synthetic analysis, structured documentation, and patient-access thinking as a student and emerging professional.</p>
     </div>
     <div class="artifact-grid">
       <a class="artifact-card featured-artifact" href="demographic-eligibility-control-simulation.html"><span>Featured analysis</span><strong>Demographic Verification &amp; Eligibility Exception Control Simulation™</strong><small>Workflow map · controls · case explorer · modeled comparison</small></a>
@@ -230,38 +257,38 @@
 
   <section id="roles" class="section">
     <div class="section-intro">
-      <span class="section-number">08</span>
-      <h2>Role Alignment</h2>
-      <p>This portfolio is designed to support entry-level conversations—not to imply professional healthcare employment experience.</p>
+      <span class="section-number">09</span>
+      <h2>Career Alignment</h2>
+      <p>These are areas I am preparing for. The project shows practice and reasoning, not previous professional employment in these roles.</p>
     </div>
     <div class="table-wrap role-table-wrap">
       <table class="branded-table">
-        <thead><tr><th>Role area</th><th>What this student project demonstrates</th></tr></thead>
+        <thead><tr><th>Career area</th><th>What I practice through EVIS</th></tr></thead>
         <tbody>
-          <tr><td>Patient Access</td><td>Intake-risk thinking, demographic accuracy, verification checkpoints, and exception awareness.</td></tr>
-          <tr><td>Eligibility Verification</td><td>Simulated coverage-workflow analysis and early investigation of data discrepancies.</td></tr>
-          <tr><td>Prior Authorization Support</td><td>Understanding that unresolved eligibility and demographic issues can affect later authorization readiness.</td></tr>
+          <tr><td>Patient Access</td><td>Intake-risk thinking, demographic accuracy, verification checkpoints, exception awareness, and patient-impact reasoning.</td></tr>
+          <tr><td>Eligibility Verification</td><td>Simulated coverage-workflow analysis and investigation of demographic and insurance discrepancies.</td></tr>
+          <tr><td>Prior Authorization Support</td><td>Understanding how unresolved eligibility and demographic issues can affect later authorization readiness.</td></tr>
           <tr><td>Revenue Cycle Support</td><td>Connecting front-end defects conceptually to downstream rework, claim risk, and denial-prevention thinking.</td></tr>
-          <tr><td>Healthcare Operations Support</td><td>Workflow mapping, control design, synthetic KPI comparison, root-cause reasoning, and operational communication.</td></tr>
+          <tr><td>Healthcare Operations Analysis</td><td>Workflow mapping, control design, synthetic KPI comparison, root-cause reasoning, and operational communication.</td></tr>
         </tbody>
       </table>
     </div>
   </section>
 
   <section class="section final-question-section">
-    <span class="section-number">09</span>
+    <span class="section-number">10</span>
     <p class="final-question">Where did the workflow first lose control?</p>
-    <p class="final-subtext">Healthcare Operations Intelligence Engine™ · Where healthcare workflows break before patients, staff, and revenue feel the impact.</p>
+    <p class="final-subtext">Healthcare Operations Intelligence Engine™ · Student-developed healthcare workflow analysis</p>
   </section>
 </main>
 
 <footer class="site-footer">
   <p><strong>Healthcare Operations Intelligence Engine™</strong></p>
-  <p>Created by Kori Pickle · BSHA Candidate · University of Phoenix</p>
+  <p>Created by Kori Pickle · Healthcare Administration student · University of Phoenix</p>
   <p class="footer-note">Student-developed · simulated · no PHI</p>
   <div class="hero-actions">
-    <a class="primary-button" href="https://github.com/koripickle1101-TN/eligibility-verification-intelligence-system" target="_blank" rel="noreferrer">View GitHub Repository</a>
-    <a class="secondary-button" href="https://www.linkedin.com/in/kori-p-865jct" target="_blank" rel="noreferrer">Connect on LinkedIn</a>
+    <a class="primary-button" href="https://healthcare-operations-portfolio-hub.vercel.app/" target="_blank" rel="noreferrer">View Portfolio Hub</a>
+    <a class="secondary-button" href="https://www.linkedin.com/in/kori-pickle" target="_blank" rel="noreferrer">Connect on LinkedIn</a>
   </div>
 </footer>
 </body>
