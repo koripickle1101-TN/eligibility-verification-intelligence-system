@@ -1,36 +1,50 @@
-# EVIS 1.0: Eligibility Verification Intelligence System
+# EVIS — Eligibility Verification Intelligence System
 
-A student-developed healthcare operations portfolio project for exploring how insurance eligibility risk can be identified before scheduling, authorization, claim submission, or patient billing are affected.
+I built EVIS as a student-developed healthcare operations project to study a problem that can look small at the front end but feel much bigger later: **what happens when inaccurate or incomplete information enters the workflow before eligibility verification?**
 
-**Created by Kori Pickle, BSHA Candidate, University of Phoenix**
+As I work toward my Bachelor's of Science degree in Healthcare Administration at the University of Phoenix, I am especially interested in patient access and the points where an administrative problem can become a patient problem. From the patient side, an incorrect date of birth, member ID, payer selection, or coordination-of-benefits issue may show up later as another phone call, a delayed appointment, a reschedule, billing confusion, or a request to repeat information that was already provided.
 
-## Project Purpose
+EVIS gives me a way to practice tracing those visible problems back to the first point where the workflow may have lost control.
 
-EVIS 1.0 is designed to demonstrate student-level workflow analysis around coverage status, payer mismatch, plan type confusion, demographic conflicts, coordination-of-benefits issues, referral requirements, authorization triggers, patient responsibility visibility, and clean intake readiness.
+## Why I Built EVIS
 
-The core operational question is:
+I do not have formal healthcare operations employment experience yet, so I use simulated projects to turn coursework and independent study into visible practice.
+
+With EVIS, I wanted to move beyond treating an eligibility exception as the whole problem. An exception can be a **signal** that something earlier needs attention. The project helps me separate:
+
+- the original failure,
+- the visible signal,
+- the control that might have caught the issue earlier,
+- the corrective action,
+- and the downstream rework created when the issue is not resolved quickly.
+
+The question I keep coming back to is:
 
 > **Where did the workflow first lose control?**
 
-## New Simulation: Demographic Verification & Eligibility Exception Control
+## What EVIS Studies
 
-This repository now includes a 30-case synthetic experiment comparing:
+EVIS focuses on front-end patient access and eligibility workflow risks such as:
+
+- demographic inaccuracies,
+- member ID errors,
+- payer-selection discrepancies,
+- plan-type confusion,
+- coordination-of-benefits issues,
+- referral or authorization triggers,
+- incomplete information,
+- and unresolved eligibility exceptions.
+
+The project does not assume that every exception has the same cause. The purpose is to practice investigating what happened earlier in the workflow instead of automatically treating the eligibility response as the original failure.
+
+## Demographic Verification & Eligibility Exception Simulation
+
+The main EVIS simulation uses **30 synthetic cases** to compare two modeled workflow states:
 
 - **Baseline state:** no structured demographic verification checkpoint before eligibility.
 - **Control state:** a modeled verification checkpoint intended to catch selected intake defects before eligibility becomes the first visible signal.
 
-The simulation separates:
-
-- Failure
-- Signal
-- Preventive control
-- Detective control
-- Corrective action
-- Workflow gate
-- First loss of control
-- Downstream rework
-
-### Simulated Case Mix
+The 30-case synthetic set includes:
 
 | Scenario | Cases |
 |---|---:|
@@ -42,58 +56,111 @@ The simulation separates:
 | Payer selection discrepancy | 1 |
 | **Total** | **30** |
 
-The control-state capture rate and all modeled minutes, rework touches, and outcome rates are synthetic design assumptions used only for learning. They are **not healthcare benchmarks or observed employer results**.
+The website also compares **15 baseline cases with 15 control-state cases** to show how the same workflow can be reviewed under different modeled conditions.
 
-## Portfolio Trilogy
+## How I Think About the Control
 
-| Project | Focus |
-|---|---|
-| EVIS 1.0 | Eligibility verification and front-end intake risk |
-| PARCS 2.0 | Prior authorization reliability and patient access risk |
-| DPIS 1.0 | Denial prevention and revenue integrity risk |
+The project separates prevention, detection, correction, and workflow gating:
 
-## No PHI / Integrity Notice
+1. **Structured verification** — review critical demographic and insurance information before eligibility verification.
+2. **Eligibility verification** — treat a failed or unexpected response as a signal that needs investigation.
+3. **Exception gate** — avoid allowing an unresolved issue to move quietly into later workflow steps.
+4. **Correct and reverify** — validate the source data, correct the simulated defect, and recheck before moving forward.
 
-Created by Kori Pickle, BSHA Candidate, University of Phoenix. This project is educational, simulated, and does not use PHI, employer data, payer data, claims data, real eligibility transactions, or real patient information.
+This is not presented as a proven operational intervention. It is a student-designed control model used to practice workflow reasoning.
 
-## Core Artifacts
+## Modeled Results
 
-- `index.html`
-- `demographic-eligibility-control-simulation.html`
-- `data/demographic-eligibility-control-simulation.csv`
-- `eligibility-risk-scorecard.html`
-- `coverage-verification-checklist.html`
-- `patient-intake-risk-map.html`
-- `eligibility-dashboard.html`
-- `sample-eligibility-cases.html`
-- `eligibility-risk-calculator.html`
-- `monthly-eligibility-quality-report.html`
-- `data/sample-eligibility-cases.csv`
+The simulated comparison currently produces these values:
 
-## Brand System
+| Measure | Baseline | Control State |
+|---|---:|---:|
+| Eligibility exception rate | 40.0% | 6.7% |
+| Pre-eligibility defect capture | 0% | 83.3% |
+| Downstream rework rate | 40.0% | 6.7% |
+| Rework touches | 21 | 2 |
 
-- Pure White: `#FFFFFF`
-- True Black: `#000000`
-- Tennessee Orange: `#FF8200`
-- Editorial serif headlines with clean modern sans-serif body text
+These numbers are **synthetic design assumptions**. They are not healthcare benchmarks, employer results, payer outcomes, clinical results, or predictions of real-world performance.
 
-## Skills Practiced / Demonstrated in the Portfolio
+I include them because they give me a structured way to practice comparing a baseline workflow with a proposed control state and explaining what the modeled difference means.
 
-- Eligibility verification workflow analysis
-- Patient access risk detection
-- Demographic data-quality controls
-- Preventive vs. detective control design
-- Exception management thinking
-- Front-end revenue-cycle readiness
+## What I Learned
+
+One of the most useful lessons from building EVIS was learning to separate the **failure** from the **signal**.
+
+At first, it is easy to look at an eligibility mismatch and treat that mismatch as the problem to fix. This simulation pushed me to ask a different question: *what entered the workflow earlier that made the exception possible?*
+
+That distinction matters because the patient may only see the downstream effect. The patient does not experience “demographic data quality” as an abstract concept. They may experience another request for information, a delay, a rescheduled service, or uncertainty about whether coverage is correct.
+
+That patient-to-professional connection is the reason I keep studying the front end of healthcare operations.
+
+## Portfolio Evidence
+
+This repository includes the following student-developed artifacts:
+
+- `index.html` — EVIS project overview
+- `demographic-eligibility-control-simulation.html` — full control simulation
+- `data/demographic-eligibility-control-simulation.csv` — synthetic dataset
+- `eligibility-risk-scorecard.html` — structured eligibility-risk review
+- `coverage-verification-checklist.html` — front-end verification checklist
+- `patient-intake-risk-map.html` — intake failure-point map
+- `eligibility-dashboard.html` — simulated KPI dashboard
+- `sample-eligibility-cases.html` — synthetic case examples
+- `eligibility-risk-calculator.html` — educational risk-scoring tool
+- `monthly-eligibility-quality-report.html` — simulated operational report
+- `data/sample-eligibility-cases.csv` — synthetic sample data
+
+## What I Am Practicing Through EVIS
+
+Through this project, I am practicing:
+
+- Patient access workflow analysis
+- Eligibility verification logic
+- Demographic data-quality review
+- Preventive versus detective control thinking
+- Exception management
+- Front-end revenue cycle readiness
 - Root-cause classification
-- Synthetic data design
-- KPI calculation
 - Workflow mapping
-- No-PHI portfolio documentation
-- Recruiter-facing operational communication
+- KPI calculation using simulated data
+- Synthetic data design
+- Operational documentation
+- Patient-centered workflow thinking
+- Clear separation between simulated evidence and real-world claims
 
-## Created by
+## How EVIS Fits in the Portfolio
 
-Kori Pickle  
-BSHA Candidate, University of Phoenix  
-Healthcare Operations Intelligence Engine™
+EVIS is the first project in the workflow path I use across my healthcare operations portfolio:
+
+**EVIS → PARCS → DPIS → SBI → Habit Audit**
+
+- **EVIS** looks at eligibility and intake risk.
+- **PARCS** looks at prior authorization workflow risk, ownership, and escalation.
+- **DPIS** looks at upstream denial-prevention and claim-readiness risk.
+- **SBI** asks where the first cross-workflow control loss occurred.
+- **Habit Audit** looks at recurring habits that may make workflow risk more likely.
+
+## What This Project Is — and Is Not
+
+This is a **student-developed educational project**.
+
+- All data and cases are synthetic.
+- No protected health information (PHI) is used.
+- No real patient, payer, employer, claim, EHR, or eligibility-transaction data is used.
+- The project does not represent formal healthcare employment experience.
+- It has not been deployed in a healthcare organization.
+- I do not claim that EVIS has produced real-world cost savings, denial reductions, productivity gains, or patient outcomes.
+
+I want the project to show how I am learning to think through eligibility and patient-access workflow problems without overstating what the evidence can support.
+
+## Live Project
+
+[View EVIS](https://eligibility-verification-intelligen.vercel.app/)
+
+## Connect
+
+- [Healthcare Operations Portfolio Hub](https://healthcare-operations-portfolio-hub.vercel.app/)
+- [LinkedIn](https://www.linkedin.com/in/kori-pickle)
+- [GitHub profile](https://github.com/koripickle1101-TN)
+
+Created by Kori Pickle. Student-developed portfolio project. Synthetic data only. No PHI.
