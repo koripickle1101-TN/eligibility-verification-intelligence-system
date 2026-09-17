@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Student-developed healthcare operations project by Kori Pickle exploring patient access, demographic verification, eligibility exceptions, workflow controls, and downstream rework using simulated no-PHI data.">
+  <meta name="description" content="Student-developed healthcare operations project by Kori Pickle exploring patient access, demographic verification, eligibility exceptions, workflow controls, exception ownership, closure verification, and downstream rework using simulated no-PHI data.">
   <title>EVIS | Eligibility Verification Intelligence System</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="feminine-editorial.css">
@@ -16,6 +16,7 @@
       <a href="#why">Why EVIS</a>
       <a href="#problem">Workflow Problem</a>
       <a href="#control">Control</a>
+      <a href="eligibility-exception-closure-control.html">Exception Closure</a>
       <a href="#experiment">Simulation</a>
       <a href="#results">Modeled Results</a>
       <a href="#learning">What I Learned</a>
@@ -30,6 +31,7 @@
         <a href="#problem">02 · Workflow Problem</a>
         <a href="#first-loss">03 · First Loss of Control</a>
         <a href="#control">04 · Control Design</a>
+        <a href="eligibility-exception-closure-control.html">Exception Ownership &amp; Closure Control</a>
         <a href="#experiment">05 · Simulated Experiment</a>
         <a href="#results">06 · Modeled Results</a>
         <a href="#learning">07 · What I Learned</a>
@@ -49,7 +51,7 @@
     <p class="hero-subtitle">As I work toward my Bachelor's of Science degree in Healthcare Administration, I use simulated projects like this one to practice patient access, eligibility workflow analysis, control design, synthetic data analysis, and root-cause thinking without presenting student work as professional healthcare employment.</p>
     <div class="hero-actions">
       <a class="primary-button" href="demographic-eligibility-control-simulation.html">Open Full Control Simulation</a>
-      <a class="secondary-button" href="#results">View Modeled Results</a>
+      <a class="secondary-button" href="eligibility-exception-closure-control.html">Test Exception Closure Gate</a>
     </div>
   </section>
 
@@ -162,6 +164,18 @@
       </article>
     </div>
     <p class="model-note"><strong>Important:</strong> This is a student-designed control model for learning. It is not presented as a validated healthcare intervention or a production workflow.</p>
+    <div class="content-card accent-card" style="margin-top:28px">
+      <div class="mini-label">New EVIS control module</div>
+      <h2>Detection ≠ Resolution</h2>
+      <p>EVIS now extends the exception gate with an Eligibility Exception Ownership &amp; Closure Control™. A detected issue does not become “resolved” simply because someone found it. The modeled workflow requires documentation, clear ownership, action, escalation when needed, and verified closure before progression.</p>
+      <div class="insight-banner compact">
+        <span>Required workflow</span>
+        <strong>Detect → Document → Assign → Act → Verify → Close → Advance</strong>
+      </div>
+      <div class="hero-actions">
+        <a class="primary-button" href="eligibility-exception-closure-control.html">Open Exception Closure Control</a>
+      </div>
+    </div>
   </section>
 
   <section id="experiment" class="section featured-analysis-section">
@@ -235,6 +249,11 @@
     <div class="content-card statement-card">
       <p>That distinction matters to me because the patient usually experiences the downstream effect, not the internal label for the failure. What may look like a data-quality issue inside the workflow can feel like delay, uncertainty, or repeated work from the patient side.</p>
     </div>
+    <div class="content-card accent-card">
+      <div class="mini-label">New learning added to EVIS</div>
+      <h3>Finding the problem is not the same as closing it.</h3>
+      <p>The first control failure may not be the original eligibility problem. It may occur after the problem was correctly identified but before anyone ensured that it was documented, owned, acted on, and verified as resolved.</p>
+    </div>
   </section>
 
   <section id="evidence" class="section artifacts-section">
@@ -245,6 +264,7 @@
     </div>
     <div class="artifact-grid">
       <a class="artifact-card featured-artifact" href="demographic-eligibility-control-simulation.html"><span>Featured analysis</span><strong>Demographic Verification &amp; Eligibility Exception Control Simulation™</strong><small>Workflow map · controls · case explorer · modeled comparison</small></a>
+      <a class="artifact-card featured-artifact" href="eligibility-exception-closure-control.html"><span>New control module</span><strong>Eligibility Exception Ownership &amp; Closure Control™</strong><small>Exception ownership · escalation · closure verification · interactive workflow gate</small></a>
       <a class="artifact-card" href="eligibility-dashboard.html"><span>Dashboard</span><strong>Eligibility Dashboard</strong><small>Simulated KPI and risk visibility</small></a>
       <a class="artifact-card" href="eligibility-risk-scorecard.html"><span>Risk model</span><strong>Eligibility Risk Scorecard</strong><small>Structured eligibility-risk thinking</small></a>
       <a class="artifact-card" href="coverage-verification-checklist.html"><span>Workflow tool</span><strong>Coverage Verification Checklist</strong><small>Front-end verification structure</small></a>
@@ -265,11 +285,11 @@
       <table class="branded-table">
         <thead><tr><th>Career area</th><th>What I practice through EVIS</th></tr></thead>
         <tbody>
-          <tr><td>Patient Access</td><td>Intake-risk thinking, demographic accuracy, verification checkpoints, exception awareness, and patient-impact reasoning.</td></tr>
-          <tr><td>Eligibility Verification</td><td>Simulated coverage-workflow analysis and investigation of demographic and insurance discrepancies.</td></tr>
+          <tr><td>Patient Access</td><td>Intake-risk thinking, demographic accuracy, verification checkpoints, exception awareness, ownership, closure, and patient-impact reasoning.</td></tr>
+          <tr><td>Eligibility Verification</td><td>Simulated coverage-workflow analysis, investigation of demographic and insurance discrepancies, and exception follow-through.</td></tr>
           <tr><td>Prior Authorization Support</td><td>Understanding how unresolved eligibility and demographic issues can affect later authorization readiness.</td></tr>
-          <tr><td>Revenue Cycle Support</td><td>Connecting front-end defects conceptually to downstream rework, claim risk, and denial-prevention thinking.</td></tr>
-          <tr><td>Healthcare Operations Analysis</td><td>Workflow mapping, control design, synthetic KPI comparison, root-cause reasoning, and operational communication.</td></tr>
+          <tr><td>Revenue Cycle Support</td><td>Connecting front-end defects conceptually to downstream rework, claim risk, denial-prevention thinking, and unresolved exception risk.</td></tr>
+          <tr><td>Healthcare Operations Analysis</td><td>Workflow mapping, control design, exception management, closure logic, escalation thinking, synthetic KPI comparison, root-cause reasoning, and operational communication.</td></tr>
         </tbody>
       </table>
     </div>
