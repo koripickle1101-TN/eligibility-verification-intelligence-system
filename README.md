@@ -69,6 +69,49 @@ The project separates prevention, detection, correction, and workflow gating:
 
 This is not presented as a proven operational intervention. It is a student-designed control model used to practice workflow reasoning.
 
+## Eligibility Exception Closure Rule™
+
+EVIS now extends the exception gate beyond detection with an **Exception Ownership & Closure Control™**.
+
+The core rule is:
+
+> **An eligibility exception is not considered resolved when it is identified. It is resolved only after the exception is documented, assigned to clear ownership, acted upon, and its closure is confirmed before the workflow advances.**
+
+The modeled workflow is:
+
+**Detect → Document → Assign → Act → Verify → Close → Advance**
+
+The control-gate question is:
+
+> **Before this case moves forward, is every eligibility exception documented, assigned, acted on, and verified as resolved?**
+
+If **No → Hold / Route / Escalate.**
+
+If **Yes → Advance.**
+
+The status logic separates:
+
+- Verified — No Exception
+- Exception Identified
+- Ownership Assigned
+- Resolution in Progress
+- Escalation Required
+- Resolution Pending Verification
+- Exception Closed
+- Ready for Next Workflow Step
+
+The interactive `eligibility-exception-closure-control.html` module lets a user test this logic with fictional, no-PHI information. It does not connect to real staffing, payer, EHR, eligibility, or work-queue systems.
+
+### Detection ≠ Resolution
+
+A workflow can successfully identify an eligibility problem and still fail operationally if the exception is not owned, acted on, and closed.
+
+That creates a second analytical question for EVIS:
+
+> **What happened to every exception the verification process uncovered?**
+
+The first control failure may not be the original eligibility problem. It may occur after the problem was correctly identified but before anyone ensured it was resolved.
+
 ## Modeled Results
 
 The simulated comparison currently produces these values:
@@ -90,7 +133,9 @@ One of the most useful lessons from building EVIS was learning to separate the *
 
 At first, it is easy to look at an eligibility mismatch and treat that mismatch as the problem to fix. This simulation pushed me to ask a different question: *what entered the workflow earlier that made the exception possible?*
 
-That distinction matters because the patient may only see the downstream effect. The patient does not experience “demographic data quality” as an abstract concept. They may experience another request for information, a delay, a rescheduled service, or uncertainty about whether coverage is correct.
+The Exception Ownership & Closure Control adds another layer to that reasoning: finding the signal does not mean the workflow is protected. Once an exception is detected, the process still needs visible ownership, a next action, follow-up, escalation when needed, and verified closure before progression.
+
+That distinction matters because the patient may only see the downstream effect. The patient does not experience “demographic data quality” or “exception management” as abstract concepts. They may experience another request for information, a delay, a rescheduled service, or uncertainty about whether coverage is correct.
 
 That patient-to-professional connection is the reason I keep studying the front end of healthcare operations.
 
@@ -100,15 +145,17 @@ This repository includes the following student-developed artifacts:
 
 - `index.html` — EVIS project overview
 - `demographic-eligibility-control-simulation.html` — full control simulation
+- `eligibility-exception-closure-control.html` — interactive exception ownership, escalation, closure-verification, and workflow-gate module
 - `data/demographic-eligibility-control-simulation.csv` — synthetic dataset
 - `eligibility-risk-scorecard.html` — structured eligibility-risk review
 - `coverage-verification-checklist.html` — front-end verification checklist
 - `patient-intake-risk-map.html` — intake failure-point map
-- `eligibility-dashboard.html` — simulated KPI dashboard
+- `eligibility-dashboard.html` — simulated KPI dashboard with access to the exception closure module
 - `sample-eligibility-cases.html` — synthetic case examples
 - `eligibility-risk-calculator.html` — educational risk-scoring tool
 - `monthly-eligibility-quality-report.html` — simulated operational report
 - `data/sample-eligibility-cases.csv` — synthetic sample data
+- `career/exception-closure-interview-insight.md` — student-level interview and portfolio talking point for Detection ≠ Resolution
 
 ## What I Am Practicing Through EVIS
 
@@ -119,6 +166,9 @@ Through this project, I am practicing:
 - Demographic data-quality review
 - Preventive versus detective control thinking
 - Exception management
+- Exception ownership and closure logic
+- Workflow gating
+- Escalation thinking
 - Front-end revenue cycle readiness
 - Root-cause classification
 - Workflow mapping
