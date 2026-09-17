@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Student-developed EVIS module modeling eligibility exception ownership, escalation, closure verification, and downstream workflow gating using simulated no-PHI data.">
+  <title>EVIS | Eligibility Exception Closure Control</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="feminine-editorial.css">
+  <style>
+    .gate-shell{border:1px solid #000;padding:22px;margin-top:24px;background:#fff}
+    .gate-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:18px}
+    .gate-grid label{display:flex;flex-direction:column;gap:7px;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+    .gate-grid input,.gate-grid select,.gate-grid textarea{width:100%;border:1px solid #000;background:#fff;color:#000;padding:12px;font:inherit;text-transform:none;letter-spacing:0}
+    .gate-grid textarea{min-height:92px;resize:vertical}
+    .check-row{display:flex!important;flex-direction:row!important;align-items:flex-start;gap:10px!important;text-transform:none!important;letter-spacing:0!important;font-size:.9rem!important;font-weight:700!important;border:1px solid rgba(0,0,0,.16);padding:12px}
+    .check-row input{width:auto;margin-top:4px}
+    .gate-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+    .gate-actions button{border:1px solid #000;border-radius:999px;padding:12px 17px;font:inherit;font-size:.82rem;font-weight:800;cursor:pointer;background:#000;color:#fff}
+    .gate-actions button.secondary{background:#fff;color:#000}
+    .gate-result{margin-top:22px;border:2px solid #000;border-left:8px solid #FF8200;padding:20px;background:#fff}
+    .gate-result strong{display:block;font-family:'Cormorant Garamond',Georgia,serif;font-size:2rem;line-height:1.05;margin:6px 0 10px}
+    .field-list{display:grid;grid-template-columns:1fr;gap:10px;margin-top:20px}
+    .field-list div{border:1px solid rgba(0,0,0,.16);border-left:4px solid #FF8200;padding:12px 14px;font-weight:700}
+    .flow-compact{display:grid;grid-template-columns:1fr;gap:9px;margin-top:24px}
+    .flow-compact div{border:1px solid #000;padding:16px;background:#fff}
+    .flow-compact span{color:#FF8200;font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.13em;display:block;margin-bottom:5px}
+    .flow-compact b{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.55rem}
+    .flow-arrow{text-align:center!important;border:0!important;color:#FF8200;font-weight:800;padding:0!important}
+    .status-ready{border-left-color:#FF8200}
+    .integrity-note{font-size:.86rem;border-left:4px solid #FF8200;padding-left:14px;margin-top:18px}
+    @media(min-width:760px){.gate-grid{grid-template-columns:1fr 1fr}.gate-grid .full{grid-column:1/-1}.field-list{grid-template-columns:1fr 1fr}.flow-compact{grid-template-columns:1fr auto 1fr auto 1fr auto 1fr}.flow-arrow{display:flex;align-items:center;justify-content:center}.dashboard-kpis{grid-template-columns:repeat(4,1fr)}}
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <nav class="nav-shell" aria-label="Primary navigation">
+    <a class="brand-mark" href="index.html">EVIS</a>
+    <div class="nav-links desktop-nav">
+      <a href="index.html">Home</a>
+      <a href="eligibility-dashboard.html">Dashboard</a>
+      <a href="demographic-eligibility-control-simulation.html">Full Simulation</a>
+      <a href="https://github.com/koripickle1101-TN/eligibility-verification-intelligence-system" target="_blank" rel="noreferrer">GitHub</a>
+    </div>
+    <details class="mobile-menu">
+      <summary aria-label="Open navigation">Menu</summary>
+      <div class="mobile-menu-panel">
+        <a href="index.html">EVIS Home</a>
+        <a href="eligibility-dashboard.html">Eligibility Dashboard</a>
+        <a href="demographic-eligibility-control-simulation.html">Full Control Simulation</a>
+        <a href="https://github.com/koripickle1101-TN/eligibility-verification-intelligence-system" target="_blank" rel="noreferrer">GitHub Repository</a>
+      </div>
+    </details>
+  </nav>
+</header>
+
+<main>
+  <section class="page-hero case-study-hero">
+    <div class="eyebrow">Healthcare Operations Intelligence Engine™ · EVIS Control Module</div>
+    <h1>Eligibility Exception Ownership &amp; Closure Control™</h1>
+    <p class="hero-subtitle">A student-developed workflow control that models what should happen after eligibility verification finds an exception. The central idea is simple: detection is not the same as resolution.</p>
+    <div class="hero-actions">
+      <a class="primary-button" href="#simulator">Test the Closure Gate</a>
+      <a class="secondary-button" href="#status">View Status Logic</a>
+    </div>
+  </section>
+
+  <section class="content-section compact-section">
+    <div class="content-card accent-card integrity-card">
+      <div class="mini-label">Integrity boundary</div>
+      <h2>Student-developed. Simulated. No PHI.</h2>
+      <p>This module is educational and does not use real patient, employer, payer, eligibility-transaction, claims, EHR, or staffing data. Owner and queue labels are simulated workflow roles only.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-intro">
+      <span class="section-number">01</span>
+      <h2>Eligibility Exception Closure Rule™</h2>
+      <p>An eligibility exception is not considered resolved when it is identified. It is resolved only after the exception is documented, assigned to clear ownership, acted upon, and its closure is confirmed before the workflow advances.</p>
+    </div>
+    <div class="insight-banner">
+      <span>Required workflow</span>
+      <strong>Detect → Document → Assign → Act → Verify → Close → Advance</strong>
+    </div>
+    <p class="model-note"><strong>Trigger:</strong> Eligibility verification identifies a coverage, benefits, patient-responsibility, referral, authorization, demographic, payer-selection, coordination-of-benefits, or other unresolved exception.</p>
+  </section>
+
+  <section class="section">
+    <div class="section-intro">
+      <span class="section-number">02</span>
+      <h2>Exception Ownership &amp; Closure Control™</h2>
+      <p>The purpose of this control is to prevent a detected exception from silently traveling downstream without documented ownership and verified resolution.</p>
+    </div>
+    <div class="flow-compact" aria-label="Eligibility exception closure workflow">
+      <div><span>01 · Detect</span><b>Exception identified</b></div>
+      <div class="flow-arrow">→</div>
+      <div><span>02 · Own</span><b>Document + assign</b></div>
+      <div class="flow-arrow">→</div>
+      <div><span>03 · Resolve</span><b>Act + escalate</b></div>
+      <div class="flow-arrow">→</div>
+      <div><span>04 · Gate</span><b>Verify closure + advance</b></div>
+    </div>
+    <div class="insight-banner">
+      <span>Control-gate question</span>
+      <strong>Before this case moves forward, is every eligibility exception documented, assigned, acted on, and verified as resolved?</strong>
+    </div>
+    <div class="story-grid">
+      <article class="editorial-card orange-edge"><span class="mini-label">If no</span><h3>Hold · Route · Escalate</h3><p>The workflow remains in an exception state until the unresolved issue has a defined next action and meets the modeled closure requirements.</p></article>
+      <article class="editorial-card"><span class="mini-label">If yes</span><h3>Advance</h3><p>The case can move to the next modeled workflow step only after closure is documented and verified.</p></article>
+    </div>
+  </section>
+
+  <section id="status" class="section">
+    <div class="section-intro">
+      <span class="section-number">03</span>
+      <h2>EVIS Status Logic</h2>
+      <p>The status model separates detection, ownership, active resolution, escalation, closure verification, and readiness for the next workflow step.</p>
+    </div>
+    <div class="table-wrap">
+      <table class="branded-table">
+        <thead><tr><th>Status</th><th>Meaning</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Verified — No Exception</strong></td><td>Verification completed with no unresolved issue.</td></tr>
+          <tr><td><strong>Exception Identified</strong></td><td>A discrepancy or requirement was detected.</td></tr>
+          <tr><td><strong>Ownership Assigned</strong></td><td>A responsible simulated person or queue has the next action.</td></tr>
+          <tr><td><strong>Resolution in Progress</strong></td><td>Corrective or follow-up action is underway.</td></tr>
+          <tr><td><strong>Escalation Required</strong></td><td>A modeled resolution threshold, blocker, or follow-up deadline requires escalation.</td></tr>
+          <tr><td><strong>Resolution Pending Verification</strong></td><td>Action occurred, but closure has not yet been confirmed.</td></tr>
+          <tr><td><strong>Exception Closed</strong></td><td>Resolution has been verified and documented.</td></tr>
+          <tr><td><strong>Ready for Next Workflow Step</strong></td><td>No unresolved eligibility exception remains.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-intro">
+      <span class="section-number">04</span>
+      <h2>Exception Data Fields</h2>
+      <p>These fields make ownership and closure visible in the simulated workflow instead of treating completion of the eligibility check as proof that every exception was resolved.</p>
+    </div>
+    <div class="field-list">
+      <div>Exception Detected</div><div>Exception Category</div><div>Exception Description</div><div>Date/Time Identified</div>
+      <div>Source of Exception</div><div>Required Next Action</div><div>Assigned Owner / Queue</div><div>Ownership Assigned Date</div>
+      <div>Follow-Up Due Date</div><div>Resolution Status</div><div>Escalation Required</div><div>Escalation Reason</div>
+      <div>Resolution Action</div><div>Resolution Date</div><div>Closure Verified</div><div>Closure Verification Date</div>
+      <div>Ready for Next Workflow Step</div>
+    </div>
+    <p class="integrity-note"><strong>Portfolio boundary:</strong> Assigned owners and queues are simulated labels. EVIS does not connect to a real healthcare organization's staffing, payer, EHR, or work-queue systems.</p>
+  </section>
+
+  <section id="simulator" class="section">
+    <div class="section-intro">
+      <span class="section-number">05</span>
+      <h2>Exception Closure Gate Simulator</h2>
+      <p>Use fictional information only. This educational tool evaluates whether a simulated eligibility exception has enough documented workflow evidence to advance.</p>
+    </div>
+    <div class="simulation-notice">SIMULATION ONLY — DO NOT ENTER PHI OR REAL PATIENT INFORMATION</div>
+    <form class="gate-shell" id="closureForm">
+      <div class="gate-grid">
+        <label class="check-row full"><input id="exceptionDetected" type="checkbox"> Eligibility exception detected</label>
+        <label>Exception category
+          <select id="category"><option value="">Select</option><option>Coverage</option><option>Benefits</option><option>Patient responsibility</option><option>Referral</option><option>Authorization</option><option>Demographic mismatch</option><option>Payer selection</option><option>Coordination of benefits</option><option>Other</option></select>
+        </label>
+        <label>Source of exception
+          <select id="source"><option value="">Select</option><option>Registration review</option><option>Eligibility response</option><option>Coverage verification</option><option>Patient-provided information</option><option>Internal reconciliation</option><option>Other simulated source</option></select>
+        </label>
+        <label class="full">Exception description
+          <textarea id="description" placeholder="Fictional example only"></textarea>
+        </label>
+        <label class="full">Required next action
+          <input id="nextAction" type="text" placeholder="Example: verify subscriber information and recheck eligibility">
+        </label>
+        <label>Assigned owner / queue
+          <select id="owner"><option value="">Not assigned</option><option>Simulated Patient Access Queue</option><option>Simulated Eligibility Follow-Up Queue</option><option>Simulated Authorization Review Queue</option><option>Simulated Supervisor Escalation Queue</option></select>
+        </label>
+        <label>Follow-up due date
+          <input id="followupDate" type="date">
+        </label>
+        <label>Resolution status
+          <select id="resolutionStatus"><option value="open">Open</option><option value="progress">In progress</option><option value="resolved">Action completed / pending verification</option></select>
+        </label>
+        <label class="check-row"><input id="escalation" type="checkbox"> Escalation required</label>
+        <label class="full">Escalation reason
+          <input id="escalationReason" type="text" placeholder="Fictional reason if escalation is required">
+        </label>
+        <label class="full">Resolution action
+          <textarea id="resolutionAction" placeholder="Fictional action taken"></textarea>
+        </label>
+        <label>Resolution date
+          <input id="resolutionDate" type="date">
+        </label>
+        <label class="check-row"><input id="closureVerified" type="checkbox"> Closure verified</label>
+        <label>Closure verification date
+          <input id="closureDate" type="date">
+        </label>
+      </div>
+      <div class="gate-actions">
+        <button type="button" id="evaluateButton">Evaluate Gate</button>
+        <button type="reset" class="secondary" id="resetButton">Reset Simulation</button>
+      </div>
+      <div class="gate-result" id="gateResult" aria-live="polite">
+        <div class="mini-label">Current modeled status</div>
+        <strong>Not evaluated</strong>
+        <p>Complete the fictional workflow information and evaluate the gate.</p>
+      </div>
+    </form>
+  </section>
+
+  <section class="section learning-section">
+    <div class="section-intro">
+      <span class="section-number">06</span>
+      <h2>Portfolio Insight — Detection ≠ Resolution</h2>
+    </div>
+    <blockquote>An eligibility workflow can successfully detect an issue and still fail operationally if the exception is not owned, acted on, and closed.</blockquote>
+    <div class="content-card statement-card">
+      <p>The operational question is not only “Was eligibility verified?” It is also: “What happened to every exception the verification process uncovered?”</p>
+    </div>
+    <div class="insight-banner">
+      <span>Healthcare Operations Intelligence Engine™</span>
+      <strong>Where did the workflow first lose control?</strong>
+    </div>
+    <p class="model-note"><strong>Key learning:</strong> The first control failure may not be the original eligibility problem. It may occur after the problem was correctly identified but before anyone ensured it was resolved.</p>
+  </section>
+
+  <section class="section">
+    <div class="section-intro">
+      <span class="section-number">07</span>
+      <h2>What This Demonstrates</h2>
+      <p>This module adds evidence of student-level practice in exception management, workflow gating, ownership logic, escalation thinking, documentation structure, and downstream-risk reasoning.</p>
+    </div>
+    <div class="learning-grid">
+      <div><span>Detection</span><strong>Recognize the exception</strong></div>
+      <div><span>Ownership</span><strong>Make the next action accountable</strong></div>
+      <div><span>Closure</span><strong>Verify resolution before progression</strong></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>Created by Kori Pickle</p>
+  <p>Student-developed, simulated, no-PHI healthcare operations portfolio project.</p>
+</footer>
+
+<script>
+(function(){
+  const $ = (id) => document.getElementById(id);
+  const result = $('gateResult');
+  function render(status, message, ready){
+    result.className = 'gate-result' + (ready ? ' status-ready' : '');
+    result.innerHTML = '<div class="mini-label">Current modeled status</div><strong>' + status + '</strong><p>' + message + '</p>';
+  }
+  $('evaluateButton').addEventListener('click', function(){
+    const detected = $('exceptionDetected').checked;
+    if(!detected){
+      render('Verified — No Exception','No exception is marked in this simulation. The modeled case is ready for the next workflow step.',true);
+      return;
+    }
+    const category = $('category').value;
+    const description = $('description').value.trim();
+    const nextAction = $('nextAction').value.trim();
+    const owner = $('owner').value;
+    const status = $('resolutionStatus').value;
+    const escalation = $('escalation').checked;
+    const escalationReason = $('escalationReason').value.trim();
+    const resolutionAction = $('resolutionAction').value.trim();
+    const resolutionDate = $('resolutionDate').value;
+    const closureVerified = $('closureVerified').checked;
+    const closureDate = $('closureDate').value;
+
+    if(!category || !description || !nextAction){
+      render('Exception Identified','The exception is detected, but the documentation or required next action is incomplete. Hold the case in the modeled exception workflow.',false);
+      return;
+    }
+    if(!owner){
+      render('Exception Identified','The exception is documented, but clear ownership has not been assigned. Route the case before it advances.',false);
+      return;
+    }
+    if(escalation){
+      render('Escalation Required', escalationReason ? 'An escalation condition is recorded. Route the simulated case for escalation and keep the gate closed until resolution is verified.' : 'Escalation is marked as required, but the reason is not documented. Record the escalation reason and keep the gate closed.', false);
+      return;
+    }
+    if(status === 'open'){
+      render('Ownership Assigned','A simulated owner is assigned, but resolution work has not started. The gate remains closed.',false);
+      return;
+    }
+    if(status === 'progress'){
+      render('Resolution in Progress','Corrective or follow-up work is underway. The case should not advance until the action is completed and closure is verified.',false);
+      return;
+    }
+    if(!resolutionAction || !resolutionDate){
+      render('Resolution Pending Verification','The action is marked complete, but the resolution action or resolution date is missing. Complete the documentation before closure verification.',false);
+      return;
+    }
+    if(!closureVerified || !closureDate){
+      render('Resolution Pending Verification','A resolution action is documented, but closure has not been fully verified. The gate remains closed.',false);
+      return;
+    }
+    render('Ready for Next Workflow Step','Exception Closed — the simulated exception is documented, owned, acted on, and closure is verified. The modeled case may advance.',true);
+  });
+  $('resetButton').addEventListener('click', function(){
+    window.setTimeout(function(){render('Not evaluated','Complete the fictional workflow information and evaluate the gate.',false);},0);
+  });
+})();
+</script>
+</body>
+</html>
