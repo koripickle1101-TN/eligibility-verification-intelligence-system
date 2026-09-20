@@ -105,6 +105,15 @@
       <span>Control-gate question</span>
       <strong>Before this case moves forward, is every eligibility exception documented, assigned, acted on, and verified as resolved?</strong>
     </div>
+    <div class="content-card accent-card" style="margin-top:22px">
+      <div class="mini-label">Control-gate principle</div>
+      <h2>A completed checkpoint is not the same as a controlled workflow state.</h2>
+      <p>A workflow may look complete at one checkpoint while an unresolved condition is still moving downstream. EVIS treats that gap as an operational control problem that requires visible ownership, evidence, and verified closure before advancement.</p>
+      <div class="insight-banner compact">
+        <span>Operational distinctions</span>
+        <strong>Detection ≠ Resolution · Handoff ≠ Ownership · Advancement ≠ Readiness · Closure ≠ Assumption</strong>
+      </div>
+    </div>
     <div class="story-grid">
       <article class="editorial-card orange-edge"><span class="mini-label">If no</span><h3>Hold · Route · Escalate</h3><p>The workflow remains in an exception state until the unresolved issue has a defined next action and meets the modeled closure requirements.</p></article>
       <article class="editorial-card"><span class="mini-label">If yes</span><h3>Advance</h3><p>The case can move to the next modeled workflow step only after closure is documented and verified.</p></article>
@@ -142,12 +151,17 @@
     </div>
     <div class="field-list">
       <div>Exception Detected</div><div>Exception Category</div><div>Exception Description</div><div>Date/Time Identified</div>
+      <div>Evidence Required</div><div>Evidence Reviewed</div><div>Handoff Completed</div><div>Ownership Confirmed</div>
       <div>Source of Exception</div><div>Required Next Action</div><div>Assigned Owner / Queue</div><div>Ownership Assigned Date</div>
-      <div>Follow-Up Due Date</div><div>Resolution Status</div><div>Escalation Required</div><div>Escalation Reason</div>
+      <div>Follow-Up Due Date</div><div>Resolution Status</div><div>Escalation Required</div><div>Escalation Reason</div><div>Escalation Threshold</div><div>Advancement Decision</div>
       <div>Resolution Action</div><div>Resolution Date</div><div>Closure Verified</div><div>Closure Verification Date</div>
       <div>Ready for Next Workflow Step</div>
     </div>
     <p class="integrity-note"><strong>Portfolio boundary:</strong> Assigned owners and queues are simulated labels. EVIS does not connect to a real healthcare organization's staffing, payer, EHR, or work-queue systems.</p>
+    <div class="content-card statement-card" style="margin-top:24px">
+      <div class="mini-label">Question for workflow review</div>
+      <p>If the next step can begin before ownership, evidence, and closure are in place, how should an organization determine whether the control failure occurred during detection, the handoff, the escalation point, or the decision to let the case advance?</p>
+    </div>
   </section>
 
   <section id="simulator" class="section">
@@ -172,6 +186,12 @@
         <label class="full">Required next action
           <input id="nextAction" type="text" placeholder="Example: verify subscriber information and recheck eligibility">
         </label>
+        <label class="full">Evidence required for closure
+          <input id="evidenceRequired" type="text" placeholder="Example: corrected subscriber data + successful re-verification">
+        </label>
+        <label class="check-row"><input id="evidenceReviewed" type="checkbox"> Required evidence reviewed</label>
+        <label class="check-row"><input id="handoffComplete" type="checkbox"> Handoff completed</label>
+        <label class="check-row"><input id="ownershipConfirmed" type="checkbox"> Ownership confirmed</label>
         <label>Assigned owner / queue
           <select id="owner"><option value="">Not assigned</option><option>Simulated Patient Access Queue</option><option>Simulated Eligibility Follow-Up Queue</option><option>Simulated Authorization Review Queue</option><option>Simulated Supervisor Escalation Queue</option></select>
         </label>
@@ -192,6 +212,7 @@
           <input id="resolutionDate" type="date">
         </label>
         <label class="check-row"><input id="closureVerified" type="checkbox"> Closure verified</label>
+        <label class="check-row"><input id="advancementApproved" type="checkbox"> Workflow advancement approved after closure</label>
         <label>Closure verification date
           <input id="closureDate" type="date">
         </label>
