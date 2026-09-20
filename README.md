@@ -79,11 +79,26 @@ The core rule is:
 
 The modeled workflow is:
 
-**Detect → Document → Assign → Act → Verify → Close → Advance**
+**Detect → Review Evidence → Assign → Act → Verify → Close → Advance**
 
-The control-gate question is:
+EVIS now also uses this control-gate principle:
+
+> **A completed checkpoint is not the same as a controlled workflow state.**
+
+A workflow may look complete at one checkpoint while an unresolved condition is still moving downstream.
+
+Operational distinctions:
+
+- **Detection ≠ Resolution**
+- **Handoff ≠ Ownership**
+- **Advancement ≠ Readiness**
+- **Closure ≠ Assumption**
+
+The control-gate questions are:
 
 > **Before this case moves forward, is every eligibility exception documented, assigned, acted on, and verified as resolved?**
+
+> **If the next step can begin before ownership, evidence, and closure are in place, how should an organization determine whether the actual control failure occurred during detection, the handoff, the escalation point, or the decision to let the case advance?**
 
 If **No → Hold / Route / Escalate.**
 
@@ -167,8 +182,11 @@ Through this project, I am practicing:
 - Preventive versus detective control thinking
 - Exception management
 - Exception ownership and closure logic
+- Evidence requirements for closure
+- Handoff-versus-ownership analysis
+- Workflow advancement control
 - Workflow gating
-- Escalation thinking
+- Escalation threshold thinking
 - Front-end revenue cycle readiness
 - Root-cause classification
 - Workflow mapping
