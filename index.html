@@ -17,6 +17,7 @@
       <a href="#problem">Workflow Problem</a>
       <a href="#control">Control</a>
       <a href="eligibility-exception-closure-control.html">Exception Closure</a>
+      <a href="medicare-coverage-payer-routing-readiness-gate.html">Medicare Routing</a>
       <a href="#experiment">Simulation</a>
       <a href="#results">Modeled Results</a>
       <a href="#learning">What I Learned</a>
@@ -32,6 +33,7 @@
         <a href="#first-loss">03 · First Loss of Control</a>
         <a href="#control">04 · Control Design</a>
         <a href="eligibility-exception-closure-control.html">Exception Ownership &amp; Closure Control</a>
+        <a href="medicare-coverage-payer-routing-readiness-gate.html">Medicare Coverage &amp; Payer Routing Gate</a>
         <a href="#experiment">05 · Simulated Experiment</a>
         <a href="#results">06 · Modeled Results</a>
         <a href="#learning">07 · What I Learned</a>
@@ -52,6 +54,7 @@
     <div class="hero-actions">
       <a class="primary-button" href="demographic-eligibility-control-simulation.html">Open Full Control Simulation</a>
       <a class="secondary-button" href="eligibility-exception-closure-control.html">Test Exception Closure Gate</a>
+      <a class="secondary-button" href="medicare-coverage-payer-routing-readiness-gate.html">Test Medicare Routing Gate</a>
     </div>
   </section>
 
@@ -165,6 +168,18 @@
     </div>
     <p class="model-note"><strong>Important:</strong> This is a student-designed control model for learning. It is not presented as a validated healthcare intervention or a production workflow.</p>
     <div class="content-card accent-card" style="margin-top:28px">
+      <div class="mini-label">Coverage-to-payer routing control</div>
+      <h2>Medicare Coverage &amp; Payer Routing Readiness Gate™</h2>
+      <p>EVIS now includes an interactive student-level control for practicing how Medicare arrangement, effective dates, other insurance, COB/MSP review, primary-payer status, service context, payer destination, exception ownership, and closure need to align before modeled advancement.</p>
+      <div class="insight-banner compact">
+        <span>Core distinctions</span>
+        <strong>Medicare coverage present ≠ payer responsibility established · Correct coverage ≠ correct claim destination</strong>
+      </div>
+      <div class="hero-actions">
+        <a class="primary-button" href="medicare-coverage-payer-routing-readiness-gate.html">Open Medicare Routing Gate</a>
+      </div>
+    </div>
+    <div class="content-card accent-card" style="margin-top:28px">
       <div class="mini-label">New EVIS control module</div>
       <h2>Detection ≠ Resolution</h2>
       <p>EVIS now extends the exception gate with an Eligibility Exception Ownership &amp; Closure Control™. A detected issue does not become “resolved” simply because someone found it. The modeled workflow requires documentation, clear ownership, action, escalation when needed, and verified closure before progression.</p>
@@ -269,7 +284,8 @@
     </div>
     <div class="artifact-grid">
       <a class="artifact-card featured-artifact" href="demographic-eligibility-control-simulation.html"><span>Featured analysis</span><strong>Demographic Verification &amp; Eligibility Exception Control Simulation™</strong><small>Workflow map · controls · case explorer · modeled comparison</small></a>
-      <a class="artifact-card featured-artifact" href="eligibility-exception-closure-control.html"><span>New control module</span><strong>Eligibility Exception Ownership &amp; Closure Control™</strong><small>Exception ownership · escalation · closure verification · interactive workflow gate</small></a>
+      <a class="artifact-card featured-artifact" href="eligibility-exception-closure-control.html"><span>Control module</span><strong>Eligibility Exception Ownership &amp; Closure Control™</strong><small>Exception ownership · escalation · closure verification · interactive workflow gate</small></a>
+      <a class="artifact-card featured-artifact" href="medicare-coverage-payer-routing-readiness-gate.html"><span>Interactive payer-routing control</span><strong>Medicare Coverage &amp; Payer Routing Readiness Gate™</strong><small>Coverage arrangement · COB/MSP · payer order · payer destination · ownership · closure</small></a>
       <a class="artifact-card" href="eligibility-dashboard.html"><span>Dashboard</span><strong>Eligibility Dashboard</strong><small>Simulated KPI and risk visibility</small></a>
       <a class="artifact-card" href="eligibility-risk-scorecard.html"><span>Risk model</span><strong>Eligibility Risk Scorecard</strong><small>Structured eligibility-risk thinking</small></a>
       <a class="artifact-card" href="coverage-verification-checklist.html"><span>Workflow tool</span><strong>Coverage Verification Checklist</strong><small>Front-end verification structure</small></a>
