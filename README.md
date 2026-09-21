@@ -231,4 +231,57 @@ I want the project to show how I am learning to think through eligibility and pa
 - [LinkedIn](https://www.linkedin.com/in/kori-pickle)
 - [GitHub profile](https://github.com/koripickle1101-TN)
 
-Created by Kori Pickle. Student-developed portfolio project. Synthetic data only. No PHI.
+Created by Kori Pickle. Student-developed portfolio project. Synthetic data only. No PHI## Medicare Coverage & Payer Routing Readiness Gate™
+
+EVIS now includes a premium interactive Medicare coverage-to-routing control for practicing the distinction between identifying Medicare coverage and establishing payer responsibility.
+
+Modeled workflow:
+
+**Medicare coverage detected → arrangement identified → effective dates verified → other coverage reviewed → COB/MSP status reviewed → primary payer established → service context checked → payer destination confirmed → open exceptions assigned → Ready to Advance**
+
+Synthetic fields include:
+
+- Coverage Type
+- Original Medicare / Medicare Advantage arrangement
+- Part A Active?
+- Part B Active?
+- Medicare Advantage Plan Identified?
+- Part D Plan Identified?
+- Coverage Effective Date
+- Effective Date Verified?
+- Other Insurance Present?
+- COB/MSP Review Completed?
+- Primary Payer Status Established?
+- Authoritative Source Reviewed?
+- Source / Evidence Note
+- Service Context
+- Expected Payer Destination
+- Payer Destination Confirmed?
+- Authorization / Referral Review Needed?
+- Routing Evidence
+- Open Exception?
+- Current Owner
+- Next Action
+- Exception Closure Status
+- Closure Evidence
+- Ready to Advance? (calculated by the interactive gate)
+
+Key distinctions:
+
+- **Medicare coverage present ≠ payer responsibility established**
+- **Correct plan identification ≠ workflow ready to advance with unresolved COB/MSP questions**
+- **Coverage verified ≠ payer order verified**
+- **Medicare enrolled ≠ Medicare pays first**
+- **Correct coverage ≠ correct claim destination**
+
+The gate can return modeled states such as **Arrangement Review**, **Effective Date Review**, **COB / MSP Review**, **Payer Order Hold**, **Source Review**, **Service Context**, **Routing Hold**, **Readiness Exception**, **Exception Control**, and **Ready to Advance**.
+
+The module also supports local browser persistence and saved synthetic review history so a reviewer can resume a fictional payer-routing case without uploading data.
+
+Patient-to-professional insight:
+
+> **The patient sees the billing problem. Healthcare operations has to determine whether the coverage and payer-routing workflow was correct before the claim ever moved downstream.**
+
+Real-world Medicare handling requires current authoritative CMS/Medicare information, payer/program guidance, organizational procedures, and qualified review when applicable. EVIS does not determine real eligibility, coverage, benefits, COB/MSP status, payer liability, authorization requirements, coding, medical necessity, reimbursement, or legal/compliance conclusions.
+
+.
