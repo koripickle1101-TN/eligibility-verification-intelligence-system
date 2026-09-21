@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500;1,6..72,600&display=swap');0,700;1,600&family=Manrope:wght@400;500;600;700;800&display=swap');
 
 :root{
   --white:#FFFFFF;
@@ -12,7 +12,7 @@
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--white);color:var(--black);font-family:'Manrope',Arial,Helvetica,sans-serif;line-height:1.65}
+body{margin:0;background:var(--white);color:var(--black);font-family:'Inter',Arial,Helvetica,sans-serif;line-height:1.65}
 a{color:inherit}
 img{max-width:100%;height:auto}
 
@@ -20,7 +20,7 @@ img{max-width:100%;height:auto}
 .site-header{position:sticky;top:0;z-index:50;border-bottom:1px solid var(--line);background:rgba(255,255,255,.97);backdrop-filter:blur(14px)}
 .nav-shell{max-width:var(--max);margin:0 auto;padding:17px 20px;display:flex;justify-content:space-between;align-items:center;gap:18px;position:relative}
 .brand-mark{display:inline-flex;align-items:center;text-decoration:none;font-size:.75rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase;white-space:nowrap}
-.brand-mark:before{content:"";display:inline-block;width:8px;height:8px;border:2px solid var(--orange);border-radius:50%;margin-right:10px;box-shadow:0 0 0 3px var(--white),0 0 0 4px var(--orange)}
+.brand-mark:before{content:"";display:inline-block;width:46px;height:46px;flex:0 0 46px;background:url("kp-logo.svg") center/contain no-repeat;margin-right:10px}
 .desktop-nav{display:none}
 .nav-links{font-size:.82rem;font-weight:700}
 .nav-links a{text-decoration:none;border-bottom:1px solid transparent;padding-bottom:3px}
@@ -41,7 +41,7 @@ main{max-width:var(--max);margin:0 auto;padding:0 20px 66px}
 .project-hero:after,.case-study-hero:after{content:"";position:absolute;right:-90px;top:28px;width:210px;height:210px;border:1px solid var(--orange);border-radius:50%;box-shadow:0 0 0 18px var(--white),0 0 0 19px var(--orange);opacity:.25;pointer-events:none}
 .case-study-hero{position:relative;overflow:hidden}
 .eyebrow,.section-number,.mini-label,.control-index{color:var(--orange);text-transform:uppercase;letter-spacing:.17em;font-size:.69rem;font-weight:800}
-h1,h2,h3,.statement-card p,.dash-kpi span,.metric-card span,.signature-question,blockquote,.result-value,.final-question{font-family:'Cormorant Garamond',Georgia,Times,serif}
+h1,h2,h3,.statement-card p,.dash-kpi span,.metric-card span,.signature-question,blockquote,.result-value,.final-question{font-family:'Newsreader',Georgia,Times,serif}
 h1{max-width:980px;margin:17px 0 22px;font-size:clamp(3.15rem,16vw,5.2rem);line-height:.87;letter-spacing:-.042em;font-weight:700;position:relative;z-index:1}
 h2{margin:10px 0 14px;font-size:clamp(2.35rem,11vw,3.8rem);line-height:.93;letter-spacing:-.035em;font-weight:700}
 h3{margin:8px 0 10px;font-size:1.75rem;line-height:1.05}
@@ -79,13 +79,13 @@ p{margin-top:0}
 .signal-chain{display:grid;grid-template-columns:1fr;gap:10px;margin-top:28px}
 .signal-step{border:1px solid var(--black);padding:22px;background:var(--white)}
 .signal-step span{display:block;color:var(--orange);text-transform:uppercase;letter-spacing:.15em;font-size:.68rem;font-weight:800;margin-bottom:8px}
-.signal-step strong{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.65rem;line-height:1.05}
+.signal-step strong{font-family:'Newsreader',Georgia,serif;font-size:1.65rem;line-height:1.05}
 .highlighted-step{border:2px solid var(--orange)}
 .signal-arrow{color:var(--orange);font-size:1.4rem;font-weight:800;text-align:center;transform:rotate(90deg)}
 
 .insight-banner{margin-top:28px;border:1px solid var(--black);padding:20px;display:block;background:var(--white)}
 .insight-banner span{display:block;color:var(--orange);text-transform:uppercase;letter-spacing:.15em;font-size:.68rem;font-weight:800;margin-bottom:8px}
-.insight-banner strong{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(1.55rem,8vw,2.15rem);line-height:1.05}
+.insight-banner strong{font-family:'Newsreader',Georgia,serif;font-size:clamp(1.55rem,8vw,2.15rem);line-height:1.05}
 .insight-banner.compact{margin-top:20px}
 
 /* ---------- FEATURED SIMULATION ---------- */
@@ -112,7 +112,7 @@ p{margin-top:0}
 .artifact-card{display:flex;flex-direction:column;gap:8px;text-decoration:none;border-bottom:3px solid var(--orange);min-height:150px;transition:transform .15s ease,box-shadow .15s ease}
 .artifact-card:hover,.artifact-card:focus-visible{transform:translateY(-2px);box-shadow:5px 5px 0 var(--orange)}
 .artifact-card span{color:var(--orange);font-size:.67rem;font-weight:800;text-transform:uppercase;letter-spacing:.13em}
-.artifact-card strong{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.55rem;line-height:1.05}
+.artifact-card strong{font-family:'Newsreader',Georgia,serif;font-size:1.55rem;line-height:1.05}
 .artifact-card small{font-size:.78rem;line-height:1.45}
 .featured-artifact{border:2px solid var(--black);border-bottom:6px solid var(--orange)}
 
@@ -151,7 +151,7 @@ p{margin-top:0}
 .metric-row{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;padding:14px 0;border-bottom:1px solid var(--line)}
 .metric-row:last-child{border-bottom:0}
 .metric-row span{font-size:.84rem}
-.metric-row strong{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.85rem;line-height:1;color:var(--black)}
+.metric-row strong{font-family:'Newsreader',Georgia,serif;font-size:1.85rem;line-height:1;color:var(--black)}
 .control-panel .metric-row strong{color:var(--orange)}
 
 .filter-bar{display:flex;flex-direction:column;gap:12px;margin-top:24px}
@@ -161,14 +161,14 @@ p{margin-top:0}
 .status-pill.status-caught{border-color:var(--orange);color:var(--black);box-shadow:inset 0 -2px 0 var(--orange)}
 
 .method-grid>div{border:1px solid var(--black);padding:20px;background:var(--white)}
-.method-grid strong{display:block;font-family:'Cormorant Garamond',Georgia,serif;font-size:1.7rem;line-height:1.05;margin:9px 0}
+.method-grid strong{display:block;font-family:'Newsreader',Georgia,serif;font-size:1.7rem;line-height:1.05;margin:9px 0}
 
 /* ---------- FINAL BRAND MOMENT ---------- */
 .final-question-section{padding-bottom:66px}
 .final-question{font-size:clamp(2.9rem,14vw,6rem);line-height:.88;letter-spacing:-.04em;margin:16px 0 20px;max-width:950px}
 .final-subtext{max-width:720px;font-size:.9rem;border-left:4px solid var(--orange);padding-left:15px}
 .site-footer{max-width:var(--max);margin:0 auto;padding:40px 20px 66px;border-top:4px solid var(--orange);color:var(--black)}
-.signature{font-family:'Cormorant Garamond',Georgia,Times,serif;font-style:italic;font-size:1.55rem;color:var(--black)}
+.signature{font-family:'Newsreader',Georgia,Times,serif;font-style:italic;font-size:1.55rem;color:var(--black)}
 .footer-note{text-transform:uppercase;letter-spacing:.12em;font-size:.69rem;font-weight:800;color:var(--orange)}
 
 /* ---------- TABLET ---------- */
@@ -212,4 +212,81 @@ p{margin-top:0}
   .comparison-panel{padding:28px}
   .calculator-grid{grid-template-columns:repeat(2,1fr)}
   .site-footer{padding-left:28px;padding-right:28px}
+}
+
+/* Medicare Coverage & Payer Routing Readiness Gate™ */
+.medicare-routing-page{background:#FFFFFF;color:#000000}
+.medicare-routing-page h1,.medicare-routing-page h2,.medicare-routing-page h3,.medicare-routing-page h4,.medicare-signature-name{font-family:'Newsreader',Georgia,serif}
+.medicare-brand-lockup{display:flex;align-items:flex-start;gap:20px}
+.medicare-brand-lockup img{width:84px;height:84px;object-fit:contain;flex:0 0 84px}
+.medicare-distinction-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:20px}
+.medicare-distinction-grid>div{border:1px solid #000000;border-bottom:4px solid #FF8200;padding:17px;background:#FFFFFF}
+.medicare-distinction-grid strong,.medicare-distinction-grid span{display:block}
+.medicare-distinction-grid strong{font-family:'Newsreader',Georgia,serif;font-size:1.45rem}
+.medicare-routing-rail{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:7px;margin:28px 0}
+.medicare-routing-rail>div{border:1px solid #000000;padding:13px 8px;min-height:102px;background:#FFFFFF}
+.medicare-routing-rail span{display:block;color:#FF8200;font-family:'Newsreader',Georgia,serif;font-size:1.45rem;line-height:1;margin-bottom:8px}
+.medicare-routing-rail strong{display:block;font-size:.68rem;line-height:1.25;text-transform:uppercase;letter-spacing:.04em}
+.medicare-workbench{border:2px solid #000000;box-shadow:10px 10px 0 #FF8200;padding:clamp(20px,4vw,34px);margin-top:24px;background:#FFFFFF}
+.medicare-workbench-head{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;border-bottom:1px solid #000000;padding-bottom:18px;margin-bottom:20px}
+.medicare-workbench-head h3{font-size:clamp(1.75rem,4vw,2.8rem);margin-top:6px}
+.medicare-chip{border:1px solid #FF8200;padding:8px 11px;font-size:.72rem;font-weight:800;letter-spacing:.08em;white-space:nowrap}
+.medicare-form-section{border-top:1px solid #000000;padding:24px 0}
+.medicare-form-section:first-of-type{border-top:0}
+.medicare-form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.medicare-workbench label{display:block;font-weight:800;margin:10px 0}
+.medicare-workbench select,.medicare-workbench input,.medicare-workbench textarea{width:100%;box-sizing:border-box;margin-top:7px;padding:11px 12px;border:1px solid #000000;border-radius:0;background:#FFFFFF;color:#000000;font:inherit;font-size:16px}
+.medicare-workbench select,.medicare-workbench input{min-height:48px}
+.medicare-workbench textarea{min-height:108px;resize:vertical}
+.medicare-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.medicare-actions .primary-button,.medicare-actions .secondary-button,.medicare-saved-actions .primary-button,.medicare-saved-actions .secondary-button{border-radius:0}
+.medicare-progress-wrap{display:grid;grid-template-columns:minmax(0,280px) 1fr;gap:18px;align-items:end;margin:24px 0 16px}
+.medicare-progress-wrap strong{display:block;margin-top:5px}
+.medicare-progress{height:12px;border:1px solid #000000;background:#FFFFFF;overflow:hidden}
+#progressBar{height:100%;width:0;background:#FF8200;transition:width .2s ease}
+.medicare-next-control{border:1px solid #000000;border-left:8px solid #FF8200;padding:18px;margin-top:16px}
+.medicare-next-control strong{display:block;font-family:'Newsreader',Georgia,serif;font-size:clamp(1.35rem,3vw,2rem);line-height:1.1;margin-top:6px}
+.medicare-missing{border-left:5px solid #FF8200;padding-left:10px}
+.medicare-missing select,.medicare-missing input,.medicare-missing textarea{border:2px solid #FF8200!important}
+.medicare-evidence-summary{border:2px solid #000000;margin-top:24px;padding:22px}
+.medicare-evidence-summary h3{font-size:clamp(1.7rem,4vw,2.5rem);margin:5px 0 16px}
+.medicare-summary-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.medicare-summary-grid>div{border:1px solid #000000;border-top:4px solid #FF8200;padding:14px}
+.medicare-summary-grid span,.medicare-summary-grid strong{display:block}
+.medicare-summary-grid span{font-size:.7rem;text-transform:uppercase;letter-spacing:.04em;font-weight:800}
+.medicare-summary-grid strong{font-family:'Newsreader',Georgia,serif;font-size:1.25rem;margin-top:6px}
+.medicare-saved-panel{border:2px solid #000000;border-top:8px solid #FF8200;padding:22px;margin-top:24px}
+.medicare-saved-head{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}
+.medicare-saved-head h3{font-size:clamp(1.7rem,4vw,2.4rem);margin:5px 0}
+.medicare-saved-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:18px}
+.medicare-saved-card{border:1px solid #000000;padding:18px}
+.medicare-saved-card h4{font-size:1.45rem;line-height:1.06;margin:10px 0}
+.medicare-saved-card p{margin:5px 0}
+.medicare-saved-meta{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid #000000;padding-bottom:8px}
+.medicare-saved-meta span{font-size:.7rem;font-weight:800;letter-spacing:.04em}
+.medicare-saved-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.medicare-empty{border:1px solid #000000;padding:18px}
+.medicare-empty strong,.medicare-empty span{display:block}
+.medicare-empty span{margin-top:5px}
+.medicare-decision-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.medicare-decision-grid article{border:1px solid #000000;border-bottom:4px solid #FF8200;padding:20px}
+.medicare-decision-grid h3{font-size:1.55rem;margin:8px 0 10px}
+.medicare-patient-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:22px 0}
+.medicare-patient-grid blockquote{margin:0;border:1px solid #000000;padding:20px;font-family:'Newsreader',Georgia,serif;font-size:1.35rem}
+.medicare-signature{display:flex;gap:22px;align-items:center;padding:48px 0 24px;border-top:1px solid #000000}
+.medicare-signature img{width:92px;height:92px;object-fit:contain}
+.medicare-signature-name{display:inline-block;color:#000000;text-decoration:none;font-style:italic;font-weight:500;font-size:clamp(2.2rem,6vw,4.3rem);line-height:1}
+.medicare-signature-rule{width:180px;height:3px;background:#FF8200;margin:10px 0}
+.medicare-signature p{margin:4px 0}
+@media(max-width:1050px){.medicare-routing-rail{grid-template-columns:repeat(5,minmax(0,1fr))}.medicare-summary-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){
+  .medicare-brand-lockup,.medicare-workbench-head,.medicare-saved-head,.medicare-progress-wrap,.medicare-signature{display:block}
+  .medicare-brand-lockup img{width:64px;height:64px;margin-bottom:14px}
+  .medicare-routing-rail,.medicare-form-grid,.medicare-summary-grid,.medicare-saved-list,.medicare-decision-grid,.medicare-patient-grid{grid-template-columns:1fr}
+  .medicare-chip{display:inline-block;margin-top:12px;white-space:normal}
+  .medicare-actions,.medicare-saved-actions{display:grid;grid-template-columns:1fr}
+  .medicare-actions .primary-button,.medicare-actions .secondary-button,.medicare-saved-actions .primary-button,.medicare-saved-actions .secondary-button{width:100%}
+  .medicare-workbench{box-shadow:6px 6px 0 #FF8200;padding:18px 14px}
+  .medicare-saved-head .secondary-button{width:100%;margin-top:12px}
+  .medicare-signature img{margin-bottom:14px}
 }
