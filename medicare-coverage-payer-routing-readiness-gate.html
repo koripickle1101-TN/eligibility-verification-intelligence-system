@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#FFFFFF">
+  <title>EVIS | Medicare Coverage & Payer Routing Readiness Gate™</title>
+  <meta name="description" content="Student-developed, simulated, no-PHI interactive Medicare coverage, COB/MSP, payer-order, and payer-routing readiness gate for healthcare operations learning.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="medicare-routing-page">
+<header class="site-header">
+  <nav class="nav-shell" aria-label="Primary navigation">
+    <a class="brand-mark" href="index.html" aria-label="EVIS home">EVIS</a>
+    <div class="nav-links desktop-nav">
+      <a href="index.html">Home</a>
+      <a href="eligibility-exception-closure-control.html">Exception Closure</a>
+      <a href="#workflow">Workflow</a>
+      <a href="#gate">Routing Gate</a>
+      <a href="#patient">Patient Perspective</a>
+    </div>
+    <details class="mobile-menu">
+      <summary aria-label="Open navigation">Menu</summary>
+      <div class="mobile-menu-panel">
+        <a href="index.html">EVIS Home</a>
+        <a href="eligibility-exception-closure-control.html">Exception Closure</a>
+        <a href="#workflow">Coverage-to-Routing Workflow</a>
+        <a href="#gate">Interactive Routing Gate</a>
+        <a href="#patient">Patient Perspective</a>
+      </div>
+    </details>
+  </nav>
+</header>
+
+<main>
+  <section class="page-hero case-study-hero">
+    <div class="medicare-brand-lockup">
+      <img src="kp-logo.svg" alt="Kori Pickle KP logo">
+      <div>
+        <div class="eyebrow">Healthcare Operations Intelligence Engine™ · EVIS Interactive Control</div>
+        <h1>Medicare Coverage &amp; Payer Routing Readiness Gate™</h1>
+      </div>
+    </div>
+    <p class="hero-subtitle">A student-developed interactive workflow for practicing how Medicare coverage identification, plan arrangement, effective dates, other insurance, COB/MSP review, primary-payer status, service context, and payer destination need to align before a modeled case advances.</p>
+    <p class="hero-subtitle"><strong>Student-developed · Simulated · Synthetic data only · No PHI</strong></p>
+    <div class="hero-actions">
+      <a class="primary-button" href="#gate">Open Interactive Readiness Gate</a>
+      <a class="secondary-button" href="eligibility-exception-closure-control.html">Open Exception Closure Control</a>
+    </div>
+  </section>
+
+  <section class="content-section compact-section">
+    <div class="content-card accent-card">
+      <div class="mini-label">Core operating rule</div>
+      <h2>Medicare coverage present ≠ payer responsibility established.</h2>
+      <p>Identifying Medicare on a synthetic account does not by itself establish whether Original Medicare, a Medicare Advantage plan, another insurer, or another payment-order condition controls the next operational step.</p>
+      <div class="medicare-distinction-grid">
+        <div><strong>Coverage verified</strong><span>≠ payer order verified</span></div>
+        <div><strong>Medicare enrolled</strong><span>≠ Medicare pays first</span></div>
+        <div><strong>Correct plan identification</strong><span>≠ workflow ready with unresolved COB/MSP questions</span></div>
+        <div><strong>Correct coverage</strong><span>≠ correct claim destination</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="workflow" class="section">
+    <div class="section-intro">
+      <span class="section-number">01</span>
+      <h2>Coverage-to-Payer Routing Workflow</h2>
+      <p>The modeled gate separates coverage detection from payer responsibility and claim-routing readiness.</p>
+    </div>
+    <div class="medicare-routing-rail">
+      <div><span>01</span><strong>Medicare coverage detected</strong></div>
+      <div><span>02</span><strong>Arrangement identified</strong></div>
+      <div><span>03</span><strong>Effective dates verified</strong></div>
+      <div><span>04</span><strong>Other coverage reviewed</strong></div>
+      <div><span>05</span><strong>COB / MSP reviewed</strong></div>
+      <div><span>06</span><strong>Primary payer established</strong></div>
+      <div><span>07</span><strong>Service context checked</strong></div>
+      <div><span>08</span><strong>Payer destination confirmed</strong></div>
+      <div><span>09</span><strong>Exceptions assigned</strong></div>
+      <div><span>10</span><strong>Ready to advance</strong></div>
+    </div>
+    <div class="insight-banner">
+      <span>Control question</span>
+      <strong>What evidence establishes the coverage arrangement, payer order, and payer destination before the workflow is allowed to move downstream?</strong>
+    </div>
+  </section>
+
+  <section id="gate" class="section">
+    <div class="section-intro">
+      <span class="section-number">02</span>
+      <h2>Interactive Medicare Coverage &amp; Payer Routing Gate</h2>
+      <p>Use fictional information only. The gate does not determine real Medicare eligibility, coverage, benefits, payer liability, MSP status, authorization requirements, or claim payment.</p>
+    </div>
+    <div class="simulation-notice">SIMULATION ONLY — DO NOT ENTER PHI, REAL MEMBER IDs, REAL CLAIMS, OR REAL PAYER DATA</div>
+
+    <div class="medicare-workbench">
+      <div class="medicare-workbench-head">
+        <div>
+          <span class="mini-label">Synthetic payer-routing queue</span>
+          <h3 id="caseTitle">Original Medicare with unresolved other-insurance review</h3>
+        </div>
+        <div id="routingChip" class="medicare-chip">COB / MSP REVIEW</div>
+      </div>
+
+      <label>Fictional case
+        <select id="caseSelect">
+          <option value="MED-001">MED-001 · Original Medicare + other insurance unresolved</option>
+          <option value="MED-002">MED-002 · Medicare Advantage plan identified</option>
+          <option value="MED-003">MED-003 · Pharmacy / Part D routing review</option>
+          <option value="MED-004">MED-004 · Coverage identified / payer destination unclear</option>
+          <option value="MED-005">MED-005 · Controlled routing / ready to advance</option>
+        </select>
+      </label>
+      <div id="caseSummary" class="status-box"></div>
+
+      <form id="routingForm">
+        <div class="medicare-form-section">
+          <span class="mini-label">A · Coverage arrangement</span>
+          <div class="medicare-form-grid">
+            <label>Coverage Type
+              <select id="coverageType">
+                <option>Medicare coverage detected</option>
+                <option>Medicare + other insurance detected</option>
+                <option>Coverage arrangement unclear</option>
+              </select>
+            </label>
+            <label>Medicare Arrangement
+              <select id="arrangement">
+                <option>Not established</option>
+                <option>Original Medicare</option>
+                <option>Medicare Advantage</option>
+              </select>
+            </label>
+            <label>Part A Active?
+              <select id="partA">
+                <option>Not reviewed</option>
+                <option>Active in synthetic record</option>
+                <option>Inactive in synthetic record</option>
+                <option>Not applicable to modeled service</option>
+              </select>
+            </label>
+            <label>Part B Active?
+              <select id="partB">
+                <option>Not reviewed</option>
+                <option>Active in synthetic record</option>
+                <option>Inactive in synthetic record</option>
+                <option>Not applicable to modeled service</option>
+              </select>
+            </label>
+            <label>Medicare Advantage Plan Identified?
+              <select id="maPlan">
+                <option>Not reviewed</option>
+                <option>Yes — synthetic plan identified</option>
+                <option>No / unresolved</option>
+                <option>Not applicable — Original Medicare</option>
+              </select>
+            </label>
+            <label>Part D Plan Identified?
+              <select id="partD">
+                <option>Not reviewed</option>
+                <option>Yes — synthetic drug plan identified</option>
+                <option>No / unresolved</option>
+                <option>Not applicable to modeled service</option>
+              </select>
+            </label>
+            <label>Coverage Effective Date
+              <input id="effectiveDate" type="date">
+            </label>
+            <label>Effective Date Verified?
+              <select id="effectiveVerified">
+                <option>No</option>
+                <option>Yes</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <div class="medicare-form-section">
+          <span class="mini-label">B · Other coverage, COB, and MSP</span>
+          <div class="medicare-form-grid">
+            <label>Other Insurance Present?
+              <select id="otherInsurance">
+                <option>Unknown / not reviewed</option>
+                <option>No other insurance identified</option>
+                <option>Yes — other insurance identified</option>
+              </select>
+            </label>
+            <label>COB / MSP Review Completed?
+              <select id="cobMsp">
+                <option>No</option>
+                <option>Yes — modeled review completed</option>
+                <option>Qualified review required</option>
+              </select>
+            </label>
+            <label>Primary Payer Status Established?
+              <select id="primaryPayer">
+                <option>Not established</option>
+                <option>Medicare modeled as primary</option>
+                <option>Other insurer modeled as primary</option>
+                <option>Needs qualified review</option>
+              </select>
+            </label>
+            <label>Authoritative Source Reviewed?
+              <select id="sourceReviewed">
+                <option>No</option>
+                <option>Yes — current authoritative source documented</option>
+                <option>Needs qualified review</option>
+              </select>
+            </label>
+          </div>
+          <label>Source / Evidence Note
+            <textarea id="sourceNote" rows="4" placeholder="Fictional note only: document what current authoritative source or simulated evidence would need to be reviewed."></textarea>
+          </label>
+        </div>
+
+        <div class="medicare-form-section">
+          <span class="mini-label">C · Service context and payer destination</span>
+          <div class="medicare-form-grid">
+            <label>Service Context
+              <select id="serviceContext">
+                <option>Not established</option>
+                <option>Inpatient / facility context</option>
+                <option>Professional / outpatient context</option>
+                <option>Prescription drug / pharmacy context</option>
+                <option>Other administrative context</option>
+              </select>
+            </label>
+            <label>Expected Payer Destination
+              <select id="payerDestination">
+                <option>Not established</option>
+                <option>Original Medicare processing path</option>
+                <option>Medicare Advantage plan</option>
+                <option>Prescription drug plan</option>
+                <option>Other insurer / primary payer workflow</option>
+                <option>Qualified routing review required</option>
+              </select>
+            </label>
+            <label>Payer Destination Confirmed?
+              <select id="destinationConfirmed">
+                <option>No</option>
+                <option>Yes — confirmed against modeled coverage arrangement</option>
+              </select>
+            </label>
+            <label>Authorization / Referral Review Needed?
+              <select id="authReferral">
+                <option>Not reviewed</option>
+                <option>No additional review identified</option>
+                <option>Yes — requirement review pending</option>
+                <option>Yes — modeled requirement review complete</option>
+              </select>
+            </label>
+          </div>
+          <label>Routing Evidence
+            <textarea id="routingEvidence" rows="4" placeholder="What synthetic evidence connects the coverage arrangement and payer-order review to the expected payer destination?"></textarea>
+          </label>
+        </div>
+
+        <div class="medicare-form-section">
+          <span class="mini-label">D · Exception ownership and closure</span>
+          <div class="medicare-form-grid">
+            <label>Open Exception?
+              <select id="openException">
+                <option>Yes — unresolved</option>
+                <option>Yes — action in progress</option>
+                <option>Closure verification pending</option>
+                <option>No open exception</option>
+              </select>
+            </label>
+            <label>Current Owner
+              <select id="owner">
+                <option>Unassigned</option>
+                <option>Patient Access</option>
+                <option>Eligibility / Financial Clearance</option>
+                <option>COB / Payer Coordination Review</option>
+                <option>Prior Authorization Support</option>
+                <option>Claims / Revenue Cycle Support</option>
+                <option>Payer Follow-Up</option>
+                <option>Qualified Review</option>
+              </select>
+            </label>
+            <label>Next Action
+              <select id="nextAction">
+                <option>None selected</option>
+                <option>Confirm Medicare arrangement</option>
+                <option>Verify effective coverage dates</option>
+                <option>Review other insurance / COB information</option>
+                <option>Complete MSP / payer-order review</option>
+                <option>Establish primary payer status</option>
+                <option>Confirm payer destination</option>
+                <option>Complete authorization / referral review</option>
+                <option>Route for qualified review</option>
+                <option>Document closure evidence</option>
+              </select>
+            </label>
+            <label>Exception Closure Status
+              <select id="closureStatus">
+                <option>Open</option>
+                <option>Action completed — verification pending</option>
+                <option>Closure verified</option>
+              </select>
+            </label>
+          </div>
+          <label>Closure Evidence
+            <textarea id="closureEvidence" rows="4" placeholder="Fictional example: coverage arrangement verified, other insurance reviewed, payer order established, payer destination confirmed, required review completed, and no unresolved routing exception remains."></textarea>
+          </label>
+        </div>
+
+        <div class="medicare-actions">
+          <button class="primary-button" type="submit">Evaluate Readiness Gate</button>
+          <button class="secondary-button" id="saveReview" type="button">Save Simulated Review</button>
+          <button class="secondary-button" id="resetReview" type="button">Reset Current Case</button>
+        </div>
+      </form>
+
+      <div class="medicare-progress-wrap">
+        <div><span class="mini-label">Readiness progress</span><strong id="progressText">0 of 12 controls documented</strong></div>
+        <div class="medicare-progress"><div id="progressBar"></div></div>
+      </div>
+
+      <div id="gateResult" class="gate-result" aria-live="polite"></div>
+
+      <div class="medicare-next-control">
+        <span class="mini-label">Next control</span>
+        <strong id="nextControlText">Establish the Medicare coverage arrangement.</strong>
+      </div>
+
+      <div class="medicare-evidence-summary">
+        <span class="mini-label">Payer-routing evidence summary</span>
+        <h3>Readiness Evidence</h3>
+        <div class="medicare-summary-grid">
+          <div><span>Arrangement identified?</span><strong id="sumArrangement">No</strong></div>
+          <div><span>Effective dates verified?</span><strong id="sumDates">No</strong></div>
+          <div><span>COB / MSP reviewed?</span><strong id="sumCob">No</strong></div>
+          <div><span>Primary payer established?</span><strong id="sumPrimary">No</strong></div>
+          <div><span>Service context checked?</span><strong id="sumService">No</strong></div>
+          <div><span>Payer destination confirmed?</span><strong id="sumDestination">No</strong></div>
+          <div><span>Exception controlled?</span><strong id="sumException">No</strong></div>
+          <div><span>Ready to advance?</span><strong id="sumReady">No</strong></div>
+        </div>
+      </div>
+
+      <div class="medicare-saved-panel">
+        <div class="medicare-saved-head">
+          <div>
+            <span class="mini-label">Browser-saved synthetic work</span>
+            <h3>Saved Payer-Routing Reviews</h3>
+            <p>Saved reviews remain in this browser on this device and are not uploaded. Keep all entries synthetic and no-PHI.</p>
+          </div>
+          <button id="startNewReview" class="secondary-button" type="button">Start New Review</button>
+        </div>
+        <div id="savedReviews" class="medicare-saved-list"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-intro">
+      <span class="section-number">03</span>
+      <h2>Readiness Logic</h2>
+      <p>The gate is designed to block advancement when coverage is known but payer responsibility or claim destination is not.</p>
+    </div>
+    <div class="medicare-decision-grid">
+      <article><span class="mini-label">Coverage detected / arrangement unknown</span><h3>Identify the Medicare arrangement.</h3><p>Do not infer payer responsibility from the word “Medicare” alone.</p></article>
+      <article><span class="mini-label">Plan identified / COB unresolved</span><h3>Hold the workflow.</h3><p>Correct plan identification does not close other-insurance or payer-order questions.</p></article>
+      <article><span class="mini-label">Primary payer unknown</span><h3>Do not assign claim destination.</h3><p>Establish the modeled payer-order status or route for qualified review.</p></article>
+      <article><span class="mini-label">Destination selected / evidence weak</span><h3>Routing is not yet controlled.</h3><p>Document evidence connecting the coverage arrangement and payer-order review to the selected destination.</p></article>
+      <article><span class="mini-label">Exception open / no owner</span><h3>Advancement stays blocked.</h3><p>Assign the next action and ownership before the case progresses.</p></article>
+      <article><span class="mini-label">All required controls verified</span><h3>Ready to advance in simulation.</h3><p>The modeled coverage, payer-order, service context, routing evidence, and closure controls are documented.</p></article>
+    </div>
+  </section>
+
+  <section id="patient" class="section learning-section">
+    <div class="section-intro">
+      <span class="section-number">04</span>
+      <h2>Patient-to-Professional Perspective</h2>
+    </div>
+    <div class="medicare-patient-grid">
+      <blockquote>“Why did Medicare deny this?”</blockquote>
+      <blockquote>“Why is this insurance saying they aren't responsible?”</blockquote>
+      <blockquote>“Why did the office send this to the wrong insurance?”</blockquote>
+      <blockquote>“Why am I getting a bill?”</blockquote>
+    </div>
+    <div class="content-card statement-card">
+      <p>The patient sees the billing problem. Healthcare operations has to determine whether the coverage and payer-routing workflow was correct before the claim ever moved downstream.</p>
+    </div>
+    <div class="insight-banner">
+      <span>Healthcare Operations Intelligence Engine™</span>
+      <strong>Where did the workflow first lose control?</strong>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="content-card accent-card">
+      <div class="mini-label">Evidence and authority boundary</div>
+      <h2>Real-world handling requires current authoritative guidance.</h2>
+      <p>This module intentionally does not hard-code annual Medicare premiums, deductibles, coinsurance, payer-specific billing rules, or a universal MSP determination. Real workflows require current authoritative CMS/Medicare information, payer/program guidance, organizational procedures, and qualified review when applicable.</p>
+      <p>EVIS does not determine real eligibility, coverage, benefits, coordination of benefits, Medicare Secondary Payer status, payer liability, authorization requirements, coding, medical necessity, reimbursement, or legal/compliance conclusions.</p>
+    </div>
+  </section>
+
+  <section class="medicare-signature" aria-label="Kori Pickle signature">
+    <img src="kp-logo.svg" alt="Kori Pickle KP logo">
+    <div>
+      <a class="medicare-signature-name" href="https://lnkd.in/p/eQuDNisW" target="_blank" rel="noreferrer">Kori Pickle</a>
+      <div class="medicare-signature-rule"></div>
+      <p>Patient-to-professional healthcare operations portfolio</p>
+      <p>Healthcare Operations Intelligence Engine™</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p><strong>EVIS — Eligibility Verification Intelligence System™</strong></p>
+  <p>Created by Kori Pickle</p>
+  <p>Student-developed · Simulated · Synthetic data only · No PHI</p>
+</footer>
+
+<script>
+const q=s=>document.querySelector(s);
+const today=()=>new Date().toISOString().slice(0,10);
+const STORAGE_HISTORY="evis-medicare-routing-history-v1";
+const STORAGE_DRAFT="evis-medicare-routing-draft-v1";
+const fields=["caseSelect","coverageType","arrangement","partA","partB","maPlan","partD","effectiveDate","effectiveVerified","otherInsurance","cobMsp","primaryPayer","sourceReviewed","sourceNote","serviceContext","payerDestination","destinationConfirmed","authReferral","routingEvidence","openException","owner","nextAction","closureStatus","closureEvidence"];
+let lastMeta=null;
+
+const cases={
+  "MED-001":{
+    title:"Original Medicare with unresolved other-insurance review",
+    summary:"Medicare coverage is visible in the synthetic record, but other-insurance and payer-order questions have not yet been resolved.",
+    arrangement:"Original Medicare",partA:"Active in synthetic record",partB:"Active in synthetic record",ma:"Not applicable — Original Medicare",partD:"Not applicable to modeled service",
+    other:"Yes — other insurance identified",cob:"No",primary:"Not established",service:"Professional / outpatient context",destination:"Not established",exception:"Yes — unresolved",owner:"Unassigned",action:"Complete MSP / payer-order review"
+  },
+  "MED-002":{
+    title:"Medicare Advantage plan identified",
+    summary:"A synthetic Medicare Advantage arrangement is identified. The review must still confirm effective coverage, other insurance, payer order, service context, and the plan destination before advancement.",
+    arrangement:"Medicare Advantage",partA:"Not applicable to modeled service",partB:"Not applicable to modeled service",ma:"Yes — synthetic plan identified",partD:"Not applicable to modeled service",
+    other:"No other insurance identified",cob:"Yes — modeled review completed",primary:"Medicare modeled as primary",service:"Professional / outpatient context",destination:"Medicare Advantage plan",exception:"Closure verification pending",owner:"Eligibility / Financial Clearance",action:"Confirm payer destination"
+  },
+  "MED-003":{
+    title:"Prescription drug / Part D routing review",
+    summary:"A modeled pharmacy context requires the drug-plan routing question to be resolved rather than assuming a medical claim destination.",
+    arrangement:"Original Medicare",partA:"Not applicable to modeled service",partB:"Not applicable to modeled service",ma:"Not applicable — Original Medicare",partD:"Yes — synthetic drug plan identified",
+    other:"No other insurance identified",cob:"Yes — modeled review completed",primary:"Medicare modeled as primary",service:"Prescription drug / pharmacy context",destination:"Prescription drug plan",exception:"Closure verification pending",owner:"Eligibility / Financial Clearance",action:"Confirm payer destination"
+  },
+  "MED-004":{
+    title:"Coverage identified / payer destination unclear",
+    summary:"The synthetic coverage arrangement is known, but the payer destination has not been tied to service context and payer-order evidence.",
+    arrangement:"Original Medicare",partA:"Active in synthetic record",partB:"Active in synthetic record",ma:"Not applicable — Original Medicare",partD:"Not applicable to modeled service",
+    other:"Unknown / not reviewed",cob:"No",primary:"Not established",service:"Inpatient / facility context",destination:"Not established",exception:"Yes — unresolved",owner:"Eligibility / Financial Clearance",action:"Review other insurance / COB information"
+  },
+  "MED-005":{
+    title:"Controlled coverage-to-routing workflow",
+    summary:"The synthetic arrangement, effective dates, other insurance, payer order, service context, routing evidence, and closure controls are documented.",
+    arrangement:"Medicare Advantage",partA:"Not applicable to modeled service",partB:"Not applicable to modeled service",ma:"Yes — synthetic plan identified",partD:"Not applicable to modeled service",
+    other:"No other insurance identified",cob:"Yes — modeled review completed",primary:"Medicare modeled as primary",service:"Professional / outpatient context",destination:"Medicare Advantage plan",exception:"No open exception",owner:"Eligibility / Financial Clearance",action:"Document closure evidence"
+  }
+};
+
+function safeParse(raw,fallback){try{return raw?JSON.parse(raw):fallback}catch(e){return fallback}}
+function getHistory(){return safeParse(localStorage.getItem(STORAGE_HISTORY),[])}
+function setHistory(items){localStorage.setItem(STORAGE_HISTORY,JSON.stringify(items.slice(0,8)))}
+function capture(){
+  const values={};
+  fields.forEach(id=>{const el=q("#"+id);if(el)values[id]=el.value});
+  return values;
+}
+function persistDraft(){localStorage.setItem(STORAGE_DRAFT,JSON.stringify({updatedAt:new Date().toISOString(),values:capture()}))}
+function apply(values){
+  if(!values)return;
+  if(values.caseSelect && cases[values.caseSelect])q("#caseSelect").value=values.caseSelect;
+  setCaseMeta();
+  fields.forEach(id=>{const el=q("#"+id);if(el && id!=="caseSelect" && values[id]!==undefined)el.value=values[id]});
+  evaluate(false,false);
+}
+function setCaseMeta(){
+  const c=cases[q("#caseSelect").value];
+  q("#caseTitle").textContent=c.title;
+  q("#caseSummary").innerHTML="<strong>"+q("#caseSelect").value+"</strong><br>"+c.summary;
+}
+function loadCase(){
+  const c=cases[q("#caseSelect").value];
+  setCaseMeta();
+  q("#coverageType").value=c.other==="Yes — other insurance identified"?"Medicare + other insurance detected":"Medicare coverage detected";
+  q("#arrangement").value=c.arrangement;
+  q("#partA").value=c.partA;
+  q("#partB").value=c.partB;
+  q("#maPlan").value=c.ma;
+  q("#partD").value=c.partD;
+  q("#effectiveDate").value=today();
+  q("#effectiveVerified").value=q("#caseSelect").value==="MED-001"||q("#caseSelect").value==="MED-004"?"No":"Yes";
+  q("#otherInsurance").value=c.other;
+  q("#cobMsp").value=c.cob;
+  q("#primaryPayer").value=c.primary;
+  q("#sourceReviewed").value=q("#caseSelect").value==="MED-005"?"Yes — current authoritative source documented":"No";
+  q("#sourceNote").value=q("#caseSelect").value==="MED-005"?"Synthetic evidence note: current authoritative source review is documented for this educational scenario.":"";
+  q("#serviceContext").value=c.service;
+  q("#payerDestination").value=c.destination;
+  q("#destinationConfirmed").value=q("#caseSelect").value==="MED-005"?"Yes — confirmed against modeled coverage arrangement":"No";
+  q("#authReferral").value="No additional review identified";
+  q("#routingEvidence").value=q("#caseSelect").value==="MED-005"?"Synthetic routing evidence connects the modeled Medicare Advantage arrangement and payer-order review to the plan destination.":"";
+  q("#openException").value=c.exception;
+  q("#owner").value=c.owner;
+  q("#nextAction").value=c.action;
+  q("#closureStatus").value=q("#caseSelect").value==="MED-005"?"Closure verified":"Open";
+  q("#closureEvidence").value=q("#caseSelect").value==="MED-005"?"Synthetic closure evidence: arrangement verified, effective date reviewed, COB/MSP review documented, primary payer status established, payer destination confirmed, and no unresolved routing exception remains.":"";
+  evaluate(false,false);
+  persistDraft();
+}
+function validPartReview(){
+  const context=q("#serviceContext").value;
+  if(context==="Prescription drug / pharmacy context")return q("#partD").value==="Yes — synthetic drug plan identified";
+  if(q("#arrangement").value==="Medicare Advantage")return q("#maPlan").value==="Yes — synthetic plan identified";
+  return q("#partA").value!=="Not reviewed" && q("#partB").value!=="Not reviewed";
+}
+function evidenceState(){
+  const noOpen=q("#openException").value==="No open exception";
+  const exceptionControlled=noOpen || (q("#owner").value!=="Unassigned" && q("#nextAction").value!=="None selected" && q("#closureStatus").value==="Closure verified" && !!q("#closureEvidence").value.trim());
+  return {
+    arrangement:q("#arrangement").value!=="Not established" && validPartReview(),
+    dates:q("#effectiveVerified").value==="Yes" && !!q("#effectiveDate").value,
+    cob:q("#otherInsurance").value!=="Unknown / not reviewed" && q("#cobMsp").value==="Yes — modeled review completed",
+    primary:!["Not established","Needs qualified review"].includes(q("#primaryPayer").value),
+    source:q("#sourceReviewed").value==="Yes — current authoritative source documented" && !!q("#sourceNote").value.trim(),
+    service:q("#serviceContext").value!=="Not established",
+    destination:q("#payerDestination").value!=="Not established" && q("#destinationConfirmed").value==="Yes — confirmed against modeled coverage arrangement" && !!q("#routingEvidence").value.trim(),
+    auth:q("#authReferral").value==="No additional review identified" || q("#authReferral").value==="Yes — modeled requirement review complete",
+    exception:exceptionControlled
+  };
+}
+function updateSummary(s,ready){
+  q("#sumArrangement").textContent=s.arrangement?"Yes":"No";
+  q("#sumDates").textContent=s.dates?"Yes":"No";
+  q("#sumCob").textContent=s.cob?"Yes":"No";
+  q("#sumPrimary").textContent=s.primary?"Yes":"No";
+  q("#sumService").textContent=s.service?"Yes":"No";
+  q("#sumDestination").textContent=s.destination?"Yes":"No";
+  q("#sumException").textContent=s.exception?"Yes":"No";
+  q("#sumReady").textContent=ready?"Yes":"No";
+}
+function markMissing(ids){
+  document.querySelectorAll(".medicare-missing").forEach(el=>el.classList.remove("medicare-missing"));
+  ids.forEach(id=>{const el=q("#"+id);const label=el&&el.closest("label");if(label)label.classList.add("medicare-missing")});
+}
+function evaluate(scroll=true,highlight=true){
+  const s=evidenceState();
+  const controls=[s.arrangement,s.dates,s.cob,s.primary,s.source,s.service,s.destination,s.auth,s.exception,!!q("#coverageType").value,!!q("#effectiveDate").value,!!q("#routingEvidence").value];
+  const done=controls.filter(Boolean).length;
+  const total=controls.length;
+  const pct=Math.round(done/total*100);
+  q("#progressBar").style.width=pct+"%";
+  q("#progressText").textContent=done+" of "+total+" controls documented · "+pct+"%";
+
+  let chip,state,title,body,next,missing=[];
+  if(!s.arrangement){
+    chip="ARRANGEMENT REVIEW";state="blocked";title="Medicare arrangement is not sufficiently established";
+    body="Coverage detection alone does not establish payer responsibility. Confirm the modeled Medicare arrangement and the relevant coverage component for this service context.";
+    next="Establish the Medicare arrangement and relevant coverage component.";
+    missing.push("arrangement");
+  }else if(!s.dates){
+    chip="EFFECTIVE DATE REVIEW";state="review";title="Coverage arrangement identified — effective-date verification is incomplete";
+    body="Confirm that the modeled coverage arrangement aligns with the service-date context before payer routing is treated as ready.";
+    next="Verify the synthetic coverage effective date.";
+    missing.push("effectiveVerified");
+  }else if(!s.cob){
+    chip="COB / MSP REVIEW";state="review";title="Coverage is visible — payer-order review remains incomplete";
+    body="Correct plan identification does not resolve other-insurance or COB/MSP questions. Complete the modeled review before establishing payer responsibility.";
+    next="Complete the other-insurance and COB/MSP review.";
+    if(q("#otherInsurance").value==="Unknown / not reviewed")missing.push("otherInsurance");
+    if(q("#cobMsp").value!=="Yes — modeled review completed")missing.push("cobMsp");
+  }else if(!s.primary){
+    chip="PAYER ORDER HOLD";state="blocked";title="Primary payer status is not established";
+    body="Do not assign a claim destination until the modeled payer-order status is established or routed for qualified review.";
+    next="Establish the modeled primary payer status.";
+    missing.push("primaryPayer");
+  }else if(!s.source){
+    chip="SOURCE REVIEW";state="review";title="Payer-order logic lacks a documented authoritative-source review";
+    body="Real-world Medicare handling requires current authoritative guidance. Document the synthetic source-review step before advancement.";
+    next="Document the current authoritative source review used by the simulation.";
+    missing.push("sourceReviewed","sourceNote");
+  }else if(!s.service){
+    chip="SERVICE CONTEXT";state="review";title="Payer order is established — service context is still unclear";
+    body="The modeled claim destination cannot be confirmed without knowing the relevant service context.";
+    next="Establish the service context.";
+    missing.push("serviceContext");
+  }else if(!s.destination){
+    chip="ROUTING HOLD";state="blocked";title="Coverage and payer order are reviewed — payer destination is not yet controlled";
+    body="Confirm the expected payer destination against the modeled coverage arrangement and document the routing evidence.";
+    next="Confirm the payer destination and document the routing evidence.";
+    missing.push("payerDestination","destinationConfirmed","routingEvidence");
+  }else if(!s.auth){
+    chip="READINESS EXCEPTION";state="active";title="Payer destination is controlled — authorization/referral readiness remains open";
+    body="Complete the modeled authorization/referral requirement review before the case advances.";
+    next="Complete or route the authorization/referral review.";
+    missing.push("authReferral");
+  }else if(!s.exception){
+    chip="EXCEPTION CONTROL";state="active";title="An open exception prevents advancement";
+    body="The exception needs visible ownership, a next action, and verified closure before the case can advance.";
+    next="Assign ownership, complete the next action, and document closure evidence.";
+    if(q("#owner").value==="Unassigned")missing.push("owner");
+    if(q("#nextAction").value==="None selected")missing.push("nextAction");
+    if(q("#closureStatus").value!=="Closure verified")missing.push("closureStatus");
+    if(!q("#closureEvidence").value.trim())missing.push("closureEvidence");
+  }else{
+    chip="READY TO ADVANCE";state="closed";title="Modeled coverage-to-routing workflow is ready to advance";
+    body="The synthetic arrangement, effective-date review, other-insurance/COB-MSP review, payer order, source review, service context, payer destination, readiness requirements, and exception closure controls are documented.";
+    next="Advance to downstream claim-readiness review while preserving the documented payer-routing evidence.";
+  }
+  const ready=state==="closed";
+  q("#routingChip").textContent=chip;
+  q("#nextControlText").textContent=next;
+  const el=q("#gateResult");
+  el.className="gate-result "+state;
+  el.innerHTML='<div class="mini-label">Current modeled state · '+done+' of '+total+' controls documented</div><strong>'+title+'</strong><p>'+body+'</p><p><strong>Signature question:</strong> Where did the workflow first lose control?</p>';
+  if(highlight)markMissing(missing);else markMissing([]);
+  updateSummary(s,ready);
+  lastMeta={chip,state,title,body,next,done,total,pct,ready};
+  if(scroll)el.scrollIntoView({behavior:"smooth",block:"center"});
+  return lastMeta;
+}
+function save(){
+  const meta=evaluate(false,true);
+  const item={
+    id:"EVIS-MED-"+Date.now(),
+    savedAt:new Date().toISOString(),
+    caseId:q("#caseSelect").value,
+    title:cases[q("#caseSelect").value].title,
+    state:meta.chip,
+    progress:meta.pct,
+    owner:q("#owner").value,
+    primary:q("#primaryPayer").value,
+    destination:q("#payerDestination").value,
+    ready:meta.ready,
+    values:capture()
+  };
+  setHistory([item,...getHistory()].slice(0,8));
+  persistDraft();
+  renderHistory();
+  q("#gateResult").insertAdjacentHTML("beforeend","<p><strong>Saved locally in this browser.</strong> This synthetic review will remain available on this device unless browser storage is cleared.</p>");
+}
+function renderHistory(){
+  const host=q("#savedReviews");
+  const items=getHistory();
+  if(!items.length){
+    host.innerHTML='<div class="medicare-empty"><strong>No saved payer-routing reviews yet.</strong><span>Complete part of a synthetic review and choose “Save Simulated Review.”</span></div>';
+    return;
+  }
+  host.innerHTML=items.map(item=>{
+    const when=new Date(item.savedAt).toLocaleString();
+    return '<article class="medicare-saved-card">'+
+      '<div class="medicare-saved-meta"><span>'+item.state+'</span><span>'+item.progress+'%</span></div>'+
+      '<h4>'+item.title+'</h4>'+
+      '<p><strong>Primary payer:</strong> '+item.primary+'</p>'+
+      '<p><strong>Payer destination:</strong> '+item.destination+'</p>'+
+      '<p><strong>Owner:</strong> '+item.owner+'</p>'+
+      '<p><strong>Ready to advance:</strong> '+(item.ready?'Yes':'No')+'</p>'+
+      '<p><strong>Saved:</strong> '+when+'</p>'+
+      '<div class="medicare-saved-actions">'+
+        '<button class="primary-button" type="button" data-action="resume" data-id="'+item.id+'">Resume Review</button>'+
+        '<button class="secondary-button" type="button" data-action="delete" data-id="'+item.id+'">Delete</button>'+
+      '</div>'+
+    '</article>';
+  }).join("");
+}
+function resume(id){
+  const item=getHistory().find(x=>x.id===id);
+  if(!item)return;
+  apply(item.values);
+  persistDraft();
+  q("#gate").scrollIntoView({behavior:"smooth",block:"start"});
+}
+function removeSaved(id){
+  if(!window.confirm("Delete this saved synthetic payer-routing review from this browser?"))return;
+  setHistory(getHistory().filter(x=>x.id!==id));
+  renderHistory();
+}
+function startNew(){
+  localStorage.removeItem(STORAGE_DRAFT);
+  q("#caseSelect").value="MED-001";
+  loadCase();
+  q("#gate").scrollIntoView({behavior:"smooth",block:"start"});
+}
+q("#caseSelect").addEventListener("change",loadCase);
+document.querySelectorAll("#routingForm input,#routingForm select,#routingForm textarea").forEach(el=>{
+  el.addEventListener("change",()=>{evaluate(false,false);persistDraft()});
+  el.addEventListener("input",()=>{evaluate(false,false);persistDraft()});
+});
+q("#routingForm").addEventListener("submit",e=>{e.preventDefault();evaluate(true,true);persistDraft()});
+q("#saveReview").addEventListener("click",save);
+q("#resetReview").addEventListener("click",()=>{if(window.confirm("Reset the current synthetic case?"))loadCase()});
+q("#startNewReview").addEventListener("click",startNew);
+q("#savedReviews").addEventListener("click",e=>{
+  const b=e.target.closest("button[data-action]");
+  if(!b)return;
+  if(b.dataset.action==="resume")resume(b.dataset.id);
+  if(b.dataset.action==="delete")removeSaved(b.dataset.id);
+});
+renderHistory();
+const draft=safeParse(localStorage.getItem(STORAGE_DRAFT),null);
+if(draft&&draft.values)apply(draft.values);else loadCase();
+</script>
+</body>
+</html>
