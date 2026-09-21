@@ -1,8 +1,7 @@
 /*
   Unified display typography layer
   Brand colors remain #FFFFFF / #000000 / #FF8200.
-  Headings now use the same Manrope family as the body/UI for a cleaner,
-  lighter, more consistent mobile presentation.
+  Display typography uses Newsreader while body/UI typography remains Inter.
 */
 
 h1,
@@ -20,7 +19,7 @@ blockquote,
 .artifact-card strong,
 .metric-row strong,
 .method-grid strong {
-  font-family: 'Manrope', Arial, Helvetica, sans-serif;
+  font-family: 'Newsreader', Georgia, 'Times New Roman', serif;
   font-synthesis: none;
 }
 
