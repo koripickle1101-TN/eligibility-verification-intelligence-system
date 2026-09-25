@@ -1,8 +1,17 @@
 /*
-  Unified display typography layer
-  Brand colors remain #FFFFFF / #000000 / #FF8200.
-  Display typography uses Newsreader while body/UI typography remains Inter.
+  EVIS — Premium Feminine Editorial Brand Layer
+  Locked brand palette: #FFFFFF / #000000 / #FF8200.
+  This file loads after style.css and intentionally softens the heavier SaaS/dashboard treatments.
 */
+
+:root{
+  --white:#FFFFFF;
+  --black:#000000;
+  --orange:#FF8200;
+  --orange-soft:rgba(255,130,0,.07);
+  --line:rgba(0,0,0,.12);
+  --line-strong:rgba(0,0,0,.24);
+}
 
 h1,
 h2,
@@ -18,104 +27,284 @@ blockquote,
 .insight-banner strong,
 .artifact-card strong,
 .metric-row strong,
-.method-grid strong {
-  font-family: 'Newsreader', Georgia, 'Times New Roman', serif;
-  font-synthesis: none;
+.method-grid strong,
+.medicare-routing-page h1,
+.medicare-routing-page h2,
+.medicare-routing-page h3,
+.medicare-routing-page h4,
+.medicare-signature-name {
+  font-family:'Newsreader', Georgia, 'Times New Roman', serif;
+  font-synthesis:none;
 }
 
-h1 {
-  max-width: 900px;
-  font-size: clamp(2.5rem, 10.8vw, 4.25rem);
-  line-height: 1.01;
-  letter-spacing: -.045em;
-  font-weight: 600;
+h1{
+  max-width:900px;
+  font-size:clamp(2.75rem,10.8vw,4.8rem);
+  line-height:1.02;
+  letter-spacing:-.048em;
+  font-weight:500;
 }
 
-h2 {
-  font-size: clamp(1.85rem, 7.4vw, 3.05rem);
-  line-height: 1.06;
-  letter-spacing: -.035em;
-  font-weight: 600;
+h2{
+  font-size:clamp(1.95rem,7.4vw,3.2rem);
+  line-height:1.08;
+  letter-spacing:-.038em;
+  font-weight:500;
 }
 
-h3 {
-  font-size: clamp(1.28rem, 5vw, 1.65rem);
-  line-height: 1.15;
-  letter-spacing: -.025em;
-  font-weight: 600;
+h3{
+  font-size:clamp(1.3rem,5vw,1.72rem);
+  line-height:1.18;
+  letter-spacing:-.028em;
+  font-weight:500;
 }
 
-.integrity-card h2 {
-  font-size: clamp(1.8rem, 7.2vw, 2.85rem);
-  line-height: 1.08;
+.integrity-card h2{
+  font-size:clamp(1.9rem,7.2vw,2.95rem);
+  line-height:1.1;
 }
 
-.statement-card p {
-  font-size: clamp(1.3rem, 5.6vw, 1.95rem);
-  line-height: 1.26;
-  letter-spacing: -.022em;
-  font-weight: 500;
+.statement-card p{
+  font-size:clamp(1.3rem,5.6vw,1.95rem);
+  line-height:1.3;
+  letter-spacing:-.022em;
+  font-weight:500;
 }
 
 .learning-section blockquote,
-.takeaway-section blockquote {
-  font-size: clamp(1.45rem, 6.2vw, 2.55rem);
-  line-height: 1.2;
-  letter-spacing: -.025em;
-  font-weight: 500;
+.takeaway-section blockquote{
+  font-size:clamp(1.45rem,6.2vw,2.55rem);
+  line-height:1.23;
+  letter-spacing:-.026em;
+  font-weight:500;
 }
 
-.result-value {
-  font-size: clamp(1.8rem, 7.8vw, 2.85rem);
-  line-height: 1.03;
-  letter-spacing: -.035em;
-  font-weight: 600;
+.result-value{
+  font-size:clamp(1.8rem,7.8vw,2.9rem);
+  line-height:1.04;
+  letter-spacing:-.038em;
+  font-weight:500;
 }
 
 .dash-kpi span,
 .metric-card span,
 .metric-row strong,
-.method-grid strong {
-  font-weight: 600;
-  letter-spacing: -.025em;
-}
-
+.method-grid strong,
 .signal-step strong,
 .insight-banner strong,
-.artifact-card strong {
-  font-weight: 600;
-  line-height: 1.18;
-  letter-spacing: -.025em;
+.artifact-card strong{
+  font-weight:500;
+  letter-spacing:-.026em;
 }
 
 .signature-question,
-.final-question {
-  font-weight: 500;
-  letter-spacing: -.035em;
-  font-style: normal;
+.final-question{
+  font-weight:500;
+  letter-spacing:-.038em;
+  font-style:normal;
 }
 
-.final-question {
-  font-size: clamp(2.2rem, 9.5vw, 4.4rem);
-  line-height: 1.02;
+.final-question{
+  font-size:clamp(2.2rem,9.5vw,4.4rem);
+  line-height:1.03;
 }
 
-@media (max-width: 520px) {
+/* Editorial spacing + linework */
+.hero-section,
+.page-hero{padding-top:68px}
+.section,
+.content-section,
+.dashboard-section,
+.artifacts-section{padding-top:64px;padding-bottom:64px}
+
+.content-card,
+.metric-card,
+.feature-card,
+.editorial-card,
+.control-card,
+.result-tile,
+.artifact-card,
+.learning-grid>div,
+.signal-step,
+.comparison-brief article,
+.comparison-panel,
+.logic-card,
+.workflow-node,
+.method-grid>div{
+  border-color:var(--line-strong);
+  box-shadow:none;
+}
+
+.content-card.accent-card{
+  border:1px solid var(--orange) !important;
+  box-shadow:none !important;
+}
+.content-card.accent-card:before{width:3px}
+.statement-card{border:1px solid var(--line-strong);border-left:4px solid var(--orange)}
+.insight-banner{border:1px solid var(--line-strong);border-left:4px solid var(--orange)}
+.integrity-card{border-top:3px solid var(--orange)}
+.site-footer{border-top:3px solid var(--orange)}
+.case-study-hero{border-top:3px solid var(--orange)}
+.case-study-hero:before{height:3px;width:96px}
+.case-study-hero:after,
+.project-hero:after{opacity:.2}
+
+/* Refined button system */
+.primary-button,
+.secondary-button,
+.mobile-menu summary,
+.medicare-actions .primary-button,
+.medicare-actions .secondary-button,
+.medicare-saved-actions .primary-button,
+.medicare-saved-actions .secondary-button{
+  border-radius:8px !important;
+  padding:12px 18px;
+  font-weight:600;
+  letter-spacing:.01em;
+  box-shadow:none !important;
+  transition:border-color .15s ease, background .15s ease, color .15s ease, transform .15s ease;
+}
+
+.primary-button{
+  background:var(--black) !important;
+  color:var(--white) !important;
+  border:1px solid var(--black) !important;
+}
+
+.primary-button:after{color:var(--orange) !important}
+
+.secondary-button{
+  background:var(--white) !important;
+  color:var(--black) !important;
+  border:1px solid var(--black) !important;
+}
+
+.primary-button:hover,
+.primary-button:focus-visible{
+  transform:translateY(-1px);
+  border-color:var(--orange) !important;
+}
+
+.secondary-button:hover,
+.secondary-button:focus-visible{
+  transform:translateY(-1px);
+  border-color:var(--orange) !important;
+  box-shadow:inset 0 -2px 0 var(--orange) !important;
+}
+
+.mobile-menu summary{
+  border:1px solid var(--black) !important;
+  background:var(--white);
+  color:var(--black);
+  text-transform:none;
+  font-size:.8rem;
+  font-weight:600;
+}
+.mobile-menu[open] summary{
+  background:var(--black);
+  color:var(--white);
+}
+
+/* Keep Tennessee Orange as a precise accent, never a substitute shade */
+.eyebrow,
+.section-number,
+.mini-label,
+.control-index,
+.logic-index,
+.signal-step span,
+.insight-banner span,
+.artifact-card span,
+.learning-grid span,
+.footer-note{
+  color:#FF8200 !important;
+}
+
+.accent-card,
+.highlight-card,
+.highlighted-step,
+.medicare-chip,
+.medicare-progress,
+.medicare-next-control,
+.medicare-missing select,
+.medicare-missing input,
+.medicare-missing textarea,
+.medicare-summary-grid>div,
+.medicare-saved-panel,
+.medicare-decision-grid article,
+.medicare-signature-rule{
+  border-color:#FF8200;
+}
+
+#progressBar,
+.medicare-signature-rule{background:#FF8200 !important}
+
+/* UI labels: lighter and more editorial */
+.eyebrow,
+.section-number,
+.mini-label,
+.control-index,
+.brand-mark,
+.nav-links,
+.mobile-menu-panel a,
+.filter-bar label,
+.simulation-notice,
+.footer-note{
+  font-weight:600;
+}
+
+.brand-mark{letter-spacing:.1em}
+
+/* Cards and workflow nodes */
+.editorial-card,
+.control-card,
+.result-tile,
+.artifact-card,
+.workflow-node,
+.signal-step,
+.logic-card,
+.comparison-panel,
+.comparison-brief article{
+  border-width:1px;
+}
+
+.editorial-card.orange-edge,
+.control-card.orange-edge,
+.comparison-brief .orange-edge,
+.result-tile,
+.featured-artifact,
+.learning-grid>div,
+.metric-card{
+  border-top-width:1px;
+  border-bottom-width:1px;
+}
+
+.editorial-card.orange-edge,
+.control-card.orange-edge,
+.comparison-brief .orange-edge,
+.featured-result,
+.featured-artifact,
+.learning-grid>div,
+.metric-card{
+  box-shadow:inset 0 -2px 0 var(--orange);
+}
+
+@media(max-width:520px){
   .hero-section,
-  .page-hero {
-    padding-top: 54px;
+  .page-hero{padding-top:56px}
+
+  h1{
+    font-size:clamp(2.45rem,10.7vw,3.4rem);
+    line-height:1.03;
   }
 
-  h1 {
-    font-size: clamp(2.35rem, 10.7vw, 3.25rem);
-    line-height: 1.02;
-  }
+  h2{font-size:clamp(1.78rem,7.2vw,2.5rem)}
+  .statement-card p{font-size:clamp(1.22rem,5.4vw,1.68rem)}
+  .hero-actions{gap:10px}
+  .primary-button,.secondary-button{width:100%;padding:13px 16px}
+}
 
-  h2 {
-    font-size: clamp(1.75rem, 7.2vw, 2.45rem);
-  }
-
-  .statement-card p {
-    font-size: clamp(1.22rem, 5.4vw, 1.65rem);
-  }
+@media(min-width:980px){
+  .hero-section,.page-hero{padding-top:88px;padding-bottom:72px}
+  h1{font-size:clamp(4.7rem,7.3vw,6.7rem)}
+  h2{font-size:clamp(2.9rem,4.7vw,4.05rem)}
 }
