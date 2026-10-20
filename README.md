@@ -1,5 +1,28 @@
 # EVIS — Eligibility Verification Intelligence System
 
+## Recruiter Review — 30-Second Snapshot
+
+**Project type:** Student-developed, simulated, educational, no-PHI; not professional healthcare employment.
+
+- **Operational problem:** Front-end demographic and insurance exceptions can remain unresolved after detection.
+- **Student approach:** I modeled eligibility verification, exception ownership, correction, re-verification, and a control gate using fictional cases.
+- **Inspect the evidence:** 30-case synthetic demographic simulation, 15-vs-15 modeled comparison, exception closure module, and linked sample CSV files.
+- **Entry-level skills illustrated:** Patient access documentation, status tracking, handoffs, escalation, basic simulated KPI interpretation.
+- **Assumptions and limitations:** The comparison outcomes are student-selected synthetic assumptions, not observed denial reductions; no payer connection or live eligibility transactions.
+
+### Simple Workflow and Handoff View
+
+```text
+Intake → Check demographic and payer data → Detect discrepancy → Assign follow-up → Correct and reverify → Advance if closed / Hold if unresolved.
+```
+
+**Control question:** Where did the workflow first lose control? Each stage is a hypothetical administrative review step, not a clinical, payer, or compliance authorization.
+
+**Privacy and equity considerations:** All examples are fictional. In actual work, patient identifiers and coverage details require approved access and minimum-necessary handling. Language access, disability accommodations, and timely patient communication may affect safe administrative follow-up; this project does not measure those outcomes.
+
+---
+
+
 I built EVIS as a student-developed healthcare operations project to study a problem that can look small at the front end but feel much bigger later: **what happens when inaccurate or incomplete information enters the workflow before eligibility verification?**
 
 As I work toward my Bachelor's of Science degree in Healthcare Administration at the University of Phoenix, I am especially interested in patient access and the points where an administrative problem can become a patient problem. From the patient side, an incorrect date of birth, member ID, payer selection, or coordination-of-benefits issue may show up later as another phone call, a delayed appointment, a reschedule, billing confusion, or a request to repeat information that was already provided.
