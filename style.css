@@ -337,3 +337,17 @@ p{margin-top:0}
     flex-basis:78px;
   }
 }
+
+/* HOIE BRAND SYSTEM — typography, balanced spacing, and workflow visuals */
+:root{--brand-white:#FFFFFF;--brand-black:#000000;--brand-orange:#FF8200;--brand-structure:#F7F5F2}
+body{background:#FFFFFF;color:#000000;font-family:'Inter',Arial,sans-serif}
+h1,h2,h3,.editorial-heading{font-family:'Newsreader',Georgia,serif;letter-spacing:-.025em}
+main>section{padding-top:clamp(3rem,6vw,6rem);padding-bottom:clamp(3rem,6vw,6rem)}
+.workflow-node,.flow-node,.process-node{border:2px solid #000;outline:2px solid rgba(255,130,0,.42);outline-offset:5px;border-radius:999px;box-shadow:0 0 0 10px rgba(255,130,0,.07)}
+.workflow-connector,.dotted-connector{border-color:#FF8200;border-style:dotted}
+.kp-signed-footer{margin:1.8rem auto 0;text-align:center;max-width:440px;color:#000;padding:1.25rem}
+.kp-signed-footer .kp-credit{font:600 .82rem 'Inter',sans-serif;letter-spacing:.08em}
+.kp-signed-footer .kp-script{display:block;margin:.6rem 0;font-family:'Brush Script MT','Segoe Script','Lucida Handwriting',cursive;font-style:italic;font-size:clamp(2.1rem,4vw,3.4rem);font-weight:400;transform:rotate(-3deg);line-height:1.35}
+.kp-signed-footer .kp-social{display:flex;justify-content:center;gap:18px;margin-top:14px}
+.kp-signed-footer .kp-social a{color:#000;display:inline-flex;align-items:center;gap:6px;text-decoration:none;font:600 .72rem 'Inter',sans-serif}
+.kp-signed-footer .kp-social svg{width:17px;height:17px;fill:currentColor}
