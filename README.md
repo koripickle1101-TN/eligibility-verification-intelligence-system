@@ -1,5 +1,8 @@
 # EVIS — Eligibility Verification Intelligence System
 
+
+**NEW — Inspect a completed administrative simulation:** [12-case patient access queue reviewer guide](evidence/patient-access-queue-reviewer-guide.md) · [fictional queue CSV](data/patient-access-work-queue-12-synthetic-cases.csv). This 12-case exercise is separate from the original 30-case EVIS simulation; neither measures real employer outcomes.
+
 ## Recruiter Review — 30-Second Snapshot
 
 **Project type:** Student-developed, simulated, educational, no-PHI; not professional healthcare employment.
