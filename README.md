@@ -29,6 +29,14 @@ As I work toward my Bachelor's of Science degree in Healthcare Administration at
 
 EVIS gives me a way to practice tracing those visible problems back to the first point where the workflow may have lost control.
 
+
+### Completed Synthetic Work Queue — Recruiter Evidence
+
+- [12 fictional patient-access queue records (CSV)](data/patient-access-work-queue-12-synthetic-cases.csv) — populated statuses, assigned queues, follow-up dates, next actions, closure examples, and brief handoff notes.
+- An Excel workbook with formulas for unresolved cases, closure share, overdue cases, and age is available separately as a downloadable companion artifact. The workbook is not currently stored in this GitHub repository.
+
+**Scope clarification:** This new 12-case queue is a separate educational demonstration, not a subset of or validation of the existing EVIS 30-case model. As-of date for the companion workbook: October 20, 2026. No live payer verification or real patient records were used.
+
 ## Why I Built EVIS
 
 I do not have formal healthcare operations employment experience yet, so I use simulated projects to turn coursework and independent study into visible practice.
