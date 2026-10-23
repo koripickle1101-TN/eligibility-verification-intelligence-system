@@ -1,9 +1,9 @@
-# LinkedIn Featured Description
+EVIS is my student-developed, no-PHI healthcare operations simulation. I designed a fictional 12-case patient-access follow-up queue and a separate 30-case demographic eligibility control comparison to practice exception documentation, handoffs, escalation, and calculation of modeled workflow metrics.
 
-EVIS 1.0 is a healthcare operations portfolio project I designed to detect insurance eligibility risk before scheduling, authorization, claim submission, or patient billing are affected.
+The repository includes inspectable CSV records, a five-case additive checklist scoring exercise, and interactive administrative workflow prototypes. Scores and comparison outcomes are educational assumptions, not validated predictions or evidence of actual denial reduction, payer verification, or employer results.
 
-The project focuses on coverage verification, payer mismatch, plan type confusion, demographic conflicts, coordination-of-benefits risk, authorization triggers, patient responsibility visibility, clean intake readiness, and downstream denial prevention.
+My Bachelor of Science in Healthcare Administration is in progress. I have not worked in healthcare operations.
 
-This project demonstrates my ability to analyze front-end revenue cycle workflows, organize eligibility risk factors, design KPI logic, build executive-style artifacts, and communicate patient access improvement opportunities in a clear, remote-ready format.
+Review the source datasets and methodology before interpreting any modeled results.
 
 Created by Kori Pickle
