@@ -370,3 +370,18 @@ p,li,td,th,label,button,input,select,textarea,summary,
   .nav-shell{max-width:1400px}
   .nav-links{font-size:.82rem}
 }
+
+/* Accessibility contrast remediation: preserve Tennessee orange for borders and
+   decorative accents; use dark burnt orange for small foreground text. */
+:root{--orange-text:#924600}
+.eyebrow,.section-number,.mini-label,.control-index,
+.content-card .mini-label,.editorial-card .mini-label,
+.artifact-card .mini-label,.workflow-node .control-index,
+.section-kicker,.small-label,.brand-label,
+[class*="eyebrow"],[class*="mini-label"],[class*="section-number"]{
+ color:var(--orange-text)!important;
+}
+a:focus-visible,button:focus-visible,summary:focus-visible,
+input:focus-visible,select:focus-visible,textarea:focus-visible{
+ outline:3px solid #924600;outline-offset:3px;
+}
