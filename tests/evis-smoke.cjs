@@ -2,6 +2,7 @@ const fs = require('node:fs');
 const assert = require('node:assert/strict');
 const path = require('node:path');
 const { chromium } = require('playwright');
+const axeSource = require.resolve('axe-core/axe.min.js');
 const root = path.resolve(__dirname, '..');
 const read = p => fs.readFileSync(path.join(root,p),'utf8');
 function csv(input) {
@@ -79,6 +80,11 @@ async function main(){
         const layout=await page.evaluate(()=>({width:document.documentElement.scrollWidth,viewport:innerWidth,heading:!!document.querySelector('h1')}));
         assert.ok(layout.heading,route+' missing h1');
         assert.ok(layout.width<=layout.viewport+2,route+' horizontal overflow '+JSON.stringify(layout));
+        await page.addScriptTag({path:axeSource});
+        const accessibility=await page.evaluate(async()=>await window.axe.run(document,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21a','wcag21aa']}}));
+        const severe=accessibility.violations.filter(v=>v.impact==='critical'||v.impact==='serious');
+        if(severe.length) console.error('ACCESSIBILITY',route,viewport.width,JSON.stringify(severe.map(v=>({id:v.id,impact:v.impact,count:v.nodes.length}))));
+        assert.equal(severe.length,0,route+' serious/critical accessibility violations');
         await page.screenshot({path:'/tmp/evis-'+viewport.width+'-'+route.replace('.html','')+'.png',fullPage:true});
       }
       await page.goto('http://127.0.0.1:8765/index.html');
