@@ -1,0 +1,65 @@
+const fs = require('node:fs');
+const assert = require('node:assert/strict');
+const path = require('node:path');
+const { chromium } = require('playwright');
+const root = path.resolve(__dirname, '..');
+const read = p => fs.readFileSync(path.join(root,p),'utf8');
+function csv(input) {
+  const rows = input.trim().split(/\r?\n/).map(line => {
+    const out=[]; let cell='', quote=false;
+    for(let i=0;i<line.length;i++){const c=line[i];if(c==='"'){if(quote&&line[i+1]==='"'){cell+='"';i++;}else quote=!quote;}else if(c===','&&!quote){out.push(cell);cell='';}else cell+=c;}
+    out.push(cell);return out;
+  });
+  const keys=rows.shift();return rows.map(row=>Object.fromEntries(keys.map((key,i)=>[key,row[i]])));
+}
+const sample=csv(read('data/sample-eligibility-cases.csv'));
+const sim=csv(read('data/demographic-eligibility-control-simulation.csv'));
+const queue=csv(read('data/patient-access-work-queue-12-synthetic-cases.csv'));
+const keys=['coverage_inactive_or_unclear','payer_mismatch','plan_type_unclear','demographic_mismatch','cob_issue','referral_unclear','authorization_trigger','patient_responsibility_not_reviewed'];
+const weights=[25,20,15,15,20,15,20,10];
+for(const r of sample){const score=keys.reduce((v,k,i)=>v+Number(r[k])*weights[i],0);const level=score>=61?'Critical':score>=41?'High':score>=21?'Moderate':'Low';assert.equal(score,Number(r.eligibility_risk_score),r.case_id);assert.equal(level,r.risk_level,r.case_id);}
+assert.equal(sample.length,5);
+const group=state=>sim.filter(x=>x.State===state);
+const base=group('Baseline'),control=group('Control state');
+assert.equal(base.length,15);assert.equal(control.length,15);
+assert.equal(base.filter(x=>x.Eligibility_Status==='Exception').length,6);
+assert.equal(control.filter(x=>x.Eligibility_Status==='Exception').length,1);
+assert.equal(control.filter(x=>x.Caught_Pre_Eligibility==='Yes').length,5);
+assert.equal(base.reduce((a,x)=>a+Number(x.Rework_Touches),0),21);
+assert.equal(control.reduce((a,x)=>a+Number(x.Rework_Touches),0),2);
+assert.equal(queue.length,12);
+assert.equal(queue.filter(x=>x['Queue Status']==='Closed').length,7);
+assert.equal(queue.filter(x=>x['Queue Status']==='Open').length,3);
+assert.equal(queue.filter(x=>x['Queue Status']==='Escalated').length,2);
+assert.equal(queue.filter(x=>x['Queue Status']!=='Closed'&&x['Follow-up Due']<'2026-10-20').length,5);
+console.log('PASS: synthetic data arithmetic');
+async function main(){
+  const browser=await chromium.launch({headless:true});
+  try{
+    for(const viewport of [{width:1366,height:900},{width:390,height:844}]){
+      const page=await browser.newPage({viewport});
+      const errors=[];page.on('pageerror',e=>errors.push(e.message));
+      await page.goto('http://127.0.0.1:8765/eligibility-risk-calculator.html');
+      await page.locator('input[type=checkbox]').first().check();
+      assert.match(await page.locator('#scoreOutput').innerText(),/25/);
+      await page.locator('input[type=checkbox]').nth(1).check();
+      assert.match(await page.locator('#scoreOutput').innerText(),/45/);
+      await page.goto('http://127.0.0.1:8765/demographic-eligibility-control-simulation.html');
+      await page.locator('#baseline-exception').waitFor();
+      await page.waitForFunction(()=>document.querySelector('#baseline-exception')?.textContent==='40.0%');
+      assert.equal(await page.locator('#control-exception').innerText(),'6.7%');
+      await page.goto('http://127.0.0.1:8765/eligibility-exception-closure-control.html');
+      await page.locator('#evaluateButton').click();
+      assert.match(await page.locator('#gateResult').innerText(),/Review Required/);
+      await page.locator('#exceptionDetected').check();
+      await page.locator('#evaluateButton').click();
+      assert.match(await page.locator('#gateResult').innerText(),/Exception Identified/);
+      await page.goto('http://127.0.0.1:8765/index.html');
+      assert.ok((await page.title()).includes('EVIS'));
+      assert.equal(errors.length,0,errors.join('; '));
+      await page.close();
+    }
+    console.log('PASS: calculator, simulation, closure safety gate, desktop/mobile smoke');
+  }finally{await browser.close();}
+}
+main().catch(e=>{console.error(e);process.exitCode=1;});
