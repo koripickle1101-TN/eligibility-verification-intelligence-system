@@ -74,6 +74,13 @@ async function main(){
       await page.locator('#closureDate').fill('2026-10-07');
       await page.locator('#evaluateButton').click();
       assert.match(await page.locator('#gateResult').innerText(),/Invalid Closure Chronology/);
+      for(const route of ['index.html','eligibility-dashboard.html','eligibility-risk-calculator.html','eligibility-exception-closure-control.html','demographic-eligibility-control-simulation.html','medicare-coverage-payer-routing-readiness-gate.html','sample-eligibility-cases.html']){
+        await page.goto('http://127.0.0.1:8765/'+route);
+        const layout=await page.evaluate(()=>({width:document.documentElement.scrollWidth,viewport:innerWidth,heading:!!document.querySelector('h1')}));
+        assert.ok(layout.heading,route+' missing h1');
+        assert.ok(layout.width<=layout.viewport+2,route+' horizontal overflow '+JSON.stringify(layout));
+        await page.screenshot({path:'/tmp/evis-'+viewport.width+'-'+route.replace('.html','')+'.png',fullPage:true});
+      }
       await page.goto('http://127.0.0.1:8765/index.html');
       assert.ok((await page.title()).includes('EVIS'));
       assert.equal(errors.length,0,errors.join('; '));
