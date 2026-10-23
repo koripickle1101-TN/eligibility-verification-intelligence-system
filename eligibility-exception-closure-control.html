@@ -275,7 +275,7 @@
   $('evaluateButton').addEventListener('click', function(){
     const detected = $('exceptionDetected').checked;
     if(!detected){
-      render('Verified — No Exception','No exception is marked in this simulation. The modeled case is ready for the next workflow step.',true);
+      render('No Exception Reported — Review Required','No exception was selected. That alone does not establish verified coverage or permission to advance. Confirm the applicable intake checks with an authorized source and organizational procedure.',false);
       return;
     }
     const category = $('category').value;
@@ -298,6 +298,17 @@
       render('Exception Identified','The exception is documented, but clear ownership has not been assigned. Route the case before it advances.',false);
       return;
     }
+    const source = $('source').value;
+    const evidenceRequired = $('evidenceRequired').value.trim();
+    const evidenceReviewed = $('evidenceReviewed').checked;
+    const handoffComplete = $('handoffComplete').checked;
+    const ownershipConfirmed = $('ownershipConfirmed').checked;
+    const followupDate = $('followupDate').value;
+    const advancementApproved = $('advancementApproved').checked;
+    if(!source || !evidenceRequired || !followupDate || !ownershipConfirmed || !handoffComplete){
+      render('Documentation or Handoff Incomplete','Record the fictional exception source, required closure evidence, due date, confirmed owner, and completed handoff before considering the gate for advancement.',false);
+      return;
+    }
     if(escalation){
       render('Escalation Required', escalationReason ? 'An escalation condition is recorded. Route the simulated case for escalation and keep the gate closed until resolution is verified.' : 'Escalation is marked as required, but the reason is not documented. Record the escalation reason and keep the gate closed.', false);
       return;
@@ -318,7 +329,15 @@
       render('Resolution Pending Verification','A resolution action is documented, but closure has not been fully verified. The gate remains closed.',false);
       return;
     }
-    render('Ready for Next Workflow Step','Exception Closed — the simulated exception is documented, owned, acted on, and closure is verified. The modeled case may advance.',true);
+    if(!evidenceReviewed || !advancementApproved){
+      render('Closure Evidence or Approval Missing','A closure checkbox is insufficient. The modeled case needs an explicit evidence-review confirmation and documented advancement approval.',false);
+      return;
+    }
+    if(closureDate < resolutionDate){
+      render('Invalid Closure Chronology','The closure verification date cannot precede the documented resolution date.',false);
+      return;
+    }
+    render('Modeled Gate Complete — Qualified Review Still Required','All simulated control fields are complete. This educational result does not verify real coverage, authorization, or permission to advance a real case.',true);
   });
   $('resetButton').addEventListener('click', function(){
     window.setTimeout(function(){render('Not evaluated','Complete the fictional workflow information and evaluate the gate.',false);},0);
