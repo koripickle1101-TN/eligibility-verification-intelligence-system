@@ -1,7 +1,7 @@
 # EVIS — Eligibility Verification Intelligence System
 
 
-**NEW — Inspect a completed administrative simulation:** [12-case patient access queue reviewer guide](evidence/patient-access-queue-reviewer-guide.md) · [fictional queue CSV](data/patient-access-work-queue-12-synthetic-cases.csv). This 12-case exercise is separate from the original 30-case EVIS simulation; neither measures real employer outcomes.
+**Start here — Inspect a fictional administrative work sample:** [12-case patient access queue reviewer guide](evidence/patient-access-queue-reviewer-guide.md) · [fictional queue CSV](data/patient-access-work-queue-12-synthetic-cases.csv). This 12-case exercise is separate from the original 30-case EVIS simulation; neither measures real employer outcomes.
 
 ## Recruiter Review — 30-Second Snapshot
 
@@ -12,6 +12,8 @@
 - **Inspect the evidence:** 30-case synthetic demographic simulation, 15-vs-15 modeled comparison, exception closure module, and linked sample CSV files.
 - **Entry-level skills illustrated:** Patient access documentation, status tracking, handoffs, escalation, basic simulated KPI interpretation.
 - **Assumptions and limitations:** The comparison outcomes are student-selected synthetic assumptions, not observed denial reductions; no payer connection or live eligibility transactions.
+
+**Calculation and claim verification:** [EVIS metrics and scoring methodology](evidence/metrics-and-scoring-methodology.md) · [evidence validation report](evidence/recruiter-readiness-validation.md). The calculator uses unvalidated teaching weights, and the monthly report uses illustrative placeholder KPIs, not measured results.
 
 ### Simple Workflow and Handoff View
 
@@ -36,7 +38,7 @@ EVIS gives me a way to practice tracing those visible problems back to the first
 ### Completed Synthetic Work Queue — Recruiter Evidence
 
 - [12 fictional patient-access queue records (CSV)](data/patient-access-work-queue-12-synthetic-cases.csv) — populated statuses, assigned queues, follow-up dates, next actions, closure examples, and brief handoff notes.
-- An Excel workbook with formulas for unresolved cases, closure share, overdue cases, and age is available separately as a downloadable companion artifact. The workbook is not currently stored in this GitHub repository.
+- A companion Excel workbook has been described separately, but it is **not available in this repository** and its formulas have **not been independently verified here**. The inspectable source for queue metrics is the linked CSV.
 
 **Scope clarification:** This new 12-case queue is a separate educational demonstration, not a subset of or validation of the existing EVIS 30-case model. As-of date for the companion workbook: October 20, 2026. No live payer verification or real patient records were used.
 
@@ -90,7 +92,7 @@ The 30-case synthetic set includes:
 | Payer selection discrepancy | 1 |
 | **Total** | **30** |
 
-The website also compares **15 baseline cases with 15 control-state cases** to show how the same workflow can be reviewed under different modeled conditions.
+The website also displays **15 baseline cases and 15 control-state cases**. These are differently composed fictional cohorts, not matched before-and-after records; the numerical differences do not establish causation or real-world improvement.
 
 ## How I Think About the Control
 
@@ -265,7 +267,9 @@ I want the project to show how I am learning to think through eligibility and pa
 - [LinkedIn](https://www.linkedin.com/in/kori-pickle)
 - [GitHub profile](https://github.com/koripickle1101-TN)
 
-Created by Kori Pickle. Student-developed portfolio project. Synthetic data only. No PHI## Medicare Coverage & Payer Routing Readiness Gate™
+Created by Kori Pickle. Student-developed portfolio project. Synthetic data only. No PHI
+
+## Medicare Coverage & Payer Routing Readiness Gate™
 
 EVIS now includes a premium interactive Medicare coverage-to-routing control for practicing the distinction between identifying Medicare coverage and establishing payer responsibility.
 
