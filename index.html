@@ -34,6 +34,7 @@
   <nav class="nav-shell" aria-label="Primary navigation">
     <a class="brand-mark" href="index.html" aria-label="EVIS home">EVIS</a>
     <div class="nav-links desktop-nav">
+      <a href="#recruiter-evidence">Quick Evidence</a>
       <a href="#why">Why EVIS</a>
       <a href="#problem">Workflow Problem</a>
       <a href="#control">Control</a>
@@ -49,6 +50,7 @@
     <details class="mobile-menu">
       <summary aria-label="Open navigation">Menu</summary>
       <div class="mobile-menu-panel">
+        <a href="#recruiter-evidence">Start Here · Evidence Quick Review</a>
         <a href="#why">01 · Why I Built EVIS</a>
         <a href="#problem">02 · Workflow Problem</a>
         <a href="#first-loss">03 · First Loss of Control</a>
@@ -73,9 +75,44 @@
     <p class="hero-subtitle">I built EVIS to study what can happen when inaccurate or incomplete information enters the workflow before eligibility verification—and how a small front-end defect can become a much more visible problem later.</p>
     <p class="hero-subtitle">As I work toward my Bachelor's of Science degree in Healthcare Administration, I use simulated projects like this one to practice patient access, eligibility workflow analysis, control design, synthetic data analysis, and root-cause thinking without presenting student work as professional healthcare employment.</p>
     <div class="hero-actions">
-      <a class="primary-button" href="demographic-eligibility-control-simulation.html">Open Full Control Simulation</a>
+      <a class="primary-button" href="#recruiter-evidence">Review Project Evidence</a>
+      <a class="secondary-button" href="demographic-eligibility-control-simulation.html">Open Full Control Simulation</a>
       <a class="secondary-button" href="eligibility-exception-closure-control.html">Test Exception Closure Gate</a>
       <a class="secondary-button" href="medicare-coverage-payer-routing-readiness-gate.html">Test Medicare Routing Gate</a>
+    </div>
+  </section>
+
+  <section class="content-section compact-section" id="recruiter-evidence" aria-labelledby="recruiter-evidence-heading">
+    <div class="content-card accent-card">
+      <div class="mini-label">Recruiter quick review · Evidence first</div>
+      <h2 id="recruiter-evidence-heading">What I built and what the evidence shows</h2>
+      <p>EVIS is an independent student-developed healthcare administration portfolio simulation. I designed fictional patient-access follow-up cases, an intake-defect comparison, and educational workflow controls. This is not healthcare employment, a connected payer system, or a record of real operational improvement.</p>
+      <div class="story-grid">
+        <article class="editorial-card">
+          <h3>12-case follow-up queue</h3>
+          <p>Seven modeled administrative closures, three open cases, and two escalations. Statuses are fictional and do not prove payer verification.</p>
+          <a href="data/patient-access-work-queue-12-synthetic-cases.csv">Inspect queue data (CSV)</a>
+          <p><a href="evidence/patient-access-queue-reviewer-guide.md">Read closure-evidence limitations</a></p>
+        </article>
+        <article class="editorial-card">
+          <h3>30-case control comparison</h3>
+          <p>Fifteen baseline and fifteen control-state fictional records. Modeled exceptions are 6/15 versus 1/15; groups are unmatched, so no causal effect is established.</p>
+          <a href="data/demographic-eligibility-control-simulation.csv">Inspect comparison data (CSV)</a>
+          <p><a href="demographic-eligibility-control-simulation.html">Explore the interactive analysis</a></p>
+        </article>
+        <article class="editorial-card">
+          <h3>Five-case scoring exercise</h3>
+          <p>Five fictional records use eight disclosed weighted flags. Scores are reproducible arithmetic, not validated risk predictions or eligibility decisions.</p>
+          <a href="data/sample-eligibility-cases.csv">Recalculate the five cases (CSV)</a>
+          <p><a href="eligibility-risk-calculator.html">Try the educational calculator</a></p>
+        </article>
+        <article class="editorial-card">
+          <h3>Methodology and audit</h3>
+          <p>Read the assumptions, denominators, corrections, reporting limitations, and hiring-manager review before interpreting any result.</p>
+          <a href="evidence/metrics-and-scoring-methodology.md">Read the scoring methodology</a>
+          <p><a href="evidence/final-hiring-manager-audit.md">Read the eleven-point audit</a></p>
+        </article>
+      </div>
     </div>
   </section>
 
