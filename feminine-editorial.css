@@ -385,3 +385,13 @@ a:focus-visible,button:focus-visible,summary:focus-visible,
 input:focus-visible,select:focus-visible,textarea:focus-visible{
  outline:3px solid #924600;outline-offset:3px;
 }
+
+/* WCAG AA foreground contrast: keep signature orange for non-text accents. */
+:root{--orange-text:#924600}
+.section-number,.mini-label,.control-index,.logic-index,
+.signal-step span,.insight-banner span,.artifact-card span,
+.learning-grid span,.footer-note,.signal-arrow,
+.workflow-connector,.control-panel .metric-row strong,
+.medicare-routing-rail span,.tm{
+  color:var(--orange-text)!important;
+}
