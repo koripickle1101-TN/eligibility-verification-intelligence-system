@@ -308,3 +308,32 @@ h3{
   h1{font-size:clamp(4.7rem,7.3vw,6.7rem)}
   h2{font-size:clamp(2.9rem,4.7vw,4.05rem)}
 }
+
+/* EVIS typography and navigation consistency — October 2026 review */
+:root{--evis-display:'Newsreader',Georgia,'Times New Roman',serif;--evis-ui:'Inter',Arial,Helvetica,sans-serif}
+body,.nav-shell,.nav-links,.mobile-menu-panel,.workflow-strip,.workflow-strip span{font-family:var(--evis-ui)}
+h1,h2,h3,h4,.statement-card p,.final-question,.insight-banner strong,.shell-card h2{font-family:var(--evis-display)}
+.nav-links{font-size:.86rem;line-height:1.45}
+.nav-links a{display:inline-flex;align-items:center;min-height:32px;white-space:nowrap}
+.workflow-strip{display:flex;flex-wrap:wrap;align-items:stretch;gap:9px;margin:20px 0 26px}
+.workflow-strip span{display:inline-flex;align-items:center;padding:9px 12px;border:1px solid var(--line-strong);border-left:3px solid var(--orange);font-size:.84rem;line-height:1.4;font-weight:600;background:#fff}
+.shell-card{margin:0 auto 30px;padding:clamp(22px,4vw,44px);border:1px solid var(--line-strong);border-left:4px solid var(--orange);background:#fff}
+.shell-card h2{margin-top:10px}
+.shell-card p{max-width:900px}
+@media(min-width:980px){
+  .nav-shell{max-width:1240px;align-items:center;gap:24px}
+  .desktop-nav{gap:12px 18px;align-content:center}
+  .nav-links{font-size:.8rem}
+  .brand-mark:before{width:62px;height:62px;flex-basis:62px;margin-right:9px}
+}
+@media(max-width:979px){
+  .desktop-nav{display:none}
+  .mobile-menu{display:block}
+}
+@media(max-width:599px){
+  .nav-shell{padding:9px 20px}
+  .brand-mark:before{width:50px;height:50px;flex-basis:50px;margin-right:8px}
+  .workflow-strip{gap:8px}
+  .workflow-strip span{font-size:.8rem;padding:8px 10px}
+  .shell-card{padding:20px}
+}
