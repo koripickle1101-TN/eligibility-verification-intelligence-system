@@ -40,6 +40,22 @@ async function main(){
     for(const viewport of [{width:1366,height:900},{width:390,height:844}]){
       const page=await browser.newPage({viewport});
       const errors=[];page.on('pageerror',e=>errors.push(e.message));
+      await page.goto('http://127.0.0.1:8765/eligibility-dashboard.html');
+      await page.locator('#data-status').getByText('Loaded and calculated',{exact:false}).waitFor();
+      const evidence=await page.locator('.evidence-metric').allTextContents();
+      assert.equal(evidence.length,10,'dashboard metric count');
+      assert.match(evidence.join(' '),/58\.3%/);
+      assert.match(evidence.join(' '),/83\.3%/);
+      assert.match(evidence.join(' '),/40\.0%/);
+      assert.match(evidence.join(' '),/6\.7%/);
+      assert.match(evidence.join(' '),/21/);
+      assert.match(evidence.join(' '),/2/);
+      assert.equal(await page.locator('.evidence-metric a[href$=".csv"]').count(),10);
+      assert.ok(await page.locator('#queue').isVisible());
+      assert.ok(await page.locator('#simulation').isVisible());
+      const dashboardWidth=await page.evaluate(()=>({actual:document.documentElement.scrollWidth,viewport:innerWidth}));
+      assert.ok(dashboardWidth.actual<=dashboardWidth.viewport+2,'dashboard horizontal overflow '+JSON.stringify(dashboardWidth));
+      await page.screenshot({path:'/tmp/evis-dashboard-'+viewport.width+'.png',fullPage:true});
       await page.goto('http://127.0.0.1:8765/eligibility-risk-calculator.html');
       await page.locator('input[type=checkbox]').first().check();
       assert.match(await page.locator('#scoreOutput').innerText(),/25/);
