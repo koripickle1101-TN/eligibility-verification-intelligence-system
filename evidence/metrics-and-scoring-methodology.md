@@ -46,7 +46,17 @@ This is a deterministic, educational additive checklist, not a validated predict
 
 Band labels are arbitrary scenario-routing categories: 0–20 Low, 21–40 Moderate, 41–60 High, 61–140 Critical. The score is not a probability, clinical risk rating, coverage decision, or authorization determination. Action language is illustrative and must defer to local procedures and authorized staff.
 
-The five records in [sample eligibility cases](../data/sample-eligibility-cases.csv) contain illustrative scores but do not specify every checkbox input. Their values therefore cannot be independently recalculated using the calculator. Do not represent them as model outputs or a validated scoring dataset.
+The five records in [sample eligibility cases](../data/sample-eligibility-cases.csv) now provide eight binary input fields. Their scores are the weighted sum of the eight flags, using the table above. Example: EVIS-002 = 25 (coverage unclear) + 15 (referral unclear) + 20 (authorization trigger) = 60 (High). EVIS-003 = 20 (COB issue), which falls in the illustrative Low band despite requiring follow-up. A low score must not be interpreted as permission to advance unresolved cases.
+
+| Case | Active input flags | Calculated points | Category |
+|---|---|---:|---|
+| EVIS-001 | None | 0 | Low |
+| EVIS-002 | Coverage unclear; referral unclear; authorization trigger | 60 | High |
+| EVIS-003 | COB issue | 20 | Low |
+| EVIS-004 | Inactive coverage | 25 | Moderate |
+| EVIS-005 | Demographic mismatch | 15 | Low |
+
+These are revised educational examples. Earlier scores of 18, 62, 45, 70, and 35 were unsupported by input-level evidence and have been replaced; they must not be compared as performance changes.
 
 ## Monthly report
 
