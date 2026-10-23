@@ -337,3 +337,36 @@ h1,h2,h3,h4,.statement-card p,.final-question,.insight-banner strong,.shell-card
   .workflow-strip span{font-size:.8rem;padding:8px 10px}
   .shell-card{padding:20px}
 }
+
+/* Recruiter-readiness typography correction: one display face for titles,
+   one readable UI face for all content, controls, and explanatory callouts. */
+html{font-size:16px}
+body{font-family:'Inter',Arial,Helvetica,sans-serif}
+h1,h2,h3,h4,.final-question,.signature-question{font-family:'Newsreader',Georgia,'Times New Roman',serif;font-synthesis:none}
+p,li,td,th,label,button,input,select,textarea,summary,
+.nav-links,.nav-links a,.mobile-menu-panel,.mobile-menu-panel a,
+.hero-subtitle,.eyebrow,.mini-label,.section-number,
+.statement-card p,.insight-banner,.insight-banner strong,
+.artifact-card strong,.metric-row strong,.method-grid strong,
+.signal-step strong,.workflow-strip,.workflow-strip span,
+.shell-card p,.shell-card strong,.control-card p,
+.content-card p,.content-card strong,.editorial-card p,
+.primary-button,.secondary-button{
+  font-family:'Inter',Arial,Helvetica,sans-serif;
+  font-synthesis:none;
+}
+.statement-card p{font-size:clamp(1rem,2.2vw,1.2rem);line-height:1.65;font-weight:500;letter-spacing:normal}
+.insight-banner strong,.artifact-card strong,.metric-row strong,
+.method-grid strong,.signal-step strong,.content-card strong{font-weight:700;letter-spacing:normal}
+.insight-banner{line-height:1.65}
+.workflow-strip span{overflow-wrap:anywhere}
+@media(max-width:1299px){
+  .desktop-nav{display:none!important}
+  .mobile-menu{display:block!important}
+}
+@media(min-width:1300px){
+  .desktop-nav{display:flex!important;flex-wrap:wrap;justify-content:flex-end;gap:10px 16px}
+  .mobile-menu{display:none!important}
+  .nav-shell{max-width:1400px}
+  .nav-links{font-size:.82rem}
+}
