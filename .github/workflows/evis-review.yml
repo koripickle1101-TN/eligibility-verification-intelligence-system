@@ -11,10 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: '22'
+          package-manager-cache: false
       - name: Install browser test runtime
         run: |
           npm install --no-save playwright axe-core
@@ -27,7 +28,7 @@ jobs:
         run: node tests/evis-smoke.cjs
       - name: Preserve desktop and mobile screenshots
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: evis-responsive-screenshots
           path: /tmp/evis-*.png
