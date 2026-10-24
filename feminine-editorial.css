@@ -453,9 +453,17 @@ h3{font-size:clamp(1.3rem,3vw,2rem);line-height:1.2}
   h2{font-size:clamp(2.5rem,4vw,3.5rem)}
 }
 
-/* Brand correction: readable black labels with true Tennessee orange emphasis. */
-:root{--orange:#FF8200;--orange-text:#000000;--evis-display:'Newsreader',Georgia,'Times New Roman',serif}
-h1,h2,h3,h4,.final-question,.signature-question,.learning-section blockquote,.takeaway-section blockquote{font-family:var(--evis-display)!important;font-weight:500}
-.eyebrow,.section-number,.mini-label,.control-index,.logic-index,.signal-step span,.insight-banner span,.artifact-card span,.learning-grid span,.footer-note,[class*="eyebrow"],[class*="mini-label"],[class*="section-number"]{color:#000000!important;text-decoration-color:#FF8200;text-decoration-thickness:2px}
-.eyebrow,.section-number,.mini-label,.control-index,.logic-index{border-left:3px solid #FF8200;padding-left:8px}
+
+/* Final visual correction — mobile editorial typography and true Vols orange.
+   Avoid Georgia/Newsreader display styling and brown micro-labels. */
+:root{--orange:#FF8200;--orange-text:#000000;--evis-display:'Inter',Arial,Helvetica,sans-serif}
+h1,h2,h3,h4,.final-question,.signature-question,.learning-section blockquote,.takeaway-section blockquote,.medicare-routing-page h1,.medicare-routing-page h2,.medicare-routing-page h3,.medicare-routing-page h4{font-family:var(--evis-display)!important;font-weight:700!important;font-style:normal;letter-spacing:-.035em;line-height:1.16;overflow-wrap:break-word}
+h1{font-size:clamp(2.1rem,7vw,4rem)!important}
+h2{font-size:clamp(1.65rem,4vw,2.65rem)!important}
+h3{font-size:clamp(1.2rem,2.7vw,1.75rem)!important}
+.final-question{font-size:clamp(2rem,6vw,3.5rem)!important;line-height:1.15!important;max-width:850px}
+.eyebrow,.section-number,.mini-label,.control-index,.logic-index,.signal-step span,.insight-banner span,.artifact-card span,.learning-grid span,.footer-note,.section-kicker,.small-label,.brand-label,[class*="eyebrow"],[class*="mini-label"],[class*="section-number"],.medicare-routing-rail span,.tm{color:#000000!important}
+.eyebrow,.mini-label,.section-number,.control-index,.logic-index{border-left:3px solid #FF8200;padding-left:8px}
+.workflow-strip span,.insight-banner,.statement-card,.shell-card,.site-footer{border-left-color:#FF8200}
 a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline-color:#FF8200}
+@media(max-width:599px){h1{font-size:clamp(2rem,8vw,2.75rem)!important}h2{font-size:clamp(1.55rem,6vw,2rem)!important}h3{font-size:clamp(1.18rem,4.8vw,1.5rem)!important}.final-question{font-size:clamp(2rem,7.2vw,2.75rem)!important}.insight-banner{display:block}.insight-banner strong{display:block;margin-bottom:8px;font-size:1.1rem;line-height:1.35}.insight-banner span{display:block;margin-bottom:8px}}
