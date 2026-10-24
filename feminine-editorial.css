@@ -373,7 +373,7 @@ p,li,td,th,label,button,input,select,textarea,summary,
 
 /* Accessibility contrast remediation: preserve Tennessee orange for borders and
    decorative accents; use dark burnt orange for small foreground text. */
-:root{--orange-text:#924600}
+:root{--orange-text:#000000}
 .eyebrow,.section-number,.mini-label,.control-index,
 .content-card .mini-label,.editorial-card .mini-label,
 .artifact-card .mini-label,.workflow-node .control-index,
@@ -383,11 +383,11 @@ p,li,td,th,label,button,input,select,textarea,summary,
 }
 a:focus-visible,button:focus-visible,summary:focus-visible,
 input:focus-visible,select:focus-visible,textarea:focus-visible{
- outline:3px solid #924600;outline-offset:3px;
+ outline:3px solid #000000;outline-offset:3px;
 }
 
 /* WCAG AA foreground contrast: keep signature orange for non-text accents. */
-:root{--orange-text:#924600}
+:root{--orange-text:#000000}
 .section-number,.mini-label,.control-index,.logic-index,
 .signal-step span,.insight-banner span,.artifact-card span,
 .learning-grid span,.footer-note,.signal-arrow,
@@ -404,7 +404,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{
 :root{
   --orange:#FF8200;
   --orange-soft:rgba(255,130,0,.09);
-  --evis-display:Georgia,'Times New Roman',serif;
+  --evis-display:'Newsreader',Georgia,'Times New Roman',serif;
   --evis-ui:'Inter',Arial,Helvetica,sans-serif;
 }
 body{font-family:var(--evis-ui);font-size:16px;line-height:1.65}
@@ -428,7 +428,7 @@ h3{font-size:clamp(1.3rem,3vw,2rem);line-height:1.2}
 .eyebrow,.section-number,.mini-label,.control-index,.logic-index,
 .signal-step span,.insight-banner span,.artifact-card span,
 .learning-grid span,.footer-note{
-  color:#924600!important;
+  color:#000000!important;
 }
 .primary-button:after{color:#FF8200!important}
 .site-footer,.case-study-hero,.integrity-card,
@@ -452,3 +452,18 @@ h3{font-size:clamp(1.3rem,3vw,2rem);line-height:1.2}
   h1{font-size:clamp(4.4rem,6.5vw,5.7rem)}
   h2{font-size:clamp(2.5rem,4vw,3.5rem)}
 }
+
+
+/* Final visual correction — mobile editorial typography and true Vols orange.
+   Avoid Georgia/Newsreader display styling and brown micro-labels. */
+:root{--orange:#FF8200;--orange-text:#000000;--evis-display:'Inter',Arial,Helvetica,sans-serif}
+h1,h2,h3,h4,.final-question,.signature-question,.learning-section blockquote,.takeaway-section blockquote,.medicare-routing-page h1,.medicare-routing-page h2,.medicare-routing-page h3,.medicare-routing-page h4{font-family:var(--evis-display)!important;font-weight:700!important;font-style:normal;letter-spacing:-.035em;line-height:1.16;overflow-wrap:break-word}
+h1{font-size:clamp(2.1rem,7vw,4rem)!important}
+h2{font-size:clamp(1.65rem,4vw,2.65rem)!important}
+h3{font-size:clamp(1.2rem,2.7vw,1.75rem)!important}
+.final-question{font-size:clamp(2rem,6vw,3.5rem)!important;line-height:1.15!important;max-width:850px}
+.eyebrow,.section-number,.mini-label,.control-index,.logic-index,.signal-step span,.insight-banner span,.artifact-card span,.learning-grid span,.footer-note,.section-kicker,.small-label,.brand-label,[class*="eyebrow"],[class*="mini-label"],[class*="section-number"],.medicare-routing-rail span,.tm{color:#000000!important}
+.eyebrow,.mini-label,.section-number,.control-index,.logic-index{border-left:3px solid #FF8200;padding-left:8px}
+.workflow-strip span,.insight-banner,.statement-card,.shell-card,.site-footer{border-left-color:#FF8200}
+a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline-color:#FF8200}
+@media(max-width:599px){h1{font-size:clamp(2rem,8vw,2.75rem)!important}h2{font-size:clamp(1.55rem,6vw,2rem)!important}h3{font-size:clamp(1.18rem,4.8vw,1.5rem)!important}.final-question{font-size:clamp(2rem,7.2vw,2.75rem)!important}.insight-banner{display:block}.insight-banner strong{display:block;margin-bottom:8px;font-size:1.1rem;line-height:1.35}.insight-banner span{display:block;margin-bottom:8px}}
