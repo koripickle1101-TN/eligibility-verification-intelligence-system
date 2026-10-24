@@ -23,3 +23,14 @@ Disposition: source arithmetic and deterministic example scores reconciled. The 
 ## Correction history — 2026-10-24
 
 The 12-case source CSV header was renamed from `Eligibility Status` to `Initial Eligibility Status` on the review branch. All 12 underlying fictional records, status values, dates, case IDs, queue statuses and handoff notes remain unchanged. `Initial Eligibility Status` captures the intake finding, not a final coverage or payer determination. In particular, EV-002, EV-005 and EV-011 retain initial `Needs Review` and modeled administrative `Closed`; neither column proves independent eligibility verification. Any consumers referencing the old header must be retested before release. Source-level correction status: resolved; downstream regression status: pending. This correction does not establish real payer evidence or authorize publication.
+
+
+## Follow-up review — dependency, preview and recruiter gates (2026-10-24)
+
+Review-branch source inspection checked README.md, the 12-case queue CSV, reviewer guide, metrics methodology, main index, dashboard, sample cases, exception closure control, demographic simulation, Medicare routing gate, monthly quality report, risk scorecard, patient-intake risk map, and coverage checklist. These inspected files contain no exact occurrence of `Eligibility Status` after the CSV header rename; the CSV header now reads `Initial Eligibility Status`. This is a scoped source check, not an exhaustive repository-wide search: test scripts and undiscovered files were not covered. GitHub code search covers the default branch and therefore cannot establish a review-branch absence of matches.
+
+The review branch is seven commits ahead of main and zero behind as checked. Vercel listed a READY preview deployment for commit `2de9df324800d0eb9706677606cb8e6e278b6cc6` with target unset (preview). READY means the deployment was built; it is not functional, responsive, accessibility or end-to-end validation. A public web fetch of the preview was unsuccessful. No GitHub PR-triggered workflow runs were returned for that commit. Do not mark runtime, mobile or accessibility testing passed on this basis.
+
+Recruiter-facing review: the README and main index link to fictional evidence, explicitly distinguish the 12-case queue from the separate 30-case model, and disclaim actual payer/employer outcomes. Existing `evidence/final-hiring-manager-audit.md` remains `CONDITIONAL HOLD`. The README is long, and a complete rendered recruiter walkthrough and link test remain pending. No claim of independently certified controls or live coverage outcomes is justified.
+
+Remaining release gates: exhaustive review-branch dependency search including all tests and scripts; execute interaction and edge-case tests on the actual preview; run accessibility/keyboard and mobile overflow tests; verify linked artifacts and final recruiter walkthrough; document results. No merge or production publication authorized.
