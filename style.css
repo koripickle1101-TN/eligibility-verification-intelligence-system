@@ -351,3 +351,54 @@ main>section{padding-top:clamp(3rem,6vw,6rem);padding-bottom:clamp(3rem,6vw,6rem
 .kp-signed-footer .kp-social{display:flex;justify-content:center;gap:18px;margin-top:14px}
 .kp-signed-footer .kp-social a{color:#000;display:inline-flex;align-items:center;gap:6px;text-decoration:none;font:600 .72rem 'Inter',sans-serif}
 .kp-signed-footer .kp-social svg{width:17px;height:17px;fill:currentColor}
+
+
+/* Recruiter screenshot review: navigation clarity and small-screen polish. */
+.nav-shell > .nav-links:not(.desktop-nav) {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:flex-end;
+  gap:10px 18px;
+}
+.nav-shell > .nav-links:not(.desktop-nav) a {
+  display:inline-flex;
+  align-items:center;
+  min-height:44px;
+  padding:8px 4px;
+  line-height:1.35;
+  white-space:normal;
+}
+.table-wrap { max-width:100%; }
+.table-wrap::before {
+  content:"Scroll horizontally to view all table columns →";
+  display:block;
+  width:max-content;
+  max-width:100%;
+  font:600 .76rem/1.5 'Inter',Arial,sans-serif;
+  color:#333;
+  padding:0 0 10px;
+}
+@media(min-width:700px) { .table-wrap::before { display:none; } }
+@media(max-width:699px) {
+  .nav-shell:has(> .nav-links:not(.desktop-nav)) {
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:4px 12px;
+  }
+  .nav-shell > .nav-links:not(.desktop-nav) {
+    flex:1 1 100%;
+    justify-content:flex-start;
+    gap:4px 16px;
+    padding-top:5px;
+  }
+  .nav-shell > .nav-links:not(.desktop-nav) a {
+    min-height:44px;
+    padding:10px 3px;
+    font-size:.83rem;
+  }
+  .page-hero h1 { font-size:clamp(2.8rem,12vw,4.7rem);line-height:1.02;overflow-wrap:normal; }
+  .content-card h2 { font-size:clamp(2rem,9vw,3.4rem);line-height:1.08; }
+  .content-card.statement-card p { overflow-wrap:anywhere; }
+}

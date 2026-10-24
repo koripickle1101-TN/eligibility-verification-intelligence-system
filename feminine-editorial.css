@@ -308,3 +308,147 @@ h3{
   h1{font-size:clamp(4.7rem,7.3vw,6.7rem)}
   h2{font-size:clamp(2.9rem,4.7vw,4.05rem)}
 }
+
+/* EVIS typography and navigation consistency — October 2026 review */
+:root{--evis-display:'Newsreader',Georgia,'Times New Roman',serif;--evis-ui:'Inter',Arial,Helvetica,sans-serif}
+body,.nav-shell,.nav-links,.mobile-menu-panel,.workflow-strip,.workflow-strip span{font-family:var(--evis-ui)}
+h1,h2,h3,h4,.statement-card p,.final-question,.insight-banner strong,.shell-card h2{font-family:var(--evis-display)}
+.nav-links{font-size:.86rem;line-height:1.45}
+.nav-links a{display:inline-flex;align-items:center;min-height:32px;white-space:nowrap}
+.workflow-strip{display:flex;flex-wrap:wrap;align-items:stretch;gap:9px;margin:20px 0 26px}
+.workflow-strip span{display:inline-flex;align-items:center;padding:9px 12px;border:1px solid var(--line-strong);border-left:3px solid var(--orange);font-size:.84rem;line-height:1.4;font-weight:600;background:#fff}
+.shell-card{margin:0 auto 30px;padding:clamp(22px,4vw,44px);border:1px solid var(--line-strong);border-left:4px solid var(--orange);background:#fff}
+.shell-card h2{margin-top:10px}
+.shell-card p{max-width:900px}
+@media(min-width:980px){
+  .nav-shell{max-width:1240px;align-items:center;gap:24px}
+  .desktop-nav{gap:12px 18px;align-content:center}
+  .nav-links{font-size:.8rem}
+  .brand-mark:before{width:62px;height:62px;flex-basis:62px;margin-right:9px}
+}
+@media(max-width:979px){
+  .desktop-nav{display:none}
+  .mobile-menu{display:block}
+}
+@media(max-width:599px){
+  .nav-shell{padding:9px 20px}
+  .brand-mark:before{width:50px;height:50px;flex-basis:50px;margin-right:8px}
+  .workflow-strip{gap:8px}
+  .workflow-strip span{font-size:.8rem;padding:8px 10px}
+  .shell-card{padding:20px}
+}
+
+/* Recruiter-readiness typography correction: one display face for titles,
+   one readable UI face for all content, controls, and explanatory callouts. */
+html{font-size:16px}
+body{font-family:'Inter',Arial,Helvetica,sans-serif}
+h1,h2,h3,h4,.final-question,.signature-question{font-family:'Newsreader',Georgia,'Times New Roman',serif;font-synthesis:none}
+p,li,td,th,label,button,input,select,textarea,summary,
+.nav-links,.nav-links a,.mobile-menu-panel,.mobile-menu-panel a,
+.hero-subtitle,.eyebrow,.mini-label,.section-number,
+.statement-card p,.insight-banner,.insight-banner strong,
+.artifact-card strong,.metric-row strong,.method-grid strong,
+.signal-step strong,.workflow-strip,.workflow-strip span,
+.shell-card p,.shell-card strong,.control-card p,
+.content-card p,.content-card strong,.editorial-card p,
+.primary-button,.secondary-button{
+  font-family:'Inter',Arial,Helvetica,sans-serif;
+  font-synthesis:none;
+}
+.statement-card p{font-size:clamp(1rem,2.2vw,1.2rem);line-height:1.65;font-weight:500;letter-spacing:normal}
+.insight-banner strong,.artifact-card strong,.metric-row strong,
+.method-grid strong,.signal-step strong,.content-card strong{font-weight:700;letter-spacing:normal}
+.insight-banner{line-height:1.65}
+.workflow-strip span{overflow-wrap:anywhere}
+@media(max-width:1299px){
+  .desktop-nav{display:none!important}
+  .mobile-menu{display:block!important}
+}
+@media(min-width:1300px){
+  .desktop-nav{display:flex!important;flex-wrap:wrap;justify-content:flex-end;gap:10px 16px}
+  .mobile-menu{display:none!important}
+  .nav-shell{max-width:1400px}
+  .nav-links{font-size:.82rem}
+}
+
+/* Accessibility contrast remediation: preserve Tennessee orange for borders and
+   decorative accents; use dark burnt orange for small foreground text. */
+:root{--orange-text:#924600}
+.eyebrow,.section-number,.mini-label,.control-index,
+.content-card .mini-label,.editorial-card .mini-label,
+.artifact-card .mini-label,.workflow-node .control-index,
+.section-kicker,.small-label,.brand-label,
+[class*="eyebrow"],[class*="mini-label"],[class*="section-number"]{
+ color:var(--orange-text)!important;
+}
+a:focus-visible,button:focus-visible,summary:focus-visible,
+input:focus-visible,select:focus-visible,textarea:focus-visible{
+ outline:3px solid #924600;outline-offset:3px;
+}
+
+/* WCAG AA foreground contrast: keep signature orange for non-text accents. */
+:root{--orange-text:#924600}
+.section-number,.mini-label,.control-index,.logic-index,
+.signal-step span,.insight-banner span,.artifact-card span,
+.learning-grid span,.footer-note,.signal-arrow,
+.workflow-connector,.control-panel .metric-row strong,
+.medicare-routing-rail span,.tm{
+  color:var(--orange-text)!important;
+}
+
+
+/* EVIS brand typography and Tennessee Vols orange — October 2026.
+   Display typography is deliberately consistent and legible on phones.
+   The exact #FF8200 remains the brand accent; small text uses a
+   contrast-safe foreground rather than an inaccessible orange label. */
+:root{
+  --orange:#FF8200;
+  --orange-soft:rgba(255,130,0,.09);
+  --evis-display:Georgia,'Times New Roman',serif;
+  --evis-ui:'Inter',Arial,Helvetica,sans-serif;
+}
+body{font-family:var(--evis-ui);font-size:16px;line-height:1.65}
+h1,h2,h3,h4,.final-question,.signature-question,
+.learning-section blockquote,.takeaway-section blockquote{
+  font-family:var(--evis-display)!important;
+  font-synthesis:none;
+  font-weight:600;
+  letter-spacing:-.035em;
+  overflow-wrap:break-word;
+}
+h1{font-size:clamp(2.5rem,8vw,5.3rem);line-height:1.09;letter-spacing:-.045em}
+h2{font-size:clamp(1.8rem,5vw,3.3rem);line-height:1.14}
+h3{font-size:clamp(1.3rem,3vw,2rem);line-height:1.2}
+.hero-subtitle,.section-intro p{line-height:1.7}
+.statement-card p,.insight-banner strong,.artifact-card strong,
+.signal-step strong,.metric-row strong,.method-grid strong{
+  font-family:var(--evis-ui)!important;
+  letter-spacing:normal;
+}
+.eyebrow,.section-number,.mini-label,.control-index,.logic-index,
+.signal-step span,.insight-banner span,.artifact-card span,
+.learning-grid span,.footer-note{
+  color:#924600!important;
+}
+.primary-button:after{color:#FF8200!important}
+.site-footer,.case-study-hero,.integrity-card,
+.content-card.accent-card,.statement-card,.insight-banner,
+.model-note,.highlighted-step{border-color:#FF8200}
+.accent-card:before,.workflow-strip span,
+.medicare-signature-rule{border-left-color:#FF8200}
+.medicare-signature-rule,#progressBar{background:#FF8200!important}
+@media(max-width:599px){
+  h1{font-size:clamp(2.2rem,9vw,3rem);line-height:1.12}
+  h2{font-size:clamp(1.7rem,7vw,2.2rem);line-height:1.16}
+  h3{font-size:clamp(1.25rem,5.3vw,1.65rem)}
+  .learning-section blockquote,.takeaway-section blockquote{
+    font-size:clamp(1.45rem,6vw,2.1rem);line-height:1.25;
+  }
+  .section,.content-section,.dashboard-section,.artifacts-section{
+    padding-top:48px;padding-bottom:48px;
+  }
+}
+@media(min-width:980px){
+  h1{font-size:clamp(4.4rem,6.5vw,5.7rem)}
+  h2{font-size:clamp(2.5rem,4vw,3.5rem)}
+}

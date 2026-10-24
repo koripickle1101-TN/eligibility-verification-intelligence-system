@@ -45,6 +45,24 @@ Reporting date: **2026-10-20** (fixed reproducible scenario date).
 - Overdue unresolved: an unresolved case where follow-up due date precedes the fixed reporting date.
 - Closed-case on-time fraction: completed fictional closures on or before follow-up due date divided by *closed fictional cases*, not all cases.
 
+## Closure-evidence audit
+
+The seven Closed rows are **fictional author-entered dispositions**, not independently verified payer outcomes. The current queue records a simulated status, closure date, assigned queue, and narrative handoff note. It does **not** include a verifiable source reference, source-check timestamp, independent reviewer, or authenticated eligibility-response artifact. Therefore the correct description is **modeled administrative closure**, never confirmed real-world eligibility or authorized advancement.
+
+| Case | Modeled closure note | Independent closure proof |
+|---|---|---|
+| EV-001 | No exception in fictional intake | Not available |
+| EV-002 | Member ID corrected and rechecked | Not available |
+| EV-004 | No exception in fictional intake | Not available |
+| EV-005 | Subscriber name corrected and reverified | Not available |
+| EV-007 | No exception in fictional intake | Not available |
+| EV-010 | No exception in fictional intake | Not available |
+| EV-011 | Payer selection corrected and reverified | Not available |
+
+All five unresolved records (EV-003, EV-006, EV-008, EV-009, EV-012) are past their fictional follow-up due dates on the fixed reporting date. A modeled escalation is not equivalent to resolution.
+
+For a stronger future simulation, add clearly fictional evidence-source types, event timestamps, role-based reviews, recheck outcomes, and final disposition criteria. Do not invent real payer responses, screenshots, transaction identifiers, or independent confirmations.
+
 ## Privacy, judgment, and access boundaries
 
 No names, dates of birth, member numbers, payer IDs, real records, PHI, live EHR access, claims, or payer transactions are used. These examples do not make clinical, coding, benefit, compliance, or medical-necessity determinations. Communication support and reasonable accommodations require applicable organizational procedures.
