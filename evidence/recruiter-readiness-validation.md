@@ -48,3 +48,7 @@ Not demonstrated: actual payer portal or EHR experience, live 270/271 transactio
 - README prioritizes one inspectable work sample and preserves the no-PHI and no-employment disclosures.
 - All links, HTML interactions, and accessibility checks are tested.
 - Final diff reviewed before merging to main.
+
+## October 24, 2026 — automated validation update
+
+GitHub Actions workflow_dispatch run 40078060075 on portfolio-evidence-audit-2026-10 completed successfully. Job logs report PASS for synthetic data arithmetic and PASS for calculator, simulation, closure safety gate, and desktop/mobile smoke checks. The artifact evis-browser-validation-evidence (12553783714) contains 18 uploaded files including browser screenshots, accessibility JSON, and server log. This is evidence of the tested branch, not independent verification of healthcare operations, exhaustive HTML module coverage, or a final production-release approval. Review remaining metric provenance, scoring assumptions, and closure evidence before publication.
