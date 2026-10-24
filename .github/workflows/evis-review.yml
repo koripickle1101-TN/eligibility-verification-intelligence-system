@@ -25,10 +25,13 @@ jobs:
           sleep 2
       - name: Verify CSV arithmetic and browser flows
         run: node tests/evis-smoke.cjs
-      - name: Preserve desktop and mobile screenshots
+      - name: Preserve browser screenshots and accessibility findings
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: evis-responsive-screenshots
-          path: /tmp/evis-*.png
-          if-no-files-found: ignore
+          name: evis-browser-validation-evidence
+          path: |
+            /tmp/evis-*.png
+            /tmp/evis-accessibility-report.json
+            /tmp/evis-server.log
+          if-no-files-found: warn
