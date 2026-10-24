@@ -96,7 +96,11 @@ async function main(){
         await page.goto('http://127.0.0.1:8765/'+route);
         const layout=await page.evaluate(()=>({width:document.documentElement.scrollWidth,viewport:innerWidth,heading:!!document.querySelector('h1')}));
         if(!layout.heading) auditFailures.push({route,viewport:viewport.width,type:'missing-h1'});
-        if(layout.width>layout.viewport+2) auditFailures.push({route,viewport:viewport.width,type:'horizontal-overflow',layout});
+        if(layout.width>layout.viewport+2){
+          const offenders=await page.evaluate(()=>[...document.querySelectorAll('body *')].map(el=>({el,rect:el.getBoundingClientRect()})).filter(x=>x.rect.right>innerWidth+2||x.rect.left< -2).slice(0,25).map(x=>({tag:x.el.tagName,selector:x.el.id?'id:'+x.el.id:x.el.className?.baseVal||x.el.className||'',text:(x.el.textContent||'').trim().slice(0,70),left:Math.round(x.rect.left),right:Math.round(x.rect.right),width:Math.round(x.rect.width)})));
+          auditFailures.push({route,viewport:viewport.width,type:'horizontal-overflow',layout,offenders});
+          console.error('OVERFLOW',route,viewport.width,JSON.stringify({layout,offenders}));
+        }
         await page.addScriptTag({path:axeSource});
         const accessibility=await page.evaluate(async()=>await window.axe.run(document,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21a','wcag21aa']}}));
         const severe=accessibility.violations.filter(v=>v.impact==='critical'||v.impact==='serious');
