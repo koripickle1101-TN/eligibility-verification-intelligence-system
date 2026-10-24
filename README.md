@@ -236,13 +236,12 @@ Through this project, I am practicing:
 
 EVIS is the first project in the workflow path I use across my healthcare operations portfolio:
 
-**EVIS → PARCS → DPIS → SBI → Habit Audit**
+**EVIS → PARCS → DPIS → SBI**
 
 - **EVIS** looks at eligibility and intake risk.
 - **PARCS** looks at prior authorization workflow risk, ownership, and escalation.
 - **DPIS** looks at upstream denial-prevention and claim-readiness risk.
 - **SBI** asks where the first cross-workflow control loss occurred.
-- **Habit Audit** looks at recurring habits that may make workflow risk more likely.
 
 ## What This Project Is — and Is Not
 
