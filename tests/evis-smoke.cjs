@@ -4,6 +4,19 @@ const path = require('node:path');
 const { chromium } = require('playwright');
 const axeSource = require.resolve('axe-core/axe.min.js');
 const root = path.resolve(__dirname, '..');
+const auditReportPath = '/tmp/evis-accessibility-report.json';
+const auditReport = {
+  schemaVersion: 1,
+  status: 'not-completed',
+  scope: 'Local Playwright and axe-core audit of EVIS routes at desktop and mobile viewports',
+  viewports: [1366, 390],
+  findings: [],
+  error: null
+};
+process.on('exit', () => {
+  if (process.exitCode && auditReport.status === 'passed') auditReport.status = 'failed';
+  fs.writeFileSync(auditReportPath, JSON.stringify(auditReport, null, 2));
+});
 const read = p => fs.readFileSync(path.join(root,p),'utf8');
 function csv(input) {
   const rows = input.trim().split(/\r?\n/).map(line => {
@@ -116,12 +129,19 @@ async function main(){
       assert.equal(errors.length,0,errors.join('; '));
       await page.close();
     }
+    auditReport.findings = auditFailures;
     if(auditFailures.length){
-      fs.writeFileSync('/tmp/evis-accessibility-report.json',JSON.stringify(auditFailures,null,2));
+      auditReport.status = 'failed';
       console.error('AUDIT SUMMARY',JSON.stringify(auditFailures.map(f=>({route:f.route,viewport:f.viewport,type:f.type,issues:f.violations?.map(v=>({id:v.id,count:v.count}))}))));
       assert.fail(auditFailures.length+' accessibility/layout failures across the route and viewport matrix');
     }
+    auditReport.status = 'passed';
     console.log('PASS: calculator, simulation, closure safety gate, desktop/mobile smoke');
   }finally{await browser.close();}
 }
-main().catch(e=>{console.error(e);process.exitCode=1;});
+main().catch(e=>{
+  auditReport.status = 'failed';
+  auditReport.error = e && (e.stack || e.message) || String(e);
+  console.error(e);
+  process.exitCode=1;
+});
