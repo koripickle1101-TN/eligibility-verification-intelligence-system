@@ -397,58 +397,67 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{
 }
 
 
-/* EVIS brand typography and Tennessee Vols orange — October 2026.
-   Display typography is deliberately consistent and legible on phones.
-   The exact #FF8200 remains the brand accent; small text uses a
-   contrast-safe foreground rather than an inaccessible orange label. */
+/* EVIS visual correction: no Georgia display font, no brown brand labels.
+   One clean, legible editorial sans across all UI and titles.
+   Tennessee Vols Orange is #FF8200 for visible brand accents.
+   Foreground copy stays black for accessible contrast on white. */
 :root{
   --orange:#FF8200;
-  --orange-soft:rgba(255,130,0,.09);
-  --evis-display:Georgia,'Times New Roman',serif;
+  --brand-orange:#FF8200;
+  --orange-text:#000000;
+  --evis-display:'Inter',Arial,Helvetica,sans-serif;
   --evis-ui:'Inter',Arial,Helvetica,sans-serif;
 }
 body{font-family:var(--evis-ui);font-size:16px;line-height:1.65}
 h1,h2,h3,h4,.final-question,.signature-question,
-.learning-section blockquote,.takeaway-section blockquote{
+.learning-section blockquote,.takeaway-section blockquote,
+.medicare-routing-page h1,.medicare-routing-page h2,
+.medicare-routing-page h3,.medicare-routing-page h4{
   font-family:var(--evis-display)!important;
   font-synthesis:none;
-  font-weight:600;
-  letter-spacing:-.035em;
+  font-weight:750;
+  letter-spacing:-.045em;
   overflow-wrap:break-word;
 }
-h1{font-size:clamp(2.5rem,8vw,5.3rem);line-height:1.09;letter-spacing:-.045em}
-h2{font-size:clamp(1.8rem,5vw,3.3rem);line-height:1.14}
-h3{font-size:clamp(1.3rem,3vw,2rem);line-height:1.2}
+h1{font-size:clamp(2.5rem,8vw,5.3rem);line-height:1.1}
+h2{font-size:clamp(1.8rem,5vw,3.3rem);line-height:1.15}
+h3{font-size:clamp(1.3rem,3vw,2rem);line-height:1.23}
 .hero-subtitle,.section-intro p{line-height:1.7}
-.statement-card p,.insight-banner strong,.artifact-card strong,
-.signal-step strong,.metric-row strong,.method-grid strong{
-  font-family:var(--evis-ui)!important;
-  letter-spacing:normal;
-}
 .eyebrow,.section-number,.mini-label,.control-index,.logic-index,
 .signal-step span,.insight-banner span,.artifact-card span,
-.learning-grid span,.footer-note{
-  color:#924600!important;
+.learning-grid span,.footer-note,.section-kicker,.small-label,
+.brand-label,.signal-arrow,.workflow-connector,
+.medicare-routing-rail span,.tm,
+[class*="eyebrow"],[class*="mini-label"],[class*="section-number"]{
+  color:#000000!important;
+}
+.eyebrow,.section-number,.mini-label,.control-index,.logic-index,
+.section-kicker,.small-label,.brand-label{
+  border-left:3px solid #FF8200;
+  padding-left:9px;
 }
 .primary-button:after{color:#FF8200!important}
 .site-footer,.case-study-hero,.integrity-card,
 .content-card.accent-card,.statement-card,.insight-banner,
 .model-note,.highlighted-step{border-color:#FF8200}
-.accent-card:before,.workflow-strip span,
-.medicare-signature-rule{border-left-color:#FF8200}
+.accent-card:before,.workflow-strip span{border-left-color:#FF8200}
 .medicare-signature-rule,#progressBar{background:#FF8200!important}
+a:focus-visible,button:focus-visible,summary:focus-visible,
+input:focus-visible,select:focus-visible,textarea:focus-visible{
+ outline:3px solid #FF8200;outline-offset:3px;
+}
 @media(max-width:599px){
-  h1{font-size:clamp(2.2rem,9vw,3rem);line-height:1.12}
-  h2{font-size:clamp(1.7rem,7vw,2.2rem);line-height:1.16}
-  h3{font-size:clamp(1.25rem,5.3vw,1.65rem)}
-  .learning-section blockquote,.takeaway-section blockquote{
-    font-size:clamp(1.45rem,6vw,2.1rem);line-height:1.25;
-  }
-  .section,.content-section,.dashboard-section,.artifacts-section{
-    padding-top:48px;padding-bottom:48px;
-  }
+ h1{font-size:clamp(2.2rem,9vw,3rem);line-height:1.13}
+ h2{font-size:clamp(1.7rem,7vw,2.2rem);line-height:1.17}
+ h3{font-size:clamp(1.25rem,5.3vw,1.65rem)}
+ .learning-section blockquote,.takeaway-section blockquote{
+   font-size:clamp(1.45rem,6vw,2.1rem);line-height:1.3;
+ }
+ .section,.content-section,.dashboard-section,.artifacts-section{
+   padding-top:48px;padding-bottom:48px;
+ }
 }
 @media(min-width:980px){
-  h1{font-size:clamp(4.4rem,6.5vw,5.7rem)}
-  h2{font-size:clamp(2.5rem,4vw,3.5rem)}
+ h1{font-size:clamp(4.4rem,6.5vw,5.7rem)}
+ h2{font-size:clamp(2.5rem,4vw,3.5rem)}
 }

@@ -402,3 +402,25 @@ main>section{padding-top:clamp(3rem,6vw,6rem);padding-bottom:clamp(3rem,6vw,6rem
   .content-card h2 { font-size:clamp(2rem,9vw,3.4rem);line-height:1.08; }
   .content-card.statement-card p { overflow-wrap:anywhere; }
 }
+
+/* Cross-page EVIS brand consistency — October 2026.
+   Applies to calculator and case pages without the editorial overlay. */
+:root{--orange:#FF8200;--brand-orange:#FF8200;--orange-text:#000000}
+h1,h2,h3,h4,.editorial-heading,.final-question,
+.medicare-routing-page h1,.medicare-routing-page h2,
+.medicare-routing-page h3,.medicare-routing-page h4{
+ font-family:'Inter',Arial,Helvetica,sans-serif!important;
+ font-weight:750;letter-spacing:-.045em;line-height:1.16;
+}
+.eyebrow,.section-number,.mini-label,.control-index,.logic-index,
+.footer-note,.medicare-routing-rail span{
+ color:#000000!important;
+ border-left:3px solid #FF8200;
+ padding-left:9px;
+}
+.control-panel .metric-row strong{color:#000000}
+.site-footer,.integrity-card,.case-study-hero{border-top-color:#FF8200}
+a:focus-visible,button:focus-visible,summary:focus-visible,
+input:focus-visible,select:focus-visible,textarea:focus-visible{
+ outline:3px solid #FF8200;outline-offset:3px;
+}
