@@ -37,6 +37,7 @@ console.log('PASS: synthetic data arithmetic');
 async function main(){
   const browser=await chromium.launch({headless:true});
   try{
+    const auditFailures=[];
     for(const viewport of [{width:1366,height:900},{width:390,height:844}]){
       const page=await browser.newPage({viewport});
       const errors=[];page.on('pageerror',e=>errors.push(e.message));
@@ -94,19 +95,27 @@ async function main(){
       for(const route of ['index.html','eligibility-dashboard.html','eligibility-risk-calculator.html','eligibility-exception-closure-control.html','demographic-eligibility-control-simulation.html','medicare-coverage-payer-routing-readiness-gate.html','sample-eligibility-cases.html']){
         await page.goto('http://127.0.0.1:8765/'+route);
         const layout=await page.evaluate(()=>({width:document.documentElement.scrollWidth,viewport:innerWidth,heading:!!document.querySelector('h1')}));
-        assert.ok(layout.heading,route+' missing h1');
-        assert.ok(layout.width<=layout.viewport+2,route+' horizontal overflow '+JSON.stringify(layout));
+        if(!layout.heading) auditFailures.push({route,viewport:viewport.width,type:'missing-h1'});
+        if(layout.width>layout.viewport+2) auditFailures.push({route,viewport:viewport.width,type:'horizontal-overflow',layout});
         await page.addScriptTag({path:axeSource});
         const accessibility=await page.evaluate(async()=>await window.axe.run(document,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21a','wcag21aa']}}));
         const severe=accessibility.violations.filter(v=>v.impact==='critical'||v.impact==='serious');
-        if(severe.length) console.error('ACCESSIBILITY',route,viewport.width,JSON.stringify(severe.map(v=>({id:v.id,impact:v.impact,count:v.nodes.length}))));
-        assert.equal(severe.length,0,route+' serious/critical accessibility violations');
+        if(severe.length){
+          const details=severe.map(v=>({id:v.id,impact:v.impact,count:v.nodes.length,nodes:v.nodes.map(n=>({target:n.target,html:n.html,summary:n.failureSummary,checks:[...n.any,...n.all,...n.none].map(c=>({id:c.id,message:c.message,data:c.data}))}))}));
+          auditFailures.push({route,viewport:viewport.width,type:'accessibility',violations:details});
+          console.error('ACCESSIBILITY',route,viewport.width,JSON.stringify(details));
+        }
         await page.screenshot({path:'/tmp/evis-'+viewport.width+'-'+route.replace('.html','')+'.png',fullPage:true});
       }
       await page.goto('http://127.0.0.1:8765/index.html');
       assert.ok((await page.title()).includes('EVIS'));
       assert.equal(errors.length,0,errors.join('; '));
       await page.close();
+    }
+    if(auditFailures.length){
+      fs.writeFileSync('/tmp/evis-accessibility-report.json',JSON.stringify(auditFailures,null,2));
+      console.error('AUDIT SUMMARY',JSON.stringify(auditFailures.map(f=>({route:f.route,viewport:f.viewport,type:f.type,issues:f.violations?.map(v=>({id:v.id,count:v.count}))}))));
+      assert.fail(auditFailures.length+' accessibility/layout failures across the route and viewport matrix');
     }
     console.log('PASS: calculator, simulation, closure safety gate, desktop/mobile smoke');
   }finally{await browser.close();}
