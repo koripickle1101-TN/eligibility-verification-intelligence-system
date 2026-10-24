@@ -19,3 +19,7 @@ Critical control finding: the default zero-score action reads 'Normal intake wor
 The 12-case queue and the 30-case, unmatched 15-vs-15 cohort comparison are different fictional demonstrations; do not combine rates or infer a causal improvement. Monthly report KPIs are illustrative placeholders. Remove the unapproved Habit Audit item from review-branch portfolio navigation. Browser, accessibility, mobile layout and deployed behavior require separate runtime checks.
 
 Disposition: source arithmetic and deterministic example scores reconciled; evidence quality and safe workflow advancement are NOT certified. Do not merge or publish without approval.
+
+## Field-definition correction — 2026-10-24
+
+The 12-case source CSV header was renamed from `Eligibility Status` to `Initial Eligibility Status` on the review branch. All 12 underlying fictional records, status values, dates, case IDs, queue statuses and handoff notes remain unchanged. `Initial Eligibility Status` captures the intake finding, not a final coverage or payer determination. In particular, EV-002, EV-005 and EV-011 retain initial `Needs Review` and modeled administrative `Closed`; neither column proves independent eligibility verification. Any consumers referencing the old header must be retested before release. This correction does not establish real payer evidence or authorize publication.
