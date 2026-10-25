@@ -92,7 +92,7 @@ async function main(){
       await page.locator('#closureDate').fill('2026-10-07');
       await page.locator('#evaluateButton').click();
       assert.match(await page.locator('#gateResult').innerText(),/Invalid Closure Chronology/);
-      for(const route of ['index.html','eligibility-dashboard.html','eligibility-risk-calculator.html','eligibility-exception-closure-control.html','demographic-eligibility-control-simulation.html','medicare-coverage-payer-routing-readiness-gate.html','sample-eligibility-cases.html']){
+      for(const route of ['index.html','eligibility-dashboard.html','eligibility-risk-calculator.html','eligibility-exception-closure-control.html','demographic-eligibility-control-simulation.html','medicare-coverage-payer-routing-readiness-gate.html','sample-eligibility-cases.html','coverage-verification-checklist.html','eligibility-risk-scorecard.html','monthly-eligibility-quality-report.html','patient-intake-risk-map.html']){
         await page.goto('http://127.0.0.1:8765/'+route);
         const layout=await page.evaluate(()=>({width:document.documentElement.scrollWidth,viewport:innerWidth,heading:!!document.querySelector('h1')}));
         if(!layout.heading) auditFailures.push({route,viewport:viewport.width,type:'missing-h1'});
