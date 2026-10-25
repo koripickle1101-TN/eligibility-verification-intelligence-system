@@ -322,4 +322,3 @@ Patient-to-professional insight:
 
 Real-world Medicare handling requires current authoritative CMS/Medicare information, payer/program guidance, organizational procedures, and qualified review when applicable. EVIS does not determine real eligibility, coverage, benefits, COB/MSP status, payer liability, authorization requirements, coding, medical necessity, reimbursement, or legal/compliance conclusions.
 
-.
