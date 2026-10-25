@@ -1,6 +1,6 @@
 # EVIS evidence validation and recruiter-readiness review
 
-Status: working draft on a review branch. All records are fictional. This is not healthcare employment or payer verification.
+Status: main-branch evidence review, with bounded automated smoke coverage. All records are fictional. This is not healthcare employment or payer verification.
 
 ## Evidence inventory
 
@@ -30,11 +30,11 @@ The two groups have different defect mixes and are not matched counterfactuals. 
 
 1. Closure records describe fictional rechecks but do not include independent verification evidence, reviewer, source type, or timestamp. Do not claim verified operational closure.
 2. Risk calculator weights total 140 if all eight conditions are checked. The weights, cutoffs, and risk labels are unvalidated teaching assumptions.
-3. Five-case sample risk scores do not include source inputs sufficient to reproduce scores from the calculator.
+3. Resolved in the published methodology: five-case sample inputs reproduce the documented scores (0, 60, 20, 25, 15). Reconfirm against the calculator if the model changes.
 4. Monthly report figures and targets (e.g., 81% coverage verified, 79% clean intake readiness) are not traceable to the two core CSVs; treat as illustrative placeholders until source and methodology are documented.
 5. Companion Excel workbook is described but is not present in this repository; formula testing cannot be claimed.
-6. README footer and Medicare heading are concatenated and need formatting repair.
-7. HTML module functionality, responsive layout, accessibility, and Medicare routing logic still require execution-based testing.
+6. Formatting item requires reinspection against current main; do not treat an earlier review observation as a verified current defect.
+7. Selected calculator, simulation, and closure controls passed automated desktop/mobile smoke testing; the remaining HTML modules and Medicare routing logic still need targeted execution checks.
 
 ## Recruiter-facing claim boundaries
 
