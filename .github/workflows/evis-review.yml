@@ -1,5 +1,7 @@
 name: EVIS evidence and browser checks
 on:
+  push:
+    branches: [main]
   pull_request:
     paths:
       - '**'
